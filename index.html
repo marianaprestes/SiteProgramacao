@@ -138,8 +138,20 @@
         .sustain-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.25); }
         .sustain-card i { font-size: 48px; margin-bottom: 20px; }
         .sustainability-chart { background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 15px; max-width: 600px; margin: 0 auto; }
-        .sustainability-img { max-width: 800px; margin: 40px auto 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .sustainability-img img { width: 100%; height: auto; display: block; }
+        
+        /* CORREÇÃO: Estilo específico para a imagem de sustentabilidade local */
+        .sustainability-img { 
+            max-width: 900px; 
+            margin: 40px auto 0; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+        }
+        .sustainability-img img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
 
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
@@ -254,10 +266,10 @@
         <div class="container">
             <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
                 <div class="about-image">
-                    <img src="piscinacep.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&h=400&fit=crop'" alt="Piscina do CEP" style="width: 100%; border-radius: 15px; box-shadow: var(--sombra); margin-bottom: 15px;">
+                    <img src="assets/piscinacep.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&h=400&fit=crop'" alt="Piscina do CEP" style="width: 100%; border-radius: 15px; box-shadow: var(--sombra); margin-bottom: 15px;">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <img src="trampolimcep.jpg" onerror="this.src='https://images.unsplash.com/photo-1519315901367-f31f42185420?w=300&h=200&fit=crop'" alt="Trampolim CEP" style="width: 100%; border-radius: 10px; box-shadow: var(--sombra);">
-                        <img src="canoagemcep.jpg" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&h=200&fit=crop'" alt="Canoagem na piscina" style="width: 100%; border-radius: 10px; box-shadow: var(--sombra);">
+                        <img src="assets/trampolimcep.jpg" onerror="this.src='https://images.unsplash.com/photo-1519315901367-f31f42185420?w=300&h=200&fit=crop'" alt="Trampolim CEP" style="width: 100%; border-radius: 10px; box-shadow: var(--sombra);">
+                        <img src="assets/canoagemcep.jpg" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&h=200&fit=crop'" alt="Canoagem na piscina" style="width: 100%; border-radius: 10px; box-shadow: var(--sombra);">
                     </div>
                 </div>
                 <div class="about-content">
@@ -283,7 +295,7 @@
             <div class="heating-grid">
                 <div class="heating-card">
                     <div class="card-image">
-                        <img src="painelsolar.jpg" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop'" alt="Painel Solar">
+                        <img src="assets/painelsolar.jpg" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop'" alt="Painel Solar">
                     </div>
                     <div class="card-content">
                         <h3>Aquecimento Solar</h3>
@@ -299,7 +311,7 @@
 
                 <div class="heating-card">
                     <div class="card-image">
-                        <img src="representacaodeaquecimentodapiscina.jpg" onerror="this.src='https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=600&h=400&fit=crop'" alt="Representação Aquecimento">
+                        <img src="assets/representacaodeaquecimentodapiscina.jpg" onerror="this.src='https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=600&h=400&fit=crop'" alt="Representação Aquecimento">
                     </div>
                     <div class="card-content">
                         <h3>Bomba de Calor</h3>
@@ -315,7 +327,7 @@
 
                 <div class="heating-card">
                     <div class="card-image">
-                        <img src="piscinacep2.jpg" onerror="this.src='https://images.unsplash.com/photo-1572331165267-854da2b00ca1?w=600&h=400&fit=crop'" alt="Piscina Aquecida">
+                        <img src="assets/piscinacep2.jpg" onerror="this.src='https://images.unsplash.com/photo-1572331165267-854da2b00ca1?w=600&h=400&fit=crop'" alt="Piscina Aquecida">
                     </div>
                     <div class="card-content">
                         <h3>Aquecedor Elétrico</h3>
@@ -366,9 +378,9 @@
                     </div>
                 </div>
                 <div class="led-images">
-                    <img src="ledrgb.jpg" onerror="this.src='https://images.unsplash.com/photo-1572331165267-854da2b00ca1?w=600&h=300&fit=crop'" alt="LED RGB" class="led-main">
-                    <img src="moduloledrgb.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop'" alt="Módulo LED RGB" class="led-secondary">
-                    <img src="fitaledcolorida.jpg" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=200&fit=crop'" alt="Fita LED Colorida" class="led-secondary">
+                    <img src="assets/ledrgb.jpg" onerror="this.src='https://images.unsplash.com/photo-1572331165267-854da2b00ca1?w=600&h=300&fit=crop'" alt="LED RGB" class="led-main">
+                    <img src="assets/moduloledrgb.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop'" alt="Módulo LED RGB" class="led-secondary">
+                    <img src="assets/fitaledcolorida.jpg" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=200&fit=crop'" alt="Fita LED Colorida" class="led-secondary">
                 </div>
             </div>
 
@@ -384,7 +396,7 @@
                     <button class="color-preset" style="background: #FFFFFF" onclick="setColor('#FFFFFF')"></button>
                 </div>
                 <div class="color-preview" id="colorPreview">
-                    <img src="piscinacep3.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=400&fit=crop'" alt="Preview da cor">
+                    <img src="assets/piscinacep3.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=400&fit=crop'" alt="Preview da cor">
                     <div class="preview-overlay" id="previewOverlay"></div>
                 </div>
             </div>
@@ -531,19 +543,19 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item" data-category="piscina">
-                    <img src="piscinacep4.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=400&fit=crop'" alt="Piscina CEP">
+                    <img src="assets/piscinacep4.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=400&fit=crop'" alt="Piscina CEP">
                     <div class="gallery-overlay"><h4>Piscina do CEP</h4><p>Vista principal</p></div>
                 </div>
                 <div class="gallery-item" data-category="aquecimento">
-                    <img src="painelsolar2.jpg" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=400&fit=crop'" alt="Painel Solar 2">
+                    <img src="assets/painelsolar2.jpg" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=400&fit=crop'" alt="Painel Solar 2">
                     <div class="gallery-overlay"><h4>Painéis Solares</h4><p>Instalação completa</p></div>
                 </div>
                 <div class="gallery-item" data-category="aquecimento">
-                    <img src="painelsolar3.jpg" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=400&h=400&fit=crop'" alt="Painel Solar 3">
+                    <img src="assets/painelsolar3.jpg" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=400&h=400&fit=crop'" alt="Painel Solar 3">
                     <div class="gallery-overlay"><h4>Coletores Solares</h4><p>Alta eficiência</p></div>
                 </div>
                 <div class="gallery-item" data-category="piscina">
-                    <img src="piscinacepantiga.jpg" onerror="this.src='https://images.unsplash.com/photo-1519315901367-f31f42185420?w=400&h=400&fit=crop'" alt="Piscina Antiga">
+                    <img src="assets/piscinacepantiga.jpg" onerror="this.src='https://images.unsplash.com/photo-1519315901367-f31f42185420?w=400&h=400&fit=crop'" alt="Piscina Antiga">
                     <div class="gallery-overlay"><h4>Piscina Antiga</h4><p>Antes da modernização</p></div>
                 </div>
             </div>
@@ -583,9 +595,9 @@
                 <canvas id="sustainabilityChart"></canvas>
             </div>
 
-            <!-- Imagem de Sustentabilidade -->
+            <!-- CORREÇÃO: Imagem de Sustentabilidade carregada diretamente da pasta assets, SEM fallback da internet -->
             <div class="sustainability-img">
-                <img src="sustentabilidade.jpg" onerror="this.src='https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=400&fit=crop'" alt="Sustentabilidade">
+                <img src="assets/sustentabilidade.jpg" alt="Sustentabilidade">
             </div>
         </div>
     </section>
