@@ -3,334 +3,400 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projeto Escolar: Piscina Inteligente com Aquecimento e Iluminação LED RGB - CEP">
-    <title>Piscina Inteligente | Projeto Escolar 2026 - CEP</title>
+    <meta name="description" content="Projeto escolar sobre aquecimento de piscinas e iluminação LED RGB - Colégio Estadual do Paraná">
+    <meta name="keywords" content="piscina, aquecimento solar, LED RGB, automação, sustentabilidade">
+    <title>Piscina Inteligente | CEP - Colégio Estadual do Paraná</title>
     
-    <!-- Fontes do Google (Montserrat e Open Sans) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Ícones (FontAwesome) -->
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Header Fixo -->
-    <header id="header">
-        <div class="container header-content">
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
             <div class="logo">
-                <i class="fa-solid fa-water"></i> Piscina<span>Inteligente</span>
+                <i class="fas fa-water"></i>
+                <span>CEP</span>
             </div>
-            <button class="mobile-menu-btn" aria-label="Abrir menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#aquecimento">Aquecimento</a></li>
-                    <li><a href="#led">LED RGB</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#simulador">Simulador</a></li>
-                    <li><a href="#contato" class="btn-nav">Contato</a></li>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#aquecimento" class="nav-link">Aquecimento</a></li>
+                    <li><a href="#led" class="nav-link">LED RGB</a></li>
+                    <li><a href="#sistema" class="nav-link">Sistema Integrado</a></li>
+                    <li><a href="#simuladores" class="nav-link">Simuladores</a></li>
+                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
         <div class="hero-overlay"></div>
-        <div class="container hero-content fade-in">
-            <span class="badge">Projeto Escolar 2026 - Escola Estadual do Paraná (CEP)</span>
-            <h1>Piscina Perfeita o Ano Inteiro</h1>
-            <p>Tecnologia em Aquecimento Solar e Iluminação LED RGB para criar o ambiente perfeito com conforto, economia e sustentabilidade.</p>
+        <div class="hero-content">
+            <h1 class="hero-title">Piscina Perfeita o Ano Inteiro</h1>
+            <h2 class="hero-subtitle">Tecnologia em Aquecimento e Iluminação LED RGB</h2>
+            <p class="hero-text">Projeto Escolar 2026 - Colégio Estadual do Paraná</p>
             <div class="hero-buttons">
-                <a href="#sobre" class="btn btn-primary">Conhecer o Projeto</a>
-                <a href="#simulador" class="btn btn-secondary">Simular Sistema</a>
+                <a href="#aquecimento" class="btn btn-primary">Conhecer Projeto</a>
+                <a href="#simuladores" class="btn btn-secondary">Simular Sistema</a>
             </div>
         </div>
         <div class="scroll-indicator">
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- Estatísticas -->
+    <!-- Stats Section -->
     <section class="stats">
-        <div class="container stats-grid">
-            <div class="stat-card fade-in">
-                <i class="fa-solid fa-sun"></i>
-                <h3>75%</h3>
-                <p>Eficiência Solar</p>
-            </div>
-            <div class="stat-card fade-in">
-                <i class="fa-solid fa-lightbulb"></i>
-                <h3>90%</h3>
-                <p>Economia com LED</p>
-            </div>
-            <div class="stat-card fade-in">
-                <i class="fa-solid fa-temperature-high"></i>
-                <h3>35°C</h3>
-                <p>Temperatura Máx.</p>
-            </div>
-            <div class="stat-card fade-in">
-                <i class="fa-solid fa-palette"></i>
-                <h3>16 Mi</h3>
-                <p>Cores Disponíveis</p>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-sun"></i>
+                    <div class="stat-number" data-target="75">0</div>
+                    <div class="stat-label">% Eficiência Solar</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <div class="stat-number" data-target="90">0</div>
+                    <div class="stat-label">% Economia LED</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-thermometer-half"></i>
+                    <div class="stat-number" data-target="35">0</div>
+                    <div class="stat-label">°C Temperatura Máx</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-palette"></i>
+                    <div class="stat-number" data-target="16">0</div>
+                    <div class="stat-label">Milhões de Cores</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Sobre o CEP -->
-    <section id="sobre" class="section-padding">
+    <!-- About Section -->
+    <section class="about section">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Sobre o Projeto no CEP</h2>
-                <p>Conheça a piscina do Colégio Estadual do Paraná e nossa proposta de modernização</p>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="piscinacep.jpg" alt="Piscina do CEP" class="img-main">
+                    <div class="about-images">
+                        <img src="trampolimcep.jpg" alt="Trampolim CEP">
+                        <img src="canoagemcep.jpg" alt="Canoagem na piscina">
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">Sobre o Projeto</h2>
+                    <p class="about-text">
+                        Os sistemas de aquecimento para piscinas revolucionaram a forma como aproveitamos esses espaços. 
+                        Com tecnologias modernas, é possível superar o problema da água fria e estender o uso da piscina 
+                        por todos os meses do ano, mesmo durante o inverno paranaense.
+                    </p>
+                    <p class="about-text">
+                        A iluminação LED subaquática transforma a piscina em um verdadeiro espetáculo visual, 
+                        criando atmosferas únicas para diferentes momentos e ocasiões.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sustentabilidade ambiental</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Economia de energia</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tecnologia de ponta</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Heating Systems Section -->
+    <section class="heating section" id="aquecimento">
+        <div class="container">
+            <h2 class="section-title">Sistemas de Aquecimento</h2>
+            <p class="section-subtitle">Conheça as tecnologias disponíveis</p>
             
-            <div class="split-layout">
-                <div class="split-content fade-in">
-                    <h3>A Piscina do CEP</h3>
-                    <p>A piscina do Colégio Estadual do Paraná é um espaço importante para atividades esportivas e de lazer da comunidade escolar. Ao longo dos anos, ela foi palco de muitas atividades, desde aulas de natação até práticas de canoagem.</p>
-                    <p>Nosso projeto visa modernizar este espaço com tecnologias sustentáveis de aquecimento solar e iluminação LED RGB, proporcionando maior conforto, economia de energia e possibilidade de uso durante todo o ano, mesmo nos meses mais frios do inverno paranaense.</p>
+            <div class="heating-grid">
+                <div class="heating-card">
+                    <div class="card-image">
+                        <img src="painelsolar.jpg" alt="Painel Solar">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aquecimento Solar</h3>
+                        <p>Eficiência de 75% na conversão de energia com zero custo operacional.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> Coletores de 6m² a 36m²</li>
+                            <li><i class="fas fa-check"></i> Aquecimento até 35°C</li>
+                            <li><i class="fas fa-check"></i> Retorno em 3-5 anos</li>
+                            <li><i class="fas fa-check"></i> Energia renovável</li>
+                        </ul>
+                        <button class="btn-card" onclick="showDetails('solar')">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="heating-card">
+                    <div class="card-image">
+                        <img src="representacaodeaquecimentodapiscina.jpg" alt="Bomba de Calor">
+                    </div>
+                    <div class="card-content">
+                        <h3>Bomba de Calor</h3>
+                        <p>Tecnologia Inverter que consome até 80% menos energia.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> COP 400-600%</li>
+                            <li><i class="fas fa-check"></i> Funciona com energia solar</li>
+                            <li><i class="fas fa-check"></i> Controle por aplicativo</li>
+                            <li><i class="fas fa-check"></i> Aumento em 24-48h</li>
+                        </ul>
+                        <button class="btn-card" onclick="showDetails('bomba')">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="heating-card">
+                    <div class="card-image">
+                        <img src="piscinacep2.jpg" alt="Aquecedor Elétrico">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aquecedor Elétrico</h3>
+                        <p>Instalação simples e menor custo inicial.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> Instalação rápida</li>
+                            <li><i class="fas fa-check"></i> Baixo investimento</li>
+                            <li><i class="fas fa-check"></i> Controle preciso</li>
+                            <li><i class="fas fa-check"></i> Manutenção simples</li>
+                        </ul>
+                        <button class="btn-card" onclick="showDetails('eletrico')">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Chart -->
+            <div class="chart-container">
+                <h3>Comparativo de Eficiência</h3>
+                <canvas id="heatingChart"></canvas>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="table-container">
+                <h3>Tabela Comparativa</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Sistema</th>
+                            <th>Custo Instalação</th>
+                            <th>Economia</th>
+                            <th>Manutenção</th>
+                            <th>Vida Útil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Solar</td>
+                            <td>R$ 3.000-8.000</td>
+                            <td>95%</td>
+                            <td>Baixa</td>
+                            <td>20 anos</td>
+                        </tr>
+                        <tr>
+                            <td>Bomba de Calor</td>
+                            <td>R$ 5.000-12.000</td>
+                            <td>80%</td>
+                            <td>Média</td>
+                            <td>15 anos</td>
+                        </tr>
+                        <tr>
+                            <td>Elétrico</td>
+                            <td>R$ 800-2.000</td>
+                            <td>40%</td>
+                            <td>Baixa</td>
+                            <td>10 anos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- LED RGB Section -->
+    <section class="led section" id="led">
+        <div class="container">
+            <h2 class="section-title">Iluminação LED RGB</h2>
+            <p class="section-subtitle">Transforme sua piscina em um espetáculo</p>
+
+            <div class="led-grid">
+                <div class="led-content">
+                    <h3>Tecnologia de Ponta</h3>
+                    <p>As luminárias LED RGB oferecem mais de 16 milhões de cores com certificação IP68 (totalmente à prova d'água) e baixa tensão de 12V para máxima segurança.</p>
                     
-                    <ul class="feature-list">
-                        <li><i class="fa-solid fa-check-circle"></i> Estrutura já existente no CEP</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Potencial para aquecimento solar</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Espaço para iluminação LED</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Benefício para toda comunidade escolar</li>
-                    </ul>
-                </div>
-                <div class="split-image fade-in">
-                    <img src="assets/piscinacep3.jpg" alt="Piscina do CEP vazia">
-                </div>
-            </div>
-
-            <!-- Galeria rápida do CEP -->
-            <div class="quick-gallery fade-in" style="margin-top: 50px;">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="assets/piscinacep2.jpg" alt="Alunos na piscina do CEP com professor">
-                        <div class="gallery-caption">Alunos e professor na piscina</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/canoagemcep.jpg" alt="Estudantes praticando canoagem na piscina do CEP">
-                        <div class="gallery-caption">Prática de canoagem</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/trampolimcep.jpg" alt="Trampolim do CEP">
-                        <div class="gallery-caption">Trampolim da piscina</div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="assets/piscinacepantiga.jpg" alt="Piscina do CEP antiga em preto e branco">
-                        <div class="gallery-caption">Piscina do CEP - Foto antiga</div>
+                    <div class="led-features">
+                        <div class="led-feature">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <h4>Baixo Consumo</h4>
+                                <p>9-23W vs 300-500W tradicional</p>
+                            </div>
+                        </div>
+                        <div class="led-feature">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Longa Duração</h4>
+                                <p>50.000 horas de vida útil</p>
+                            </div>
+                        </div>
+                        <div class="led-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <h4>Controle Total</h4>
+                                <p>App, WiFi e controle remoto</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Aquecimento -->
-    <section id="aquecimento" class="section-padding bg-light">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Sistemas de Aquecimento</h2>
-                <p>Conheça as tecnologias disponíveis para prolongar sua estação balnear</p>
-            </div>
-            
-            <div class="cards-grid">
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="assets/painelsolar.jpg" alt="Painéis solares em gramado">
-                    </div>
-                    <div class="card-icon" style="color: var(--solar-orange);">
-                        <i class="fa-solid fa-solar-panel"></i>
-                    </div>
-                    <h3>Aquecimento Solar</h3>
-                    <p>Eficiência de 75% na conversão, zero custo operacional e retorno do investimento em 3 a 5 anos. Ideal para o clima do Paraná.</p>
-                    <a href="#simulador" class="card-link">Simular custo <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="assets/representacaodeaquecimentodapiscina.jpg" alt="Representação de sistema de aquecimento com painéis solares">
-                    </div>
-                    <div class="card-icon" style="color: var(--pool-blue);">
-                        <i class="fa-solid fa-diagram-project"></i>
-                    </div>
-                    <h3>Como Funciona</h3>
-                    <p>A água circula através dos coletores solares, onde é aquecida e retorna à piscina. Sistema simples, eficiente e sustentável.</p>
-                    <a href="#" class="card-link">Ver detalhes <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="assets/painelsolar2.jpg" alt="Painéis solares no telhado com piscina ao fundo">
-                    </div>
-                    <div class="card-icon" style="color: var(--energy-green);">
-                        <i class="fa-solid fa-house-chimney"></i>
-                    </div>
-                    <h3>Instalação no CEP</h3>
-                    <p>Os painéis podem ser instalados no telhado das dependências do colégio, aproveitando a incidência solar e integrando-se à arquitetura existente.</p>
-                    <a href="#" class="card-link">Ver viabilidade <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="led-images">
+                    <img src="ledrgb.jpg" alt="LED RGB" class="led-main">
+                    <img src="moduloledrgb.jpg" alt="Módulo LED RGB" class="led-secondary">
+                    <img src="fitaledcolorida.jpg" alt="Fita LED Colorida" class="led-secondary">
                 </div>
             </div>
 
-            <!-- Comparativo visual -->
-            <div class="comparison-section fade-in" style="margin-top: 60px;">
-                <h3 style="text-align: center; margin-bottom: 30px;">Evolução da Piscina do CEP</h3>
-                <div class="before-after-grid">
-                    <div class="before-after-item">
-                        <img src="assets/piscinacepantiga.jpg" alt="Piscina antiga">
-                        <span class="label">Passado</span>
-                    </div>
-                    <div class="arrow-evolution">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                    <div class="before-after-item">
-                        <img src="assets/piscinacep3.jpg" alt="Piscina atual">
-                        <span class="label">Presente</span>
-                    </div>
-                    <div class="arrow-evolution">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                    <div class="before-after-item future">
-                        <img src="assets/painelsolar3.jpg" alt="Futuro com painéis solares">
-                        <span class="label">Futuro (Proposta)</span>
+            <!-- Color Simulator -->
+            <div class="color-simulator">
+                <h3>Simulador de Cores</h3>
+                <p>Escolha uma cor e veja como ficaria na piscina:</p>
+                <div class="color-controls">
+                    <input type="color" id="colorPicker" value="#00A8E8">
+                    <div class="color-presets">
+                        <button class="color-preset" style="background: #00A8E8" onclick="setColor('#00A8E8')"></button>
+                        <button class="color-preset" style="background: #FF6B35" onclick="setColor('#FF6B35')"></button>
+                        <button class="color-preset" style="background: #7ED321" onclick="setColor('#7ED321')"></button>
+                        <button class="color-preset" style="background: #9B59B6" onclick="setColor('#9B59B6')"></button>
+                        <button class="color-preset" style="background: #FFD93D" onclick="setColor('#FFD93D')"></button>
+                        <button class="color-preset" style="background: #FFFFFF" onclick="setColor('#FFFFFF')"></button>
                     </div>
                 </div>
+                <div class="color-preview" id="colorPreview">
+                    <img src="piscinacep3.jpg" alt="Preview da cor">
+                    <div class="preview-overlay" id="previewOverlay"></div>
+                </div>
+            </div>
+
+            <!-- LED Comparison Table -->
+            <div class="table-container">
+                <h3>LED vs Tradicional</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>LED RGB</th>
+                            <th>Incandescente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consumo</td>
+                            <td>9-23W</td>
+                            <td>300-500W</td>
+                        </tr>
+                        <tr>
+                            <td>Vida útil</td>
+                            <td>50.000h</td>
+                            <td>2.000h</td>
+                        </tr>
+                        <tr>
+                            <td>Cores</td>
+                            <td>16 milhões</td>
+                            <td>1 cor</td>
+                        </tr>
+                        <tr>
+                            <td>Economia</td>
+                            <td>90%</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Seção LED RGB -->
-    <section id="led" class="section-padding">
+    <!-- Integrated System Section -->
+    <section class="system section" id="sistema">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Iluminação LED RGB</h2>
-                <p>Transforme a piscina do CEP em um espetáculo visual</p>
-            </div>
-            
-            <div class="split-layout">
-                <div class="split-image fade-in">
-                    <img src="assets/fitaledcolorida.jpg" alt="Fita LED colorida">
-                </div>
-                <div class="split-content fade-in">
-                    <h3>Tecnologia LED para o CEP</h3>
-                    <p class="lead">A iluminação LED RGB permite criar diferentes atmosferas na piscina, desde cores relaxantes para aulas até efeitos vibrantes para eventos escolares.</p>
-                    <ul class="feature-list">
-                        <li><i class="fa-solid fa-check-circle"></i> 16 milhões de cores disponíveis</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Baixo consumo (90% de economia)</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Controle por aplicativo ou painel</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Vida útil de 50.000 horas</li>
-                        <li><i class="fa-solid fa-check-circle"></i> Segurança: baixa tensão 12V</li>
-                    </ul>
-                    <a href="#simulador" class="btn btn-primary">Calcular Investimento</a>
-                </div>
-            </div>
+            <h2 class="section-title">Sistema Integrado</h2>
+            <p class="section-subtitle">Automação completa da sua piscina</p>
 
-            <!-- Galeria de LEDs -->
-            <div class="led-showcase fade-in" style="margin-top: 60px;">
-                <h3 style="text-align: center; margin-bottom: 30px;">Componentes LED RGB</h3>
-                <div class="led-grid">
-                    <div class="led-item">
-                        <img src="assets/ledrgb.jpg" alt="LED RGB branco">
-                        <p>LED RGB Branco</p>
-                    </div>
-                    <div class="led-item">
-                        <img src="assets/moduloledrgb.jpg" alt="Módulo LED RGB">
-                        <p>Módulo LED RGB</p>
-                    </div>
-                    <div class="led-item">
-                        <img src="assets/fitaledcolorida.jpg" alt="Fita LED colorida">
-                        <p>Fita LED Colorida</p>
-                    </div>
+            <div class="system-grid">
+                <div class="system-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Central de Automação</h3>
+                    <p>Controle unificado de aquecimento, iluminação, cascata e hidromassagem</p>
+                </div>
+                <div class="system-card">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Conectividade WiFi</h3>
+                    <p>Gerenciamento remoto via aplicativo mobile 24/7</p>
+                </div>
+                <div class="system-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Monitoramento</h3>
+                    <p>Acompanhamento de consumo e temperatura em tempo real</p>
+                </div>
+                <div class="system-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Segurança</h3>
+                    <p>Alertas e notificações automáticas do sistema</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Galeria Completa -->
-    <section id="galeria" class="section-padding bg-light">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Galeria de Imagens</h2>
-                <p>Conheça melhor a estrutura da piscina do CEP e as tecnologias propostas</p>
-            </div>
-
-            <div class="gallery-categories">
-                <!-- Categoria: Piscina CEP -->
-                <div class="gallery-category fade-in">
-                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">
-                        <i class="fa-solid fa-water"></i> Piscina do CEP
-                    </h3>
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="assets/piscinacep.jpg" alt="Piscina do CEP com pessoas ao redor">
-                            <div class="gallery-caption">Comunidade ao redor da piscina</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/piscinacep2.jpg" alt="Alunos dentro da piscina com professor">
-                            <div class="gallery-caption">Atividade com alunos e professor</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/piscinacep3.jpg" alt="Piscina do CEP vazia">
-                            <div class="gallery-caption">Vista geral da piscina</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/piscinacep4.jpg" alt="Piscina do CEP vista pela grade">
-                            <div class="gallery-caption">Vista através da grade</div>
+            <!-- Dashboard Simulation -->
+            <div class="dashboard-sim">
+                <h3>Painel de Controle Simulado</h3>
+                <div class="dashboard">
+                    <div class="dashboard-panel">
+                        <h4>Temperatura</h4>
+                        <div class="temp-control">
+                            <input type="range" id="tempSlider" min="20" max="35" value="28">
+                            <span id="tempValue">28°C</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Categoria: Energia Solar -->
-                <div class="gallery-category fade-in" style="margin-top: 50px;">
-                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">
-                        <i class="fa-solid fa-solar-panel"></i> Energia Solar
-                    </h3>
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="assets/painelsolar.jpg" alt="Painéis solares em gramado">
-                            <div class="gallery-caption">Painéis solares em área gramada</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/painelsolar2.jpg" alt="Painéis solares no telhado">
-                            <div class="gallery-caption">Instalação em telhado residencial</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/painelsolar3.jpg" alt="Conjunto de painéis solares">
-                            <div class="gallery-caption">Conjunto de painéis solares</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/representacaodeaquecimentodapiscina.jpg" alt="Esquema de aquecimento">
-                            <div class="gallery-caption">Representação do sistema</div>
+                    <div class="dashboard-panel">
+                        <h4>Iluminação</h4>
+                        <div class="light-control">
+                            <button class="btn-toggle" id="lightToggle">Ligar</button>
+                            <input type="color" id="lightColor" value="#00A8E8">
                         </div>
                     </div>
-                </div>
-
-                <!-- Categoria: Atividades -->
-                <div class="gallery-category fade-in" style="margin-top: 50px;">
-                    <h3 style="margin-bottom: 20px; color: var(--dark-blue);">
-                        <i class="fa-solid fa-person-swimming"></i> Atividades no CEP
-                    </h3>
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="assets/canoagemcep.jpg" alt="Estudantes praticando canoagem">
-                            <div class="gallery-caption">Prática de canoagem</div>
+                    <div class="dashboard-panel">
+                        <h4>Bomba</h4>
+                        <div class="pump-control">
+                            <button class="btn-toggle" id="pumpToggle">Ligar</button>
+                            <span class="status" id="pumpStatus">Desligada</span>
                         </div>
-                        <div class="gallery-item">
-                            <img src="assets/trampolimcep.jpg" alt="Trampolim da piscina">
-                            <div class="gallery-caption">Trampolim da piscina</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/piscinacepantiga.jpg" alt="Foto antiga da piscina">
-                            <div class="gallery-caption">Registro histórico</div>
+                    </div>
+                    <div class="dashboard-panel">
+                        <h4>Consumo</h4>
+                        <div class="consumption">
+                            <span id="consumptionValue">0 kWh</span>
+                            <small>Hoje</small>
                         </div>
                     </div>
                 </div>
@@ -338,101 +404,253 @@
         </div>
     </section>
 
-    <!-- Simulador Interativo -->
-    <section id="simulador" class="section-padding">
+    <!-- Simulators Section -->
+    <section class="simulators section" id="simuladores">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2>Simule o Sistema para o CEP</h2>
-                <p>Faça uma estimativa de investimento e economia para modernizar a piscina do colégio</p>
+            <h2 class="section-title">Simuladores</h2>
+            <p class="section-subtitle">Calcule e simule seu sistema ideal</p>
+
+            <div class="simulator-grid">
+                <!-- Solar Calculator -->
+                <div class="simulator-card">
+                    <h3><i class="fas fa-sun"></i> Calculadora Solar</h3>
+                    <form id="solarForm">
+                        <div class="form-group">
+                            <label>Tamanho da Piscina (m²)</label>
+                            <input type="number" id="poolSize" placeholder="Ex: 20" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade no Paraná</label>
+                            <select id="city">
+                                <option value="curitiba">Curitiba</option>
+                                <option value="londrina">Londrina</option>
+                                <option value="maringa">Maringá</option>
+                                <option value="ponta-grossa">Ponta Grossa</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calcular</button>
+                    </form>
+                    <div id="solarResult" class="result"></div>
+                </div>
+
+                <!-- ROI Calculator -->
+                <div class="simulator-card">
+                    <h3><i class="fas fa-calculator"></i> Retorno de Investimento</h3>
+                    <form id="roiForm">
+                        <div class="form-group">
+                            <label>Investimento Inicial (R$)</label>
+                            <input type="number" id="investment" placeholder="Ex: 5000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Economia Mensal Estimada (R$)</label>
+                            <input type="number" id="monthlySaving" placeholder="Ex: 200" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calcular ROI</button>
+                    </form>
+                    <div id="roiResult" class="result"></div>
+                </div>
+
+                <!-- Energy Cost Calculator -->
+                <div class="simulator-card">
+                    <h3><i class="fas fa-bolt"></i> Custo Energético</h3>
+                    <form id="energyForm">
+                        <div class="form-group">
+                            <label>Valor do kWh (R$)</label>
+                            <input type="number" id="kwhPrice" step="0.01" placeholder="Ex: 0.80" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Horas de uso/dia</label>
+                            <input type="number" id="hoursDay" placeholder="Ex: 8" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de Sistema</label>
+                            <select id="systemType">
+                                <option value="solar">Solar</option>
+                                <option value="bomba">Bomba de Calor</option>
+                                <option value="eletrico">Elétrico</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calcular</button>
+                    </form>
+                    <div id="energyResult" class="result"></div>
+                </div>
             </div>
-            <div class="simulator-box fade-in">
-                <form id="simulatorForm">
+
+            <!-- Annual Savings Chart -->
+            <div class="chart-container">
+                <h3>Economia Anual Comparativa</h3>
+                <canvas id="savingsChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galeria de Fotos</h2>
+            <p class="section-subtitle">Conheça alguns de nossos projetos</p>
+
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="aquecimento">Aquecimento</button>
+                <button class="filter-btn" data-filter="led">LED</button>
+                <button class="filter-btn" data-filter="piscina">Piscina</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="piscina">
+                    <img src="piscinacep4.jpg" alt="Piscina CEP">
+                    <div class="gallery-overlay">
+                        <h4>Piscina do CEP</h4>
+                        <p>Vista principal</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="aquecimento">
+                    <img src="painelsolar2.jpg" alt="Painel Solar 2">
+                    <div class="gallery-overlay">
+                        <h4>Painéis Solares</h4>
+                        <p>Instalação completa</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="aquecimento">
+                    <img src="painelsolar3.jpg" alt="Painel Solar 3">
+                    <div class="gallery-overlay">
+                        <h4>Coletores Solares</h4>
+                        <p>Alta eficiência</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="piscina">
+                    <img src="piscinacepantiga.jpg" alt="Piscina Antiga">
+                    <div class="gallery-overlay">
+                        <h4>Piscina Antiga</h4>
+                        <p>Antes da modernização</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability section">
+        <div class="container">
+            <h2 class="section-title">Sustentabilidade</h2>
+            <p class="section-subtitle">Impacto ambiental positivo</p>
+
+            <div class="sustainability-grid">
+                <div class="sustain-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Energia Renovável</h3>
+                    <p>Utilização de energia solar, fonte limpa e inesgotável</p>
+                </div>
+                <div class="sustain-card">
+                    <i class="fas fa-co2"></i>
+                    <h3>Redução de CO₂</h3>
+                    <p>Diminuição significativa da emissão de gases poluentes</p>
+                </div>
+                <div class="sustain-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Materiais Recicláveis</h3>
+                    <p>Componentes com possibilidade de reciclagem</p>
+                </div>
+                <div class="sustain-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Economia de Água</h3>
+                    <p>Sistemas que otimizam o uso da água</p>
+                </div>
+            </div>
+
+            <div class="sustainability-chart">
+                <canvas id="sustainabilityChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contato">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <p class="section-subtitle">Entre em contato conosco</p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Colégio Estadual do Paraná</h3>
+                    <p>Projeto Escolar 2026</p>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rua Example, 123 - Curitiba/PR</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>projeto@escola.pr.gov.br</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(41) 3333-4444</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <label for="poolSize">Tamanho da Piscina do CEP (m²)</label>
-                        <input type="number" id="poolSize" placeholder="Ex: 50" required min="1">
-                        <small style="color: #666; margin-top: 5px; display: block;">*Estimativa baseada nas dimensões reais da piscina</small>
+                        <input type="text" placeholder="Seu nome" required>
                     </div>
                     <div class="form-group">
-                        <label for="systemType">Tipo de Aquecimento</label>
-                        <select id="systemType" required>
-                            <option value="solar">Solar (Coletores) - Recomendado</option>
-                            <option value="bomba">Bomba de Calor</option>
-                            <option value="eletrico">Elétrico</option>
-                        </select>
+                        <input type="email" placeholder="Seu email" required>
                     </div>
                     <div class="form-group">
-                        <label for="ledCount">Quantidade de Luminárias LED RGB</label>
-                        <input type="number" id="ledCount" placeholder="Ex: 4" required min="1">
-                        <small style="color: #666; margin-top: 5px; display: block;">*Sugestão: 1 luminária a cada 10-15m²</small>
+                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Calcular Estimativa para o CEP</button>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
                 </form>
-
-                <div id="simulatorResult" class="result-box hidden">
-                    <h3><i class="fa-solid fa-chart-pie"></i> Resultado da Simulação</h3>
-                    <div class="result-grid">
-                        <div class="result-item">
-                            <span>Investimento Estimado</span>
-                            <strong id="resInvestimento">R$ 0,00</strong>
-                        </div>
-                        <div class="result-item">
-                            <span>Economia Mensal (vs Elétrico)</span>
-                            <strong id="resEconomia" style="color: var(--energy-green);">R$ 0,00</strong>
-                        </div>
-                        <div class="result-item">
-                            <span>Retorno do Investimento</span>
-                            <strong id="resPayback">0 anos</strong>
-                        </div>
-                        <div class="result-item">
-                            <span>Economia em 5 anos</span>
-                            <strong id="resEconomia5anos" style="color: var(--pool-blue);">R$ 0,00</strong>
-                        </div>
-                    </div>
-                    <p class="disclaimer">*Valores aproximados para fins didáticos do projeto escolar. Valores reais podem variar conforme cotação e instalação.</p>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contato">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <div class="logo footer-logo">
-                    <i class="fa-solid fa-water"></i> Piscina<span>Inteligente</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Colégio Estadual do Paraná</h4>
+                    <p>Projeto Escolar 2026</p>
+                    <p>Desenvolvendo soluções sustentáveis para o futuro</p>
                 </div>
-                <p>Projeto desenvolvido pelos alunos do Colégio Estadual do Paraná (CEP), demonstrando aplicações reais de física, tecnologia e sustentabilidade.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#aquecimento">Aquecimento</a></li>
+                        <li><a href="#led">LED RGB</a></li>
+                        <li><a href="#simuladores">Simuladores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>projeto@escola.pr.gov.br</li>
+                        <li>(41) 3333-4444</li>
+                        <li>Curitiba/PR</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">Sobre o CEP</a></li>
-                    <li><a href="#aquecimento">Aquecimento</a></li>
-                    <li><a href="#led">LED RGB</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#simulador">Simulador</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Colégio Estadual do Paraná - Todos os direitos reservados</p>
+                <p>Projeto desenvolvido pelos alunos do CEP</p>
             </div>
-            <div class="footer-col">
-                <h4>Contato do Projeto</h4>
-                <p><i class="fa-solid fa-school"></i> Colégio Estadual do Paraná</p>
-                <p><i class="fa-solid fa-location-dot"></i> Curitiba, PR</p>
-                <p><i class="fa-solid fa-calendar"></i> Projeto 2026</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Colégio Estadual do Paraná - Todos os direitos reservados.</p>
-            <p style="margin-top: 5px; font-size: 0.85rem;">Projeto Escolar - Feira de Ciências e Tecnologia</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
