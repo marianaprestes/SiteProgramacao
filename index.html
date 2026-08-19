@@ -3,136 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projeto escolar sobre aquecimento de piscinas e iluminação LED RGB - Colégio Estadual do Paraná">
-    <meta name="keywords" content="piscina, aquecimento solar, LED RGB, automação, sustentabilidade">
     <title>Piscina Inteligente | CEP - Colégio Estadual do Paraná</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --azul-piscina: #00A8E8; --laranja-solar: #FF6B35; --azul-escuro: #003B5C;
+            --verde-energia: #7ED321; --amarelo-sol: #FFD93D; --branco: #FFFFFF;
+            --cinza-claro: #F5F5F5; --cinza-medio: #999999;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--azul-escuro); overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        .section-title { font-size: 36px; text-align: center; margin-bottom: 15px; color: var(--azul-escuro); }
+        .section-subtitle { text-align: center; font-size: 18px; color: var(--cinza-medio); margin-bottom: 50px; }
+
+        /* ===== HEADER ===== */
+        .header { position: fixed; top: 0; left: 0; width: 100%; background: var(--branco); box-shadow: var(--sombra); z-index: 1000; }
+        .header .container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 24px; color: var(--azul-piscina); }
+        .nav-list { display: flex; list-style: none; gap: 30px; }
+        .nav-link { text-decoration: none; color: var(--azul-escuro); font-weight: 600; transition: color 0.3s; }
+        .nav-link:hover { color: var(--azul-piscina); }
+        .menu-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--azul-escuro); }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative; height: 100vh; background: linear-gradient(135deg, var(--azul-piscina), var(--azul-escuro));
+            display: flex; align-items: center; justify-content: center; text-align: center; color: var(--branco);
+        }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 59, 92, 0.7); }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 20px; }
+        .hero-title { font-size: 48px; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 24px; margin-bottom: 15px; font-weight: 400; }
+        .hero-text { font-size: 18px; margin-bottom: 40px; opacity: 0.9; }
+        .btn { padding: 15px 40px; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .btn-primary { background: var(--laranja-solar); color: var(--branco); }
+        .btn-primary:hover { background: #e55a2b; transform: translateY(-3px); }
+        .btn-secondary { background: transparent; color: var(--branco); border: 2px solid var(--branco); margin-left: 15px; }
+        .btn-secondary:hover { background: var(--branco); color: var(--azul-escuro); }
+
+        /* ===== STATS ===== */
+        .stats { background: var(--branco); padding: 60px 0; margin-top: -50px; position: relative; z-index: 10; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .stat-card i { font-size: 40px; color: var(--azul-piscina); margin-bottom: 15px; }
+        .stat-number { font-size: 48px; font-weight: 700; color: var(--azul-escuro); font-family: 'Montserrat', sans-serif; }
+        .stat-label { font-size: 14px; color: var(--cinza-medio); }
+
+        /* ===== CARDS & GRIDS ===== */
+        .heating-grid, .simulator-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px; }
+        .heating-card { background: var(--branco); border-radius: 15px; overflow: hidden; box-shadow: var(--sombra); transition: transform 0.3s; }
+        .heating-card:hover { transform: translateY(-10px); }
+        .card-image { height: 200px; overflow: hidden; background: #ddd; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .card-content { padding: 25px; }
+        .card-content h3 { color: var(--azul-escuro); margin-bottom: 15px; }
+        .card-list { list-style: none; margin-bottom: 20px; }
+        .card-list li { padding: 8px 0; display: flex; align-items: center; gap: 10px; }
+        .card-list i { color: var(--verde-energia); }
+        .btn-card { background: var(--azul-piscina); color: var(--branco); border: none; padding: 10px 25px; border-radius: 25px; cursor: pointer; width: 100%; }
+
+        /* ===== TABLES & CHARTS ===== */
+        .chart-container, .table-container { background: var(--cinza-claro); padding: 40px; border-radius: 15px; margin-top: 50px; }
+        .comparison-table { width: 100%; border-collapse: collapse; background: var(--branco); border-radius: 10px; overflow: hidden; box-shadow: var(--sombra); margin-top: 20px; }
+        .comparison-table th, .comparison-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        .comparison-table th { background: var(--azul-piscina); color: var(--branco); }
+
+        /* ===== LED SECTION ===== */
+        .led { background: linear-gradient(135deg, #f0f8ff, #e6f3ff); }
+        .led-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .led-images { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .led-main { grid-column: 1 / -1; width: 100%; border-radius: 15px; }
+        .led-secondary { width: 100%; border-radius: 10px; }
+        .color-simulator { background: var(--branco); padding: 40px; border-radius: 15px; margin-top: 50px; text-align: center; }
+        .color-controls { display: flex; gap: 20px; justify-content: center; align-items: center; margin: 30px 0; flex-wrap: wrap; }
+        #colorPicker { width: 60px; height: 60px; border: none; border-radius: 50%; cursor: pointer; }
+        .color-preset { width: 40px; height: 40px; border: 3px solid var(--branco); border-radius: 50%; cursor: pointer; box-shadow: var(--sombra); }
+        .color-preview { position: relative; border-radius: 15px; overflow: hidden; height: 300px; background: #333; }
+        .color-preview img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .preview-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 168, 232, 0.4); transition: background 0.3s; }
+
+        /* ===== DASHBOARD ===== */
+        .dashboard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; background: var(--branco); padding: 30px; border-radius: 15px; box-shadow: var(--sombra); }
+        .dashboard-panel { background: var(--cinza-claro); padding: 20px; border-radius: 10px; text-align: center; }
+        .btn-toggle { background: var(--cinza-medio); color: var(--branco); border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 10px; }
+        .btn-toggle.active { background: var(--verde-energia); }
+
+        /* ===== FORMS ===== */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; }
+        .result { margin-top: 20px; padding: 20px; background: #e8f5e9; border-radius: 10px; display: none; text-align: left; }
+        .result.show { display: block; }
+
+        /* ===== FOOTER ===== */
+        .footer { background: var(--azul-escuro); color: var(--branco); padding: 40px 0; text-align: center; margin-top: 50px; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-list { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--branco); padding: 20px; box-shadow: var(--sombra); }
+            .nav-list.active { display: flex; }
+            .stats-grid, .heating-grid, .simulator-grid, .led-grid, .dashboard { grid-template-columns: 1fr; }
+            .hero-title { font-size: 32px; }
+            .btn { display: block; width: 100%; margin: 10px 0; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
+
+    <header class="header">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-water"></i>
-                <span>CEP</span>
-            </div>
-            <nav class="nav" id="nav">
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#aquecimento" class="nav-link">Aquecimento</a></li>
-                    <li><a href="#led" class="nav-link">LED RGB</a></li>
-                    <li><a href="#sistema" class="nav-link">Sistema Integrado</a></li>
-                    <li><a href="#simuladores" class="nav-link">Simuladores</a></li>
-                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" id="menuToggle">
+            <div class="logo"><i class="fas fa-water"></i> CEP</div>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-list').classList.toggle('active')">
                 <i class="fas fa-bars"></i>
             </button>
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#aquecimento" class="nav-link">Aquecimento</a></li>
+                <li><a href="#led" class="nav-link">LED RGB</a></li>
+                <li><a href="#simuladores" class="nav-link">Simuladores</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Piscina Perfeita o Ano Inteiro</h1>
             <h2 class="hero-subtitle">Tecnologia em Aquecimento e Iluminação LED RGB</h2>
             <p class="hero-text">Projeto Escolar 2026 - Colégio Estadual do Paraná</p>
-            <div class="hero-buttons">
-                <a href="#aquecimento" class="btn btn-primary">Conhecer Projeto</a>
-                <a href="#simuladores" class="btn btn-secondary">Simular Sistema</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <a href="#aquecimento" class="btn btn-primary">Conhecer Projeto</a>
+            <a href="#simuladores" class="btn btn-secondary">Simular Sistema</a>
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
                     <i class="fas fa-sun"></i>
-                    <div class="stat-number" data-target="75">0</div>
-                    <div class="stat-label">% Eficiência Solar</div>
+                    <div class="stat-number">75%</div>
+                    <div class="stat-label">Eficiência Solar</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-lightbulb"></i>
-                    <div class="stat-number" data-target="90">0</div>
-                    <div class="stat-label">% Economia LED</div>
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Economia LED</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-thermometer-half"></i>
-                    <div class="stat-number" data-target="35">0</div>
-                    <div class="stat-label">°C Temperatura Máx</div>
+                    <div class="stat-number">35°C</div>
+                    <div class="stat-label">Temperatura Máx</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-palette"></i>
-                    <div class="stat-number" data-target="16">0</div>
-                    <div class="stat-label">Milhões de Cores</div>
+                    <div class="stat-number">16M</div>
+                    <div class="stat-label">Cores Disponíveis</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="piscinacep.jpg" alt="Piscina do CEP" class="img-main">
-                    <div class="about-images">
-                        <img src="trampolimcep.jpg" alt="Trampolim CEP">
-                        <img src="canoagemcep.jpg" alt="Canoagem na piscina">
-                    </div>
-                </div>
-                <div class="about-content">
-                    <h2 class="section-title">Sobre o Projeto</h2>
-                    <p class="about-text">
-                        Os sistemas de aquecimento para piscinas revolucionaram a forma como aproveitamos esses espaços. 
-                        Com tecnologias modernas, é possível superar o problema da água fria e estender o uso da piscina 
-                        por todos os meses do ano, mesmo durante o inverno paranaense.
-                    </p>
-                    <p class="about-text">
-                        A iluminação LED subaquática transforma a piscina em um verdadeiro espetáculo visual, 
-                        criando atmosferas únicas para diferentes momentos e ocasiões.
-                    </p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Sustentabilidade ambiental</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Economia de energia</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Tecnologia de ponta</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Heating Systems Section -->
-    <section class="heating section" id="aquecimento">
+    <section class="section" id="aquecimento">
         <div class="container">
             <h2 class="section-title">Sistemas de Aquecimento</h2>
             <p class="section-subtitle">Conheça as tecnologias disponíveis</p>
@@ -140,517 +180,221 @@
             <div class="heating-grid">
                 <div class="heating-card">
                     <div class="card-image">
-                        <img src="painelsolar.jpg" alt="Painel Solar">
+                        <!-- SUBSTITUA O SRC PELA SUA IMAGEM: src="painelsolar.jpg" -->
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop" alt="Painel Solar">
                     </div>
                     <div class="card-content">
                         <h3>Aquecimento Solar</h3>
                         <p>Eficiência de 75% na conversão de energia com zero custo operacional.</p>
                         <ul class="card-list">
-                            <li><i class="fas fa-check"></i> Coletores de 6m² a 36m²</li>
+                            <li><i class="fas fa-check"></i> Coletores de alta eficiência</li>
                             <li><i class="fas fa-check"></i> Aquecimento até 35°C</li>
-                            <li><i class="fas fa-check"></i> Retorno em 3-5 anos</li>
-                            <li><i class="fas fa-check"></i> Energia renovável</li>
+                            <li><i class="fas fa-check"></i> Energia 100% renovável</li>
                         </ul>
-                        <button class="btn-card" onclick="showDetails('solar')">Ver Detalhes</button>
+                        <button class="btn-card">Ver Detalhes</button>
                     </div>
                 </div>
 
                 <div class="heating-card">
                     <div class="card-image">
-                        <img src="representacaodeaquecimentodapiscina.jpg" alt="Bomba de Calor">
+                        <img src="https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=600&h=400&fit=crop" alt="Bomba de Calor">
                     </div>
                     <div class="card-content">
                         <h3>Bomba de Calor</h3>
                         <p>Tecnologia Inverter que consome até 80% menos energia.</p>
                         <ul class="card-list">
                             <li><i class="fas fa-check"></i> COP 400-600%</li>
-                            <li><i class="fas fa-check"></i> Funciona com energia solar</li>
                             <li><i class="fas fa-check"></i> Controle por aplicativo</li>
-                            <li><i class="fas fa-check"></i> Aumento em 24-48h</li>
+                            <li><i class="fas fa-check"></i> Funciona em dias nublados</li>
                         </ul>
-                        <button class="btn-card" onclick="showDetails('bomba')">Ver Detalhes</button>
+                        <button class="btn-card">Ver Detalhes</button>
                     </div>
                 </div>
 
                 <div class="heating-card">
                     <div class="card-image">
-                        <img src="piscinacep2.jpg" alt="Aquecedor Elétrico">
+                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&h=400&fit=crop" alt="Piscina Aquecida">
                     </div>
                     <div class="card-content">
                         <h3>Aquecedor Elétrico</h3>
-                        <p>Instalação simples e menor custo inicial.</p>
+                        <p>Instalação simples e menor custo inicial de implementação.</p>
                         <ul class="card-list">
                             <li><i class="fas fa-check"></i> Instalação rápida</li>
                             <li><i class="fas fa-check"></i> Baixo investimento</li>
                             <li><i class="fas fa-check"></i> Controle preciso</li>
-                            <li><i class="fas fa-check"></i> Manutenção simples</li>
                         </ul>
-                        <button class="btn-card" onclick="showDetails('eletrico')">Ver Detalhes</button>
+                        <button class="btn-card">Ver Detalhes</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Comparison Chart -->
             <div class="chart-container">
-                <h3>Comparativo de Eficiência</h3>
-                <canvas id="heatingChart"></canvas>
-            </div>
-
-            <!-- Comparison Table -->
-            <div class="table-container">
-                <h3>Tabela Comparativa</h3>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Sistema</th>
-                            <th>Custo Instalação</th>
-                            <th>Economia</th>
-                            <th>Manutenção</th>
-                            <th>Vida Útil</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Solar</td>
-                            <td>R$ 3.000-8.000</td>
-                            <td>95%</td>
-                            <td>Baixa</td>
-                            <td>20 anos</td>
-                        </tr>
-                        <tr>
-                            <td>Bomba de Calor</td>
-                            <td>R$ 5.000-12.000</td>
-                            <td>80%</td>
-                            <td>Média</td>
-                            <td>15 anos</td>
-                        </tr>
-                        <tr>
-                            <td>Elétrico</td>
-                            <td>R$ 800-2.000</td>
-                            <td>40%</td>
-                            <td>Baixa</td>
-                            <td>10 anos</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3 style="text-align:center; margin-bottom:20px;">Comparativo de Eficiência</h3>
+                <canvas id="heatingChart" height="100"></canvas>
             </div>
         </div>
     </section>
 
-    <!-- LED RGB Section -->
-    <section class="led section" id="led">
+    <section class="section led" id="led">
         <div class="container">
             <h2 class="section-title">Iluminação LED RGB</h2>
             <p class="section-subtitle">Transforme sua piscina em um espetáculo</p>
 
             <div class="led-grid">
-                <div class="led-content">
+                <div>
                     <h3>Tecnologia de Ponta</h3>
                     <p>As luminárias LED RGB oferecem mais de 16 milhões de cores com certificação IP68 (totalmente à prova d'água) e baixa tensão de 12V para máxima segurança.</p>
-                    
-                    <div class="led-features">
-                        <div class="led-feature">
-                            <i class="fas fa-bolt"></i>
-                            <div>
-                                <h4>Baixo Consumo</h4>
-                                <p>9-23W vs 300-500W tradicional</p>
-                            </div>
-                        </div>
-                        <div class="led-feature">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Longa Duração</h4>
-                                <p>50.000 horas de vida útil</p>
-                            </div>
-                        </div>
-                        <div class="led-feature">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>
-                                <h4>Controle Total</h4>
-                                <p>App, WiFi e controle remoto</p>
-                            </div>
-                        </div>
+                    <div style="margin-top: 20px;">
+                        <p><i class="fas fa-bolt" style="color:var(--laranja-solar)"></i> <strong>Baixo Consumo:</strong> 9-23W vs 300W tradicional</p>
+                        <p><i class="fas fa-clock" style="color:var(--laranja-solar)"></i> <strong>Longa Duração:</strong> 50.000 horas de vida útil</p>
+                        <p><i class="fas fa-mobile-alt" style="color:var(--laranja-solar)"></i> <strong>Controle Total:</strong> App, WiFi e controle remoto</p>
                     </div>
                 </div>
                 <div class="led-images">
-                    <img src="ledrgb.jpg" alt="LED RGB" class="led-main">
-                    <img src="moduloledrgb.jpg" alt="Módulo LED RGB" class="led-secondary">
-                    <img src="fitaledcolorida.jpg" alt="Fita LED Colorida" class="led-secondary">
+                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b00ca1?w=600&h=300&fit=crop" class="led-main" alt="LED Piscina">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=200&fit=crop" class="led-secondary" alt="Fita LED">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop" class="led-secondary" alt="Módulo LED">
                 </div>
             </div>
 
-            <!-- Color Simulator -->
             <div class="color-simulator">
                 <h3>Simulador de Cores</h3>
                 <p>Escolha uma cor e veja como ficaria na piscina:</p>
                 <div class="color-controls">
                     <input type="color" id="colorPicker" value="#00A8E8">
-                    <div class="color-presets">
-                        <button class="color-preset" style="background: #00A8E8" onclick="setColor('#00A8E8')"></button>
-                        <button class="color-preset" style="background: #FF6B35" onclick="setColor('#FF6B35')"></button>
-                        <button class="color-preset" style="background: #7ED321" onclick="setColor('#7ED321')"></button>
-                        <button class="color-preset" style="background: #9B59B6" onclick="setColor('#9B59B6')"></button>
-                        <button class="color-preset" style="background: #FFD93D" onclick="setColor('#FFD93D')"></button>
-                        <button class="color-preset" style="background: #FFFFFF" onclick="setColor('#FFFFFF')"></button>
-                    </div>
+                    <button class="color-preset" style="background: #FF6B35" onclick="setColor('#FF6B35')"></button>
+                    <button class="color-preset" style="background: #7ED321" onclick="setColor('#7ED321')"></button>
+                    <button class="color-preset" style="background: #9B59B6" onclick="setColor('#9B59B6')"></button>
+                    <button class="color-preset" style="background: #FFFFFF" onclick="setColor('#FFFFFF')"></button>
                 </div>
-                <div class="color-preview" id="colorPreview">
-                    <img src="piscinacep3.jpg" alt="Preview da cor">
+                <div class="color-preview">
+                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=400&fit=crop" alt="Preview">
                     <div class="preview-overlay" id="previewOverlay"></div>
                 </div>
             </div>
-
-            <!-- LED Comparison Table -->
-            <div class="table-container">
-                <h3>LED vs Tradicional</h3>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Característica</th>
-                            <th>LED RGB</th>
-                            <th>Incandescente</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Consumo</td>
-                            <td>9-23W</td>
-                            <td>300-500W</td>
-                        </tr>
-                        <tr>
-                            <td>Vida útil</td>
-                            <td>50.000h</td>
-                            <td>2.000h</td>
-                        </tr>
-                        <tr>
-                            <td>Cores</td>
-                            <td>16 milhões</td>
-                            <td>1 cor</td>
-                        </tr>
-                        <tr>
-                            <td>Economia</td>
-                            <td>90%</td>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </section>
 
-    <!-- Integrated System Section -->
-    <section class="system section" id="sistema">
-        <div class="container">
-            <h2 class="section-title">Sistema Integrado</h2>
-            <p class="section-subtitle">Automação completa da sua piscina</p>
-
-            <div class="system-grid">
-                <div class="system-card">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Central de Automação</h3>
-                    <p>Controle unificado de aquecimento, iluminação, cascata e hidromassagem</p>
-                </div>
-                <div class="system-card">
-                    <i class="fas fa-wifi"></i>
-                    <h3>Conectividade WiFi</h3>
-                    <p>Gerenciamento remoto via aplicativo mobile 24/7</p>
-                </div>
-                <div class="system-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Monitoramento</h3>
-                    <p>Acompanhamento de consumo e temperatura em tempo real</p>
-                </div>
-                <div class="system-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Segurança</h3>
-                    <p>Alertas e notificações automáticas do sistema</p>
-                </div>
-            </div>
-
-            <!-- Dashboard Simulation -->
-            <div class="dashboard-sim">
-                <h3>Painel de Controle Simulado</h3>
-                <div class="dashboard">
-                    <div class="dashboard-panel">
-                        <h4>Temperatura</h4>
-                        <div class="temp-control">
-                            <input type="range" id="tempSlider" min="20" max="35" value="28">
-                            <span id="tempValue">28°C</span>
-                        </div>
-                    </div>
-                    <div class="dashboard-panel">
-                        <h4>Iluminação</h4>
-                        <div class="light-control">
-                            <button class="btn-toggle" id="lightToggle">Ligar</button>
-                            <input type="color" id="lightColor" value="#00A8E8">
-                        </div>
-                    </div>
-                    <div class="dashboard-panel">
-                        <h4>Bomba</h4>
-                        <div class="pump-control">
-                            <button class="btn-toggle" id="pumpToggle">Ligar</button>
-                            <span class="status" id="pumpStatus">Desligada</span>
-                        </div>
-                    </div>
-                    <div class="dashboard-panel">
-                        <h4>Consumo</h4>
-                        <div class="consumption">
-                            <span id="consumptionValue">0 kWh</span>
-                            <small>Hoje</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Simulators Section -->
-    <section class="simulators section" id="simuladores">
+    <section class="section" id="simuladores">
         <div class="container">
             <h2 class="section-title">Simuladores</h2>
-            <p class="section-subtitle">Calcule e simule seu sistema ideal</p>
+            <p class="section-subtitle">Calcule seu sistema ideal</p>
 
             <div class="simulator-grid">
-                <!-- Solar Calculator -->
-                <div class="simulator-card">
-                    <h3><i class="fas fa-sun"></i> Calculadora Solar</h3>
-                    <form id="solarForm">
-                        <div class="form-group">
-                            <label>Tamanho da Piscina (m²)</label>
-                            <input type="number" id="poolSize" placeholder="Ex: 20" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Cidade no Paraná</label>
-                            <select id="city">
-                                <option value="curitiba">Curitiba</option>
-                                <option value="londrina">Londrina</option>
-                                <option value="maringa">Maringá</option>
-                                <option value="ponta-grossa">Ponta Grossa</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Calcular</button>
-                    </form>
+                <div class="heating-card" style="padding: 30px;">
+                    <h3><i class="fas fa-sun" style="color:var(--laranja-solar)"></i> Calculadora Solar</h3>
+                    <div class="form-group">
+                        <label>Tamanho da Piscina (m²)</label>
+                        <input type="number" id="poolSize" placeholder="Ex: 20">
+                    </div>
+                    <button class="btn btn-primary" style="width:100%" onclick="calcSolar()">Calcular</button>
                     <div id="solarResult" class="result"></div>
                 </div>
 
-                <!-- ROI Calculator -->
-                <div class="simulator-card">
-                    <h3><i class="fas fa-calculator"></i> Retorno de Investimento</h3>
-                    <form id="roiForm">
-                        <div class="form-group">
-                            <label>Investimento Inicial (R$)</label>
-                            <input type="number" id="investment" placeholder="Ex: 5000" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Economia Mensal Estimada (R$)</label>
-                            <input type="number" id="monthlySaving" placeholder="Ex: 200" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Calcular ROI</button>
-                    </form>
+                <div class="heating-card" style="padding: 30px;">
+                    <h3><i class="fas fa-calculator" style="color:var(--laranja-solar)"></i> Retorno (ROI)</h3>
+                    <div class="form-group">
+                        <label>Investimento Inicial (R$)</label>
+                        <input type="number" id="investment" placeholder="Ex: 5000">
+                    </div>
+                    <div class="form-group">
+                        <label>Economia Mensal (R$)</label>
+                        <input type="number" id="monthlySaving" placeholder="Ex: 200">
+                    </div>
+                    <button class="btn btn-primary" style="width:100%" onclick="calcROI()">Calcular ROI</button>
                     <div id="roiResult" class="result"></div>
                 </div>
 
-                <!-- Energy Cost Calculator -->
-                <div class="simulator-card">
-                    <h3><i class="fas fa-bolt"></i> Custo Energético</h3>
-                    <form id="energyForm">
-                        <div class="form-group">
-                            <label>Valor do kWh (R$)</label>
-                            <input type="number" id="kwhPrice" step="0.01" placeholder="Ex: 0.80" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Horas de uso/dia</label>
-                            <input type="number" id="hoursDay" placeholder="Ex: 8" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Tipo de Sistema</label>
-                            <select id="systemType">
-                                <option value="solar">Solar</option>
-                                <option value="bomba">Bomba de Calor</option>
-                                <option value="eletrico">Elétrico</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Calcular</button>
-                    </form>
+                <div class="heating-card" style="padding: 30px;">
+                    <h3><i class="fas fa-bolt" style="color:var(--laranja-solar)"></i> Custo Energético</h3>
+                    <div class="form-group">
+                        <label>Valor do kWh (R$)</label>
+                        <input type="number" id="kwhPrice" step="0.01" placeholder="Ex: 0.80">
+                    </div>
+                    <div class="form-group">
+                        <label>Horas de uso/dia</label>
+                        <input type="number" id="hoursDay" placeholder="Ex: 8">
+                    </div>
+                    <button class="btn btn-primary" style="width:100%" onclick="calcEnergy()">Calcular</button>
                     <div id="energyResult" class="result"></div>
                 </div>
             </div>
-
-            <!-- Annual Savings Chart -->
-            <div class="chart-container">
-                <h3>Economia Anual Comparativa</h3>
-                <canvas id="savingsChart"></canvas>
-            </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery section" id="galeria">
-        <div class="container">
-            <h2 class="section-title">Galeria de Fotos</h2>
-            <p class="section-subtitle">Conheça alguns de nossos projetos</p>
-
-            <div class="gallery-filter">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="aquecimento">Aquecimento</button>
-                <button class="filter-btn" data-filter="led">LED</button>
-                <button class="filter-btn" data-filter="piscina">Piscina</button>
-            </div>
-
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="piscina">
-                    <img src="piscinacep4.jpg" alt="Piscina CEP">
-                    <div class="gallery-overlay">
-                        <h4>Piscina do CEP</h4>
-                        <p>Vista principal</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="aquecimento">
-                    <img src="painelsolar2.jpg" alt="Painel Solar 2">
-                    <div class="gallery-overlay">
-                        <h4>Painéis Solares</h4>
-                        <p>Instalação completa</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="aquecimento">
-                    <img src="painelsolar3.jpg" alt="Painel Solar 3">
-                    <div class="gallery-overlay">
-                        <h4>Coletores Solares</h4>
-                        <p>Alta eficiência</p>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="piscina">
-                    <img src="piscinacepantiga.jpg" alt="Piscina Antiga">
-                    <div class="gallery-overlay">
-                        <h4>Piscina Antiga</h4>
-                        <p>Antes da modernização</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sustainability Section -->
-    <section class="sustainability section">
-        <div class="container">
-            <h2 class="section-title">Sustentabilidade</h2>
-            <p class="section-subtitle">Impacto ambiental positivo</p>
-
-            <div class="sustainability-grid">
-                <div class="sustain-card">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Energia Renovável</h3>
-                    <p>Utilização de energia solar, fonte limpa e inesgotável</p>
-                </div>
-                <div class="sustain-card">
-                    <i class="fas fa-co2"></i>
-                    <h3>Redução de CO₂</h3>
-                    <p>Diminuição significativa da emissão de gases poluentes</p>
-                </div>
-                <div class="sustain-card">
-                    <i class="fas fa-recycle"></i>
-                    <h3>Materiais Recicláveis</h3>
-                    <p>Componentes com possibilidade de reciclagem</p>
-                </div>
-                <div class="sustain-card">
-                    <i class="fas fa-water"></i>
-                    <h3>Economia de Água</h3>
-                    <p>Sistemas que otimizam o uso da água</p>
-                </div>
-            </div>
-
-            <div class="sustainability-chart">
-                <canvas id="sustainabilityChart"></canvas>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact section" id="contato">
-        <div class="container">
-            <h2 class="section-title">Contato</h2>
-            <p class="section-subtitle">Entre em contato conosco</p>
-
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Colégio Estadual do Paraná</h3>
-                    <p>Projeto Escolar 2026</p>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Rua Example, 123 - Curitiba/PR</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>projeto@escola.pr.gov.br</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <span>(41) 3333-4444</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Seu nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Colégio Estadual do Paraná</h4>
-                    <p>Projeto Escolar 2026</p>
-                    <p>Desenvolvendo soluções sustentáveis para o futuro</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#aquecimento">Aquecimento</a></li>
-                        <li><a href="#led">LED RGB</a></li>
-                        <li><a href="#simuladores">Simuladores</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li>projeto@escola.pr.gov.br</li>
-                        <li>(41) 3333-4444</li>
-                        <li>Curitiba/PR</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Colégio Estadual do Paraná - Todos os direitos reservados</p>
-                <p>Projeto desenvolvido pelos alunos do CEP</p>
-            </div>
+            <h3>Colégio Estadual do Paraná</h3>
+            <p>Projeto Escolar 2026 - Desenvolvimento de Soluções Sustentáveis</p>
+            <p style="margin-top: 20px; opacity: 0.7;">&copy; 2026 Todos os direitos reservados</p>
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div id="modalBody"></div>
-        </div>
-    </div>
+    <script>
+        // ===== GRÁFICO =====
+        const ctx = document.getElementById('heatingChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Solar', 'Bomba de Calor', 'Elétrico'],
+                    datasets: [{
+                        label: 'Eficiência (%)',
+                        data: [75, 400, 95],
+                        backgroundColor: ['#00A8E8', '#FF6B35', '#7ED321'],
+                        borderWidth: 0
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true } } }
+            });
+        }
 
-    <script src="script.js"></script>
+        // ===== SIMULADOR DE CORES =====
+        const colorPicker = document.getElementById('colorPicker');
+        const previewOverlay = document.getElementById('previewOverlay');
+        
+        function setColor(color) {
+            colorPicker.value = color;
+            updatePreview(color);
+        }
+        
+        function updatePreview(color) {
+            const r = parseInt(color.slice(1, 3), 16);
+            const g = parseInt(color.slice(3, 5), 16);
+            const b = parseInt(color.slice(5, 7), 16);
+            previewOverlay.style.background = `rgba(${r}, ${g}, ${b}, 0.5)`;
+        }
+        
+        colorPicker.addEventListener('input', (e) => updatePreview(e.target.value));
+
+        // ===== CALCULADORAS =====
+        function calcSolar() {
+            const size = parseFloat(document.getElementById('poolSize').value) || 20;
+            const collectors = Math.ceil(size / 2);
+            const cost = collectors * 500;
+            const res = document.getElementById('solarResult');
+            res.innerHTML = `<strong>Coletores:</strong> ${collectors} un.<br><strong>Custo estimado:</strong> R$ ${cost}<br><strong>Economia mensal:</strong> R$ ${(size * 10).toFixed(2)}`;
+            res.classList.add('show');
+        }
+
+        function calcROI() {
+            const inv = parseFloat(document.getElementById('investment').value) || 5000;
+            const save = parseFloat(document.getElementById('monthlySaving').value) || 200;
+            const months = Math.ceil(inv / save);
+            const res = document.getElementById('roiResult');
+            res.innerHTML = `<strong>Payback:</strong> ${months} meses (${(months/12).toFixed(1)} anos)<br><strong>Economia em 5 anos:</strong> R$ ${(save * 60 - inv).toLocaleString()}`;
+            res.classList.add('show');
+        }
+
+        function calcEnergy() {
+            const price = parseFloat(document.getElementById('kwhPrice').value) || 0.80;
+            const hours = parseFloat(document.getElementById('hoursDay').value) || 8;
+            const power = 1.5; // Média bomba de calor
+            const monthlyCost = (power * hours * 30 * price).toFixed(2);
+            const res = document.getElementById('energyResult');
+            res.innerHTML = `<strong>Consumo mensal:</strong> ${(power * hours * 30).toFixed(1)} kWh<br><strong>Custo mensal:</strong> R$ ${monthlyCost}`;
+            res.classList.add('show');
+        }
+    </script>
 </body>
 </html>
