@@ -295,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .app-icon i { font-size: 32px; color: var(--branco); }
 .app-card h4 { font-size: 20px; margin-bottom: 15px; }
-.app-card p { font-size: 15px; line-height: 1.6; color: var(--cinza-escuro); }
+.app-card p { font-size: 15px; line-height: 1.6; color: var(--cinza-medio); }
 
 /* Color Simulator */
 .color-simulator-section {
@@ -335,7 +335,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .color-info {
     background: var(--cinza-claro); padding: 20px; border-radius: 15px;
-    font-family: 'Courier New', monospace; font-size: 16px; color: var(--cinza-escuro);
+    font-family: 'Courier New', monospace; font-size: 16px; color: var(--cinza-medio);
 }
 
 /* Tables */
