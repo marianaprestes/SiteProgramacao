@@ -305,583 +305,464 @@
         </div>
     </section>
 
-   <!-- LED RGB Section -->
-<section class="section led" id="led">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Tecnologia LED RGB</h2>
-            <p class="section-subtitle">Física, Óptica e Inovação em Iluminação Inteligente</p>
-            <div class="topic-badge">
-                <i class="fas fa-atom"></i> 
-                Disciplina: Física e Tecnociência
-            </div>
-        </div>
-
-        <div class="led-intro">
-            <div class="intro-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-lightbulb"></i>
-                <h3>O que é LED RGB?</h3>
-                <p>LED (<em>Light Emitting Diode</em>) é um semicondutor que converte energia elétrica diretamente em luz via <strong>eletroluminescência</strong>. O padrão RGB combina três microchips (Vermelho, Verde e Azul) que, através da síntese aditiva, criam 16,7 milhões de cores.</p>
-            </div>
-            <div class="intro-card highlight" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Segurança IP68</h3>
-                <p>Operação em baixa tensão (12V) com certificação IP68 - totalmente submersível e à prova d'água, eliminando riscos de choque elétrico em ambientes aquáticos.</p>
-            </div>
-        </div>
-
-        <div class="content-grid reverse">
-            <div class="visual-content" data-aos="fade-left">
-                <div class="concept-box featured">
-                    <h4><i class="fas fa-prism" style="color: var(--azul-medio);"></i> Síntese Aditiva</h4>
-                    <p>O clássico <strong>Disco de Newton</strong> demonstra que quando as cores do espectro visível (vermelho, laranja, amarelo, verde, azul, anil e violeta) giram rapidamente, o olho humano não consegue processá-las individualmente e o cérebro as funde, percebendo a cor <strong>branca</strong>.</p>
-                    <p style="margin-top: 10px;">O LED RGB aplica este princípio na prática: três microchips emitem luz em comprimentos de onda específicos (Vermelho ~620-750nm, Verde ~495-570nm, Azul ~450-495nm). Quando acionados simultaneamente na intensidade máxima, criam a percepção de luz branca através da <strong>síntese aditiva de cores</strong>.</p>
-                </div>
-
-                <div class="concept-box">
-                    <h4><i class="fas fa-tachometer-alt" style="color: var(--laranja-solar);"></i> PWM - Modulação por Largura de Pulso</h4>
-                    <p>O sistema não "diminui a voltagem" para mudar a cor ou intensidade. Um microcontrolador (ESP32/Arduino) utiliza <strong>PWM (Pulse Width Modulation)</strong>, ligando e desligando cada LED milhares de vezes por segundo (tipicamente 1-10 kHz).</p>
-                    <p style="margin-top: 10px;">Ao alterar a proporção de tempo "ligado" vs "desligado" (duty cycle de 0-100%), controlamos a intensidade percebida de cada cor primária. Exemplo: 50% de duty cycle no vermelho + 0% no verde + 100% no azul = rosa intenso.</p>
-                </div>
-
-                <div class="concept-box">
-                    <h4><i class="fas fa-eye" style="color: var(--verde-energia);"></i> Sensibilidade do Olho Humano</h4>
-                    <p>Para o <strong>Modo Seguro</strong> de acessibilidade, utilizamos <strong>Branco Quente</strong> (2700-3000K) em vez de Branco Frio (6000-6500K). A óptica explica: a luz quente tem menor temperatura de cor, gerando menos ofuscamento (glare) e melhor definição de sombras e contornos para pessoas com baixa visão.</p>
-                    <p style="margin-top: 10px;">Além disso, o alto contraste entre a iluminação branca quente das bordas e a água escura da piscina cria uma referência visual clara, prevenindo quedas e acidentes nas escadas e degraus.</p>
+    <!-- LED RGB Section -->
+    <section class="section led" id="led">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Tecnologia LED RGB</h2>
+                <p class="section-subtitle">Física, Óptica e Inovação em Iluminação Inteligente</p>
+                <div class="topic-badge">
+                    <i class="fas fa-atom"></i> 
+                    Disciplina: Física e Tecnociência
                 </div>
             </div>
 
-            <div class="text-content" data-aos="fade-right">
-                <div class="concept-box">
-                    <h4><i class="fas fa-compress-arrows-alt" style="color: var(--azul-medio);"></i> Efeito Estufa Controlado</h4>
-                    <p>A cobertura de vidro temperado dos coletores aproveita a <strong>refração seletiva</strong>: permite a passagem da radiação solar de onda curta (luz visível, 400-700nm), mas bloqueia a saída da radiação de onda longa (infravermelho térmico, acima de 700nm) gerada pela placa aquecida. Isso cria um efeito estufa controlado que retém o calor dentro do coletor.</p>
+            <div class="led-intro">
+                <div class="intro-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>O que é LED RGB?</h3>
+                    <p>LED (<em>Light Emitting Diode</em>) é um semicondutor que converte energia elétrica diretamente em luz via <strong>eletroluminescência</strong>. O padrão RGB combina três microchips (Vermelho, Verde e Azul) que, através da síntese aditiva, criam 16,7 milhões de cores.</p>
                 </div>
-
-                <div class="concept-box">
-                    <h4><i class="fas fa-camera" style="color: var(--verde-energia);"></i> Analogia com a Câmara Escura</h4>
-                    <p>Assim como a <strong>câmara escura</strong> isola e captura a luz para formar uma imagem, a caixa isolada do coletor solar é projetada para capturar e reter a energia luminosa convertida em térmica, minimizando perdas por convecção e condução. Ambas as aplicações demonstram o controle da luz para um propósito específico.</p>
+                <div class="intro-card highlight" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Segurança IP68</h3>
+                    <p>Operação em baixa tensão (12V) com certificação IP68 - totalmente submersível e à prova d'água, eliminando riscos de choque elétrico em ambientes aquáticos.</p>
                 </div>
             </div>
-        </div>
 
-        <!-- ============================================ -->
-        <!-- NOVA SEÇÃO: VÍDEOS EDUCATIVOS LED RGB -->
-        <!-- ============================================ -->
-        <div class="led-videos-section" data-aos="fade-up">
-            <div class="videos-header">
-                <h3>
-                    <i class="fas fa-play-circle"></i>
-                    Vídeos Educativos
+            <div class="content-grid reverse">
+                <div class="visual-content" data-aos="fade-left">
+                    <div class="video-grid">
+                        <div class="video-item">
+                            <h4><i class="fas fa-video"></i> Mistura de Cores - Síntese Aditiva</h4>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/3tp7ncFOZio" title="Mistura de cores e síntese aditiva" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <p style="font-size: 13px; margin-top: 10px;">Como as cores se combinam para formar novas tonalidades</p>
+                        </div>
+                        <div class="video-item">
+                            <h4><i class="fas fa-video"></i> PWM - Controle de LEDs</h4>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/SkqUwNTtpM4" title="Sistemas de cores aditivas (RGB)" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <p style="font-size: 13px; margin-top: 10px;">Como controlar a intensidade dos LEDs através de pulsos rápidos</p>
+                        </div>
+                        <div class="video-item">
+                            <h4><i class="fas fa-video"></i> Acessibilidade Visual</h4>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/yMrRaVW6tDw" title="PWM em fonte chaveada" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <p style="font-size: 13px; margin-top: 10px;">Importância do contraste na iluminação para segurança</p>
+                        </div>
+                        <div class="video-item">
+                            <h4><i class="fas fa-video"></i> LED RGB na Prática</h4>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/aeE0u1J-1pg" title="Aplicação prática de LEDs RGB" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <p style="font-size: 13px; margin-top: 10px;">Exemplos reais de uso de LEDs RGB em piscinas</p>
+                        </div>
+                        <div class="video-item full-width">
+                            <h4><i class="fas fa-video"></i> Iluminação Inteligente</h4>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/5vnRRuu4O7A" title="Sistemas de iluminação inteligente" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <p style="font-size: 13px; margin-top: 10px;">
+                                <i class="fas fa-closed-captioning"></i> Ative as legendas em português (CC)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-content" data-aos="fade-right">
+                    <div class="concept-box featured">
+                        <h4><i class="fas fa-prism" style="color: var(--azul-medio);"></i> Síntese Aditiva</h4>
+                        <p>O clássico <strong>Disco de Newton</strong> demonstra que quando as cores do espectro visível giram rapidamente, o olho humano não consegue processá-las individualmente e o cérebro as funde, percebendo a cor <strong>branca</strong>.</p>
+                        <p style="margin-top: 10px;">O LED RGB aplica este princípio na prática: três microchips emitem luz em comprimentos de onda específicos (Vermelho ~620-750nm, Verde ~495-570nm, Azul ~450-495nm). Quando acionados simultaneamente na intensidade máxima, criam a percepção de luz branca através da <strong>síntese aditiva de cores</strong>.</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4><i class="fas fa-tachometer-alt" style="color: var(--laranja-solar);"></i> PWM - Modulação por Largura de Pulso</h4>
+                        <p>O sistema não "diminui a voltagem" para mudar a cor ou intensidade. Um microcontrolador (ESP32/Arduino) utiliza <strong>PWM (Pulse Width Modulation)</strong>, ligando e desligando cada LED milhares de vezes por segundo (tipicamente 1-10 kHz).</p>
+                        <p style="margin-top: 10px;">Ao alterar a proporção de tempo "ligado" vs "desligado" (duty cycle de 0-100%), controlamos a intensidade percebida de cada cor primária.</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4><i class="fas fa-eye" style="color: var(--verde-energia);"></i> Sensibilidade do Olho Humano</h4>
+                        <p>Para o <strong>Modo Seguro</strong> de acessibilidade, utilizamos <strong>Branco Quente</strong> (2700-3000K) em vez de Branco Frio (6000-6500K). A óptica explica: a luz quente tem menor temperatura de cor, gerando menos ofuscamento (glare) e melhor definição de sombras e contornos para pessoas com baixa visão.</p>
+                        <p style="margin-top: 10px;">Além disso, o alto contraste entre a iluminação branca quente das bordas e a água escura da piscina cria uma referência visual clara, prevenindo quedas e acidentes nas escadas e degraus.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Vídeos Educativos Separada -->
+            <div class="led-videos-section" data-aos="fade-up">
+                <div class="videos-header">
+                    <h3>
+                        <i class="fas fa-play-circle"></i>
+                        Vídeos Educativos
+                    </h3>
+                    <p>Aprenda mais sobre LED RGB, PWM e síntese aditiva através de vídeos explicativos</p>
+                </div>
+
+                <div class="videos-grid">
+                    <div class="video-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/3tp7ncFOZio" title="Mistura de cores e síntese aditiva" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tag" style="background: #e74c3c;">
+                                <i class="fas fa-palette"></i> Cores
+                            </div>
+                            <h4>Mistura de Cores - Síntese Aditiva</h4>
+                            <p>Como as cores se combinam para formar novas tonalidades</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/SkqUwNTtpM4" title="Sistemas de cores aditivas (RGB)" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tag" style="background: #3498db;">
+                                <i class="fas fa-bolt"></i> Tecnologia
+                            </div>
+                            <h4>PWM - Controle de LEDs</h4>
+                            <p>Como controlar a intensidade dos LEDs através de pulsos rápidos</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/yMrRaVW6tDw" title="PWM em fonte chaveada" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tag" style="background: #27ae60;">
+                                <i class="fas fa-eye"></i> Acessibilidade
+                            </div>
+                            <h4>Acessibilidade Visual</h4>
+                            <p>Importância do contraste na iluminação para segurança</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/aeE0u1J-1pg" title="Aplicação prática de LEDs RGB" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tag" style="background: #9b59b6;">
+                                <i class="fas fa-lightbulb"></i> Prática
+                            </div>
+                            <h4>LED RGB na Prática</h4>
+                            <p>Exemplos reais de uso de LEDs RGB em piscinas</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card featured-video" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/5vnRRuu4O7A" title="Sistemas de iluminação inteligente" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-tag" style="background: linear-gradient(90deg, #f39c12, #e74c3c);">
+                                <i class="fas fa-star"></i> Destaque
+                            </div>
+                            <h4>Iluminação Inteligente</h4>
+                            <p>Sistemas modernos de automação e controle de iluminação</p>
+                            <p style="font-size: 12px; margin-top: 8px; color: var(--cinza-medio);">
+                                <i class="fas fa-closed-captioning"></i> Ative as legendas em português (CC)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aplicações Práticas -->
+            <div class="led-applications">
+                <h3 style="text-align: center; margin-bottom: 40px; color: var(--azul-escuro);" data-aos="fade-up">
+                    <i class="fas fa-cogs"></i> Aplicações Práticas no CEP
                 </h3>
-                <p>Aprenda mais sobre LED RGB, PWM e síntese aditiva através de vídeos explicativos</p>
-            </div>
-
-            <div class="videos-grid">
-                <!-- Vídeo 1 -->
-                <div class="video-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/3tp7ncFOZio" 
-                            title="Mistura de cores e síntese aditiva"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-tag" style="background: #e74c3c;">
-                            <i class="fas fa-palette"></i> Cores
+                
+                <div class="applications-grid">
+                    <div class="app-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="app-icon" style="background: var(--azul-medio);">
+                            <i class="fas fa-thermometer-half"></i>
                         </div>
-                        <h4>Mistura de Cores - Síntese Aditiva</h4>
-                        <p>Como as cores se combinam para formar novas tonalidades</p>
+                        <h4>Indicador de Temperatura</h4>
+                        <p><strong>Azul</strong> enquanto a água aquece (estado de processo)</p>
+                        <p style="margin-top: 10px;"><strong>Verde</strong> quando atinge 28°C (temperatura ideal)</p>
+                        <p style="margin-top: 10px; font-size: 13px; color: var(--cinza-medio);">
+                            <i class="fas fa-info-circle"></i> Feedback visual em tempo real do sistema de aquecimento
+                        </p>
                     </div>
-                </div>
 
-                <!-- Vídeo 2 -->
-                <div class="video-card" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/SkqUwNTtpM4" 
-                            title="Sistemas de cores aditivas (RGB)"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-tag" style="background: #3498db;">
-                            <i class="fas fa-bolt"></i> Tecnologia
+                    <div class="app-card featured-app" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="app-badge">INNOVAÇÃO</div>
+                        <div class="app-icon" style="background: var(--laranja-solar);">
+                            <i class="fas fa-universal-access"></i>
                         </div>
-                        <h4>Sistemas de cores aditivas</h4>
-                        <p>Como controlar a intensidade dos LEDs através de pulsos rápidos</p>
+                        <h4>Modo Seguro - Acessibilidade</h4>
+                        <p>Sensor PIR (infravermelho passivo) detecta movimento nas escadas</p>
+                        <p style="margin-top: 10px;">Aciona automaticamente <strong>Branco Quente de alto contraste</strong> nas bordas e degraus</p>
+                        <p style="margin-top: 10px; font-size: 13px; color: rgba(255, 255, 255, 0.95);">
+                            <i class="fas fa-check-circle" style="color: #4ade80; text-shadow: 0 0 8px rgba(74, 222, 128, 0.6);"></i> Previne quedas e promove inclusão de alunos com baixa visão
+                        </p>
                     </div>
-                </div>
 
-                <!-- Vídeo 3 -->
-                <div class="video-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/yMrRaVW6tDw" 
-                            title="PWM em fonte chaveada"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-tag" style="background: #27ae60;">
-                            <i class="fas fa-eye"></i> PWM em fonte chaveada
+                    <div class="app-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="app-icon" style="background: var(--verde-energia);">
+                            <i class="fas fa-leaf"></i>
                         </div>
-                        <h4>PWM em fonte chaveada</h4>
-                        <p>Importância do contraste na iluminação para segurança</p>
-                    </div>
-                </div>
-
-                <!-- Vídeo 4 -->
-                <div class="video-card" data-aos="zoom-in" data-aos-delay="250">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/aeE0u1J-1pg" 
-                            title="Aplicação prática de LEDs RGB"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-tag" style="background: #9b59b6;">
-                            <i class="fas fa-lightbulb"></i> Prática
-                        </div>
-                        <h4>LED RGB na Prática</h4>
-                        <p>Exemplos reais de uso de LEDs RGB em piscinas</p>
-                    </div>
-                </div>
-
-                <!-- Vídeo 5 (largura total) -->
-                <div class="video-card featured-video" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/5vnRRuu4O7A" 
-                            title="Sistemas de iluminação inteligente"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <div class="video-tag" style="background: linear-gradient(90deg, #f39c12, #e74c3c);">
-                            <i class="fas fa-star"></i> Destaque
-                        </div>
-                        <h4>Iluminação Inteligente</h4>
-                        <p>Sistemas modernos de automação e controle de iluminação</p>
-                        <p style="font-size: 12px; margin-top: 8px; color: var(--cinza-medio);">
-                            <i class="fas fa-closed-captioning"></i> Ative as legendas em português (CC)
+                        <h4>Eficiência Energética</h4>
+                        <p><strong>9-23W</strong> de consumo vs 300-500W das lâmpadas tradicionais</p>
+                        <p style="margin-top: 10px;"><strong>90% de economia</strong> na conta de energia</p>
+                        <p style="margin-top: 10px; font-size: 13px; color: var(--cinza-medio);">
+                            <i class="fas fa-chart-line"></i> Economia real de energia e dinheiro
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ============================================ -->
-        <!-- FIM DA SEÇÃO DE VÍDEOS -->
-        <!-- ============================================ -->
 
-        <div class="led-applications">
-            <h3 style="text-align: center; margin-bottom: 40px; color: var(--azul-escuro);" data-aos="fade-up">
-                <i class="fas fa-cogs"></i> Aplicações Práticas no CEP
-            </h3>
-            
-            <div class="applications-grid">
-                <div class="app-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="app-icon" style="background: var(--azul-medio);">
-                        <i class="fas fa-thermometer-half"></i>
-                    </div>
-                    <h4>Indicador de Temperatura</h4>
-                    <p><strong>Azul</strong> enquanto a água aquece (estado de processo)</p>
-                    <p style="margin-top: 10px;"><strong>Verde</strong> quando atinge 28°C (temperatura ideal)</p>
-                    <p style="margin-top: 10px; font-size: 13px; color: var(--cinza-medio);">
-                        <i class="fas fa-info-circle"></i> Feedback visual em tempo real do sistema de aquecimento
-                    </p>
-                </div>
-
-                <div class="app-card featured-app" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="app-badge">INNOVAÇÃO</div>
-                    <div class="app-icon" style="background: var(--laranja-solar);">
-                        <i class="fas fa-universal-access"></i>
-                    </div>
-                    <h4>Modo Seguro - Acessibilidade</h4>
-                    <p>Sensor PIR (infravermelho passivo) detecta movimento nas escadas</p>
-                    <p style="margin-top: 10px;">Aciona automaticamente <strong>Branco Quente de alto contraste</strong> nas bordas e degraus</p>
-                    <p style="margin-top: 10px; font-size: 13px; color: var(--cinza-medio);">
-                        <i class="fas fa-check-circle"></i> Previne quedas e promove inclusão de alunos com baixa visão
-                    </p>
-                </div>
-
-                <div class="app-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="app-icon" style="background: var(--verde-energia);">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h4>Eficiência Energética</h4>
-                    <p><strong>9-23W</strong> de consumo vs 300-500W das lâmpadas tradicionais</p>
-                    <p style="margin-top: 10px;"><strong>90% de economia</strong> na conta de energia</p>
-                    <p style="margin-top: 10px; font-size: 13px; color: var(--cinza-medio);">
-                        <i class="fas fa-chart-line"></i> Economia real de energia e dinheiro
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Galeria de Componentes LED RGB -->
-        <div class="led-components-gallery" data-aos="fade-up">
-            <h3 style="text-align: center; margin-bottom: 15px; color: var(--azul-escuro);">
-                <i class="fas fa-camera-retro"></i> Componentes Reais do Projeto
-            </h3>
-            <p style="text-align: center; margin-bottom: 40px; color: var(--cinza-medio); max-width: 700px; margin-left: auto; margin-right: auto;">
-                Conheça de perto os componentes físicos utilizados no nosso sistema de iluminação inteligente da piscina do CEP
-            </p>
-
-            <div class="components-grid">
-                <div class="component-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="component-image">
-                        <img src="assets/sensorVermelhoLed.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop'" alt="Sensor PIR com LED vermelho aceso">
-                        <div class="component-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="component-info">
-                        <div class="component-badge" style="background: #e74c3c;">
-                            <i class="fas fa-eye"></i> Sensor PIR
-                        </div>
-                        <h4>Sensor de Movimento com LED Indicador</h4>
-                        <p>Sensor PIR (infravermelho passivo) com LED vermelho que indica quando o sensor está ativo e detectando movimento nas escadas da piscina.</p>
-                        <div class="component-specs">
-                            <span><i class="fas fa-bolt"></i> 5V DC</span>
-                            <span><i class="fas fa-ruler"></i> Alcance: 7m</span>
-                            <span><i class="fas fa-angle-double-right"></i> Ângulo: 120°</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="component-image">
-                        <img src="assets/ledsColoridosAcesos.jpg" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop'" alt="LEDs coloridos acesos em várias cores">
-                        <div class="component-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="component-info">
-                        <div class="component-badge" style="background: linear-gradient(90deg, #e74c3c, #2ecc71, #3498db);">
-                            <i class="fas fa-palette"></i> RGB Multicolor
-                        </div>
-                        <h4>LEDs RGB Multicoloridos em Ação</h4>
-                        <p>Demonstração da síntese aditiva na prática: múltiplos LEDs RGB exibindo diferentes cores simultaneamente, mostrando as 16,7 milhões de combinações possíveis.</p>
-                        <div class="component-specs">
-                            <span><i class="fas fa-palette"></i> 16,7M cores</span>
-                            <span><i class="fas fa-bolt"></i> 12V DC</span>
-                            <span><i class="fas fa-clock"></i> 50.000h</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="component-image">
-                        <img src="assets/ledRGBverde.jpg" onerror="this.src='https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=400&fit=crop'" alt="LED RGB aceso na cor verde">
-                        <div class="component-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                    <div class="component-info">
-                        <div class="component-badge" style="background: #27ae60;">
-                            <i class="fas fa-check-circle"></i> Temperatura Ideal
-                        </div>
-                        <h4>LED Verde - Temperatura Atingida</h4>
-                        <p>LED RGB emitindo luz verde, indicando que a água da piscina atingiu a temperatura ideal de 28°C. Sinal visual claro e intuitivo para os usuários.</p>
-                        <div class="component-specs">
-                            <span><i class="fas fa-thermometer-half"></i> 28°C</span>
-                            <span><i class="fas fa-leaf"></i> 23W</span>
-                            <span><i class="fas fa-water"></i> IP68</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-<!-- SIMULADOR DE CORES -->
-<div class="color-simulator-section">
-    <h3 style="text-align: center; margin-bottom: 20px;" data-aos="fade-up">
-        <i class="fas fa-flask"></i> Simulador de Síntese Aditiva
-    </h3>
-    <p style="text-align: center; margin-bottom: 30px; color: var(--cinza-medio);" data-aos="fade-up">
-        Experimente a lógica da síntese aditiva: combine as cores e veja como ficaria na piscina do CEP
-    </p>
-    
-    <div class="simulator-container" data-aos="zoom-in">
-        <div class="simulator-controls">
-            <div class="color-channel">
-                <label for="redChannel">
-                    <span style="color: #e74c3c; font-weight: bold;">R</span> Vermelho
-                </label>
-                <input type="range" id="redChannel" min="0" max="255" value="0">
-                <span id="redValue">0</span>
-            </div>
-            <div class="color-channel">
-                <label for="greenChannel">
-                    <span style="color: #2ecc71; font-weight: bold;">G</span> Verde
-                </label>
-                <input type="range" id="greenChannel" min="0" max="255" value="0">
-                <span id="greenValue">0</span>
-            </div>
-            <div class="color-channel">
-                <label for="blueChannel">
-                    <span style="color: #3498db; font-weight: bold;">B</span> Azul
-                </label>
-                <input type="range" id="blueChannel" min="0" max="255" value="255">
-                <span id="blueValue">255</span>
-            </div>
-            
-            <div class="simulator-presets">
-                <button class="preset-btn" onclick="setPreset(0, 0, 255)" style="background: #3498db;">
-                    <i class="fas fa-tint"></i> Azul (Aquecendo)
-                </button>
-                <button class="preset-btn" onclick="setPreset(46, 211, 33)" style="background: #2ed573;">
-                    <i class="fas fa-check"></i> Verde (Pronto)
-                </button>
-                <button class="preset-btn" onclick="setPreset(255, 241, 220)" style="background: #fff1dc; color: #333;">
-                    <i class="fas fa-sun"></i> Branco Quente
-                </button>
-                <button class="preset-btn" onclick="setPreset(255, 255, 255)" style="background: #fff; color: #333; border: 2px solid #ddd;">
-                    <i class="fas fa-circle"></i> Branco Puro
-                </button>
-                <button class="preset-btn" onclick="setPreset(255, 0, 0)" style="background: #e74c3c;">
-                    <i class="fas fa-fire"></i> Vermelho
-                </button>
-                <button class="preset-btn" onclick="setPreset(128, 0, 128)" style="background: #800080;">
-                    <i class="fas fa-circle"></i> Roxo
-                </button>
-                <button class="preset-btn" onclick="setPreset(255, 165, 0)" style="background: #ffa500;">
-                    <i class="fas fa-sun"></i> Laranja
-                </button>
-                <button class="preset-btn" onclick="setPreset(0, 255, 255)" style="background: #00ffff;">
-                    <i class="fas fa-tint"></i> Ciano
-                </button>
-                <button class="preset-btn" onclick="setPreset(255, 0, 255)" style="background: #ff00ff;">
-                    <i class="fas fa-circle"></i> Magenta
-                </button>
-                <button class="preset-btn" onclick="setPreset(255, 20, 147)" style="background: #ff1493;">
-                    <i class="fas fa-heart"></i> Rosa Choque
-                </button>
-                <button class="preset-btn" onclick="setPreset(0, 128, 128)" style="background: #008080;">
-                    <i class="fas fa-water"></i> Verde Água
-                </button>
-                <button class="preset-btn" onclick="setPreset(255, 215, 0)" style="background: #ffd700;">
-                    <i class="fas fa-star"></i> Dourado
-                </button>
-            </div>
-            
-            <button class="btn btn-primary" onclick="startSimulation()" style="margin-top: 20px; width: 100%;">
-                <i class="fas fa-play"></i> Iniciar Simulação na Piscina
-            </button>
-        </div>
-        
-        <div class="simulator-display">
-            <div class="display-label">Resultado da Mistura (Síntese Aditiva)</div>
-            <div class="color-display" id="colorDisplay" style="background: rgb(0, 0, 255);">
-                <img src="assets/piscinacep3.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=400&fit=crop'" alt="Piscina do CEP" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
-                <div class="preview-overlay" id="previewOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 255, 0.5);"></div>
-            </div>
-            <div class="color-info">
-                <div>RGB: <span id="rgbText">rgb(0, 0, 255)</span></div>
-                <div>Hex: <span id="hexText">#0000FF</span></div>
-                <div id="colorName" style="margin-top: 10px; font-weight: bold; color: var(--azul-medio);">Azul - Modo Aquecimento</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- TABELA COMPARATIVA -->
-<div class="table-container" data-aos="fade-up">
-    <h3><i class="fas fa-table"></i> Comparativo Técnico: LED RGB vs Tradicional</h3>
-    <div class="table-responsive">
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Característica</th>
-                    <th>LED RGB (Projeto CEP)</th>
-                    <th>Incandescente Tradicional</th>
-                    <th>Diferença</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Consumo Energético</strong></td>
-                    <td style="color: var(--verde-energia); font-weight: bold;">9-23W</td>
-                    <td style="color: var(--laranja-solar);">300-500W</td>
-                    <td style="color: var(--verde-energia);"><i class="fas fa-arrow-down"></i> 90% economia</td>
-                </tr>
-                <tr>
-                    <td><strong>Vida Útil</strong></td>
-                    <td style="color: var(--verde-energia); font-weight: bold;">50.000 horas</td>
-                    <td>2.000 horas</td>
-                    <td style="color: var(--verde-energia);">25x mais durável</td>
-                </tr>
-                <tr>
-                    <td><strong>Cores Disponíveis</strong></td>
-                    <td style="color: var(--azul-medio); font-weight: bold;">16,7 milhões</td>
-                    <td>1 cor fixa</td>
-                    <td>Infinitas possibilidades</td>
-                </tr>
-                <tr>
-                    <td><strong>Tensão de Operação</strong></td>
-                    <td style="color: var(--verde-energia); font-weight: bold;">12V (baixa tensão)</td>
-                    <td style="color: var(--laranja-solar);">127V/220V</td>
-                    <td>Maior segurança</td>
-                </tr>
-                <tr>
-                    <td><strong>Certificação</strong></td>
-                    <td style="font-weight: bold;">IP68 (submersível)</td>
-                    <td>IP44 (respingos)</td>
-                    <td>100% à prova d'água</td>
-                </tr>
-                <tr>
-                    <td><strong>Controle</strong></td>
-                    <td style="font-weight: bold;">Automático + App</td>
-                    <td>Interruptor manual</td>
-                    <td>Automação inteligente</td>
-                </tr>
-                <tr>
-                    <td><strong>Acessibilidade</strong></td>
-                    <td style="color: var(--verde-energia); font-weight: bold;">Modo Seguro incluso</td>
-                    <td>Sem recursos</td>
-                    <td>Inclusão garantida</td>
-                </tr>
-                <tr>
-                    <td><strong>Custo Operacional/ano</strong></td>
-                    <td style="color: var(--verde-energia); font-weight: bold;">~R$ 50</td>
-                    <td style="color: var(--laranja-solar);">~R$ 500</td>
-                    <td style="color: var(--verde-energia);">Economia de R$ 450/ano</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-        
-       <!-- Simuladores Section -->
-<section class="section simulator" id="simuladores">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Simulador Interativo do Sistema</h2>
-            <p class="section-subtitle">Teste e configure seu sistema de aquecimento e iluminação</p>
-        </div>
-
-        <div class="simulator-dashboard">
-            <div class="dashboard-panel main-panel" data-aos="fade-right">
-                <h3><i class="fas fa-tachometer-alt"></i> Painel de Controle</h3>
-                
-                <div class="control-group">
-                    <label for="simTemp">Temperatura da Água (°C)</label>
-                    <div class="slider-container">
-                        <input type="range" id="simTemp" min="15" max="40" value="25" step="0.5">
-                        <span id="simTempValue" class="value-display">25°C</span>
-                    </div>
-                    <div class="temp-indicator">
-                        <span class="temp-label cold">Fria</span>
-                        <span class="temp-label ideal">Ideal (28°C)</span>
-                        <span class="temp-label hot">Quente</span>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label>Status do LED RGB</label>
-                    <div id="ledStatus" class="led-status-box" style="background: #3498db;">
-                        <i class="fas fa-lightbulb"></i>
-                        <span id="ledStatusText">AZUL - Aquecendo</span>
-                    </div>
-                </div>
-
-                <!-- BOTÃO DE ATIVAR/DESATIVAR -->
-                <div class="control-group safe-mode-group">
-                    <label class="safe-mode-label">
-                        <i class="fas fa-universal-access"></i> Modo Seguro (Acessibilidade)
-                    </label>
-                    
-                    <div class="toggle-wrapper">
-                        <label class="custom-toggle-switch">
-                            <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
-                            <span class="toggle-slider"></span>
-                            <span class="toggle-track"></span>
-                        </label>
-                        <span class="toggle-label-text">Ativar sensor de movimento</span>
-                    </div>
-                    
-                    <p class="toggle-description">
-                        <i class="fas fa-info-circle"></i> Quando ativo, as bordas acendem em <strong>Branco Quente</strong> ao detectar movimento, garantindo segurança e visibilidade.
-                    </p>
-                </div>
-            </div>
-
-            <div class="dashboard-panel info-panel" data-aos="fade-left">
-                <h3><i class="fas fa-chart-bar"></i> Dados em Tempo Real</h3>
-                
-                <div class="data-card">
-                    <i class="fas fa-bolt" style="color: var(--laranja-solar);"></i>
-                    <div>
-                        <div class="data-label">Consumo Atual</div>
-                        <div class="data-value" id="consumoAtual">23W</div>
-                    </div>
-                </div>
-
-                <div class="data-card">
-                    <i class="fas fa-dollar-sign" style="color: var(--verde-energia);"></i>
-                    <div>
-                        <div class="data-label">Economia vs Tradicional</div>
-                        <div class="data-value" style="color: var(--verde-energia);">90%</div>
-                    </div>
-                </div>
-
-                <div class="data-card">
-                    <i class="fas fa-clock" style="color: var(--azul-medio);"></i>
-                    <div>
-                        <div class="data-label">Tempo para 28°C</div>
-                        <div class="data-value" id="tempoAquecimento">Calculando...</div>
-                    </div>
-                </div>
-
-                <div class="data-card">
-                    <i class="fas fa-leaf" style="color: var(--verde-energia);"></i>
-                    <div>
-                        <div class="data-label">Economia Mensal</div>
-                        <div class="data-value">R$ 450</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dashboard-panel visual-panel" data-aos="zoom-in">
-                <h3><i class="fas fa-eye"></i> Visualização da Piscina</h3>
-                <div class="pool-visualization">
-                    <div class="pool-water" id="poolWater" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
-                        <div class="pool-leds" id="poolLeds">
-                            <div class="led-indicator" style="background: #3498db; box-shadow: 0 0 20px #3498db;"></div>
-                        </div>
-                        <div class="pool-temp" id="poolTempDisplay">25°C</div>
-                    </div>
-                    <div class="pool-edges" id="poolEdges" style="display: none;">
-                        <div class="edge-led" style="background: #fff1dc; box-shadow: 0 0 15px #fff1dc;"></div>
-                        <div class="edge-led" style="background: #fff1dc; box-shadow: 0 0 15px #fff1dc;"></div>
-                        <div class="edge-led" style="background: #fff1dc; box-shadow: 0 0 15px #fff1dc;"></div>
-                    </div>
-                </div>
-                <p style="text-align: center; font-size: 13px; margin-top: 10px; color: var(--cinza-medio);">
-                    Simulação visual da iluminação da piscina em tempo real
+            <!-- Galeria de Componentes LED RGB -->
+            <div class="led-components-gallery" data-aos="fade-up">
+                <h3 style="text-align: center; margin-bottom: 15px; color: var(--azul-escuro);">
+                    <i class="fas fa-camera-retro"></i> Componentes Reais do Projeto
+                </h3>
+                <p style="text-align: center; margin-bottom: 40px; color: var(--cinza-medio); max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Conheça de perto os componentes físicos utilizados no nosso sistema de iluminação inteligente da piscina do CEP
                 </p>
+
+                <div class="components-grid">
+                    <div class="component-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="component-image">
+                            <img src="assets/sensorVermelhoLed.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop'" alt="Sensor PIR com LED vermelho aceso">
+                            <div class="component-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="component-info">
+                            <div class="component-badge" style="background: #e74c3c;">
+                                <i class="fas fa-eye"></i> Sensor PIR
+                            </div>
+                            <h4>Sensor de Movimento com LED Indicador</h4>
+                            <p>Sensor PIR (infravermelho passivo) com LED vermelho que indica quando o sensor está ativo e detectando movimento nas escadas da piscina.</p>
+                            <div class="component-specs">
+                                <span><i class="fas fa-bolt"></i> 5V DC</span>
+                                <span><i class="fas fa-ruler"></i> Alcance: 7m</span>
+                                <span><i class="fas fa-angle-double-right"></i> Ângulo: 120°</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="component-image">
+                            <img src="assets/ledsColoridosAcesos.jpg" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop'" alt="LEDs coloridos acesos em várias cores">
+                            <div class="component-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="component-info">
+                            <div class="component-badge" style="background: linear-gradient(90deg, #e74c3c, #2ecc71, #3498db);">
+                                <i class="fas fa-palette"></i> RGB Multicolor
+                            </div>
+                            <h4>LEDs RGB Multicoloridos em Ação</h4>
+                            <p>Demonstração da síntese aditiva na prática: múltiplos LEDs RGB exibindo diferentes cores simultaneamente, mostrando as 16,7 milhões de combinações possíveis.</p>
+                            <div class="component-specs">
+                                <span><i class="fas fa-palette"></i> 16,7M cores</span>
+                                <span><i class="fas fa-bolt"></i> 12V DC</span>
+                                <span><i class="fas fa-clock"></i> 50.000h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="component-image">
+                            <img src="assets/ledRGBverde.jpg" onerror="this.src='https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=400&fit=crop'" alt="LED RGB aceso na cor verde">
+                            <div class="component-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="component-info">
+                            <div class="component-badge" style="background: #27ae60;">
+                                <i class="fas fa-check-circle"></i> Temperatura Ideal
+                            </div>
+                            <h4>LED Verde - Temperatura Atingida</h4>
+                            <p>LED RGB emitindo luz verde, indicando que a água da piscina atingiu a temperatura ideal de 28°C. Sinal visual claro e intuitivo para os usuários.</p>
+                            <div class="component-specs">
+                                <span><i class="fas fa-thermometer-half"></i> 28°C</span>
+                                <span><i class="fas fa-leaf"></i> 23W</span>
+                                <span><i class="fas fa-water"></i> IP68</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- SIMULADOR DE CORES (ORIGINAL) -->
+            <div class="color-simulator-section">
+                <h3 style="text-align: center; margin-bottom: 20px;" data-aos="fade-up">
+                    <i class="fas fa-flask"></i> Simulador de Síntese Aditiva
+                </h3>
+                <p style="text-align: center; margin-bottom: 30px; color: var(--cinza-medio);" data-aos="fade-up">
+                    Experimente a lógica da síntese aditiva: combine as cores e veja como ficaria na piscina do CEP
+                </p>
+                
+                <div class="simulator-container" data-aos="zoom-in">
+                    <div class="simulator-controls">
+                        <div class="color-channel">
+                            <label for="redChannel">
+                                <span style="color: #e74c3c; font-weight: bold;">R</span> Vermelho
+                            </label>
+                            <input type="range" id="redChannel" min="0" max="255" value="0">
+                            <span id="redValue">0</span>
+                        </div>
+                        <div class="color-channel">
+                            <label for="greenChannel">
+                                <span style="color: #2ecc71; font-weight: bold;">G</span> Verde
+                            </label>
+                            <input type="range" id="greenChannel" min="0" max="255" value="0">
+                            <span id="greenValue">0</span>
+                        </div>
+                        <div class="color-channel">
+                            <label for="blueChannel">
+                                <span style="color: #3498db; font-weight: bold;">B</span> Azul
+                            </label>
+                            <input type="range" id="blueChannel" min="0" max="255" value="255">
+                            <span id="blueValue">255</span>
+                        </div>
+                        
+                        <div class="simulator-presets">
+                            <button class="preset-btn" onclick="setPreset(0, 0, 255)" style="background: #3498db;">
+                                <i class="fas fa-tint"></i> Azul (Aquecendo)
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(46, 211, 33)" style="background: #2ed573;">
+                                <i class="fas fa-check"></i> Verde (Pronto)
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(255, 241, 220)" style="background: #fff1dc; color: #333;">
+                                <i class="fas fa-sun"></i> Branco Quente
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(255, 255, 255)" style="background: #fff; color: #333; border: 2px solid #ddd;">
+                                <i class="fas fa-circle"></i> Branco Puro
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(255, 0, 0)" style="background: #e74c3c;">
+                                <i class="fas fa-fire"></i> Vermelho
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(128, 0, 128)" style="background: #800080;">
+                                <i class="fas fa-circle"></i> Roxo
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(255, 165, 0)" style="background: #ffa500;">
+                                <i class="fas fa-sun"></i> Laranja
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(0, 255, 255)" style="background: #00ffff;">
+                                <i class="fas fa-tint"></i> Ciano
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(255, 0, 255)" style="background: #ff00ff;">
+                                <i class="fas fa-circle"></i> Magenta
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(255, 20, 147)" style="background: #ff1493;">
+                                <i class="fas fa-heart"></i> Rosa Choque
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(0, 128, 128)" style="background: #008080;">
+                                <i class="fas fa-water"></i> Verde Água
+                            </button>
+                            <button class="preset-btn" onclick="setPreset(255, 215, 0)" style="background: #ffd700;">
+                                <i class="fas fa-star"></i> Dourado
+                            </button>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="startSimulation()" style="margin-top: 20px; width: 100%;">
+                            <i class="fas fa-play"></i> Iniciar Simulação na Piscina
+                        </button>
+                    </div>
+                    
+                    <div class="simulator-display">
+                        <div class="display-label">Resultado da Mistura (Síntese Aditiva)</div>
+                        <div class="color-display" id="colorDisplay" style="background: rgb(0, 0, 255);">
+                            <img src="assets/piscinacep3.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=400&fit=crop'" alt="Piscina do CEP" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+                            <div class="preview-overlay" id="previewOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 255, 0.5);"></div>
+                        </div>
+                        <div class="color-info">
+                            <div>RGB: <span id="rgbText">rgb(0, 0, 255)</span></div>
+                            <div>Hex: <span id="hexText">#0000FF</span></div>
+                            <div id="colorName" style="margin-top: 10px; font-weight: bold; color: var(--azul-medio);">Azul - Modo Aquecimento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TABELA COMPARATIVA (LOGO APÓS O SIMULADOR) -->
+            <!-- ============================================ -->
+            <div class="table-container" data-aos="fade-up">
+                <h3><i class="fas fa-table"></i> Comparativo Técnico: LED RGB vs Tradicional</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>LED RGB (Projeto CEP)</th>
+                                <th>Incandescente Tradicional</th>
+                                <th>Diferença</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Consumo Energético</strong></td>
+                                <td style="color: var(--verde-energia); font-weight: bold;">9-23W</td>
+                                <td style="color: var(--laranja-solar);">300-500W</td>
+                                <td style="color: var(--verde-energia);"><i class="fas fa-arrow-down"></i> 90% economia</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vida Útil</strong></td>
+                                <td style="color: var(--verde-energia); font-weight: bold;">50.000 horas</td>
+                                <td>2.000 horas</td>
+                                <td style="color: var(--verde-energia);">25x mais durável</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cores Disponíveis</strong></td>
+                                <td style="color: var(--azul-medio); font-weight: bold;">16,7 milhões</td>
+                                <td>1 cor fixa</td>
+                                <td>Infinitas possibilidades</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tensão de Operação</strong></td>
+                                <td style="color: var(--verde-energia); font-weight: bold;">12V (baixa tensão)</td>
+                                <td style="color: var(--laranja-solar);">127V/220V</td>
+                                <td>Maior segurança</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Certificação</strong></td>
+                                <td style="font-weight: bold;">IP68 (submersível)</td>
+                                <td>IP44 (respingos)</td>
+                                <td>100% à prova d'água</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Controle</strong></td>
+                                <td style="font-weight: bold;">Automático + App</td>
+                                <td>Interruptor manual</td>
+                                <td>Automação inteligente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Acessibilidade</strong></td>
+                                <td style="color: var(--verde-energia); font-weight: bold;">Modo Seguro incluso</td>
+                                <td>Sem recursos</td>
+                                <td>Inclusão garantida</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Custo Operacional/ano</strong></td>
+                                <td style="color: var(--verde-energia); font-weight: bold;">~R$ 50</td>
+                                <td style="color: var(--laranja-solar);">~R$ 500</td>
+                                <td style="color: var(--verde-energia);">Economia de R$ 450/ano</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- ============================================ -->
+            <!-- FIM DA TABELA COMPARATIVA -->
+            <!-- ============================================ -->
+
         </div>
-    </div>
-</section>
-        
+    </section>
+
     <!-- Robótica Section -->
     <section class="section robotica" id="robotica">
         <div class="container">
@@ -1018,24 +899,22 @@ void setup() {
 }
 
 void loop() {
-  float temperatura = lerTemperatura();  // Função que lê o sensor
+  float temperatura = lerTemperatura();
   
   if (temperatura < tempIdeal) {
-    // Água ainda está aquecendo - LED AZUL
-    analogWrite(ledR, 0);      // 0% vermelho
-    analogWrite(ledG, 0);      // 0% verde
-    analogWrite(ledB, 255);    // 100% azul
+    analogWrite(ledR, 0);
+    analogWrite(ledG, 0);
+    analogWrite(ledB, 255);
     Serial.println("Aquecendo... LED Azul");
   } 
   else {
-    // Temperatura ideal atingida - LED VERDE
-    analogWrite(ledR, 0);      // 0% vermelho
-    analogWrite(ledG, 255);    // 100% verde
-    analogWrite(ledB, 0);      // 0% azul
+    analogWrite(ledR, 0);
+    analogWrite(ledG, 255);
+    analogWrite(ledB, 0);
     Serial.println("Temperatura ideal! LED Verde");
   }
   
-  delay(1000);  // Verifica a cada segundo
+  delay(1000);
 }</code></pre>
                 </div>
                 <p style="font-size: 13px; color: var(--cinza-medio); margin-top: 10px;">
@@ -1094,7 +973,7 @@ void loop() {
         </div>
     </section>
 
-    <!-- Simuladores Section (APENAS PAINEL DE CONTROLE) -->
+    <!-- Simuladores Section -->
     <section class="section simulator" id="simuladores">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -1127,7 +1006,6 @@ void loop() {
                         </div>
                     </div>
 
-                    <!-- BOTÃO DE ATIVAR/DESATIVAR OTIMIZADO -->
                     <div class="control-group safe-mode-group">
                         <label class="safe-mode-label">
                             <i class="fas fa-universal-access"></i> Modo Seguro (Acessibilidade)
@@ -1207,7 +1085,7 @@ void loop() {
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: CALCULADORAS -->
+    <!-- Calculadoras Section -->
     <section class="section calculators" id="calculadoras">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -1422,7 +1300,7 @@ void loop() {
 
             <div class="team-intro" data-aos="fade-up">
                 <p style="text-align: center; font-size: 18px; max-width: 800px; margin: 0 auto 40px; color: var(--cinza);">
-                    Este projeto foi desenvolvido de forma <strong>100% colaborativa</strong>. Todos os membros participaram ativamente de todas as etapas: pesquisa, montagem de circuitos, programação, testes e documentação. A integração entre as diferentes áreas de conhecimento foi fundamental para o sucesso deste projeto.
+                    Este projeto foi desenvolvido de forma <strong>100% colaborativa</strong>. Todos os membros participaram ativamente de todas as etapas: pesquisa, montagem de circuitos, programação, testes e documentação.
                 </p>
             </div>
 
@@ -1485,12 +1363,12 @@ void loop() {
             </div>
 
             <div class="team-note" data-aos="fade-up">
-                <p><i class="fas fa-info-circle"></i> <strong>Gestão do Projeto:</strong> Todos os membros participaram ativamente das reuniões semanais, divisão de tarefas e tomada de decisões colaborativas. O trabalho em equipe foi fundamental para integrar os conhecimentos de Física, Programação e Sustentabilidade.</p>
+                <p><i class="fas fa-info-circle"></i> <strong>Gestão do Projeto:</strong> Todos os membros participaram ativamente das reuniões semanais, divisão de tarefas e tomada de decisões colaborativas.</p>
             </div>
 
             <div class="teachers-section" data-aos="fade-up">
                 <h3 style="text-align: center; margin-bottom: 10px;"><i class="fas fa-chalkboard-teacher" style="color: var(--azul-primario);"></i> Orientação Pedagógica</h3>
-                <p style="text-align: center; color: var(--cinza-azulado-texto); margin-bottom: 30px;">Agradecemos o suporte técnico e acadêmico dos nossos professores orientadores, que contribuíram igualmente para o desenvolvimento do projeto:</p>
+                <p style="text-align: center; color: var(--cinza-azulado-texto); margin-bottom: 30px;">Agradecemos o suporte técnico e acadêmico dos nossos professores orientadores:</p>
                 <div class="teachers-grid">
                     <div class="teacher-card">
                         <i class="fas fa-microchip"></i>
