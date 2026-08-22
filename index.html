@@ -282,6 +282,7 @@
                         </p>
                     </div>
 
+                    <!-- ÚNICO VÍDEO MANTIDO NA SEÇÃO ÓPTICA -->
                     <div class="video-container">
                         <h4 style="margin-bottom: 15px; color: var(--azul-escuro);">
                             <i class="fas fa-video"></i> Vídeo: Óptica dos Coletores Solares
@@ -330,49 +331,8 @@
                 </div>
             </div>
 
-            <div class="content-grid reverse">
-                <div class="visual-content" data-aos="fade-left">
-                    <div class="video-grid">
-                        <div class="video-item">
-                            <h4><i class="fas fa-video"></i> Mistura de Cores - Síntese Aditiva</h4>
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/3tp7ncFOZio" title="Mistura de cores e síntese aditiva" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <p style="font-size: 13px; margin-top: 10px;">Como as cores se combinam para formar novas tonalidades</p>
-                        </div>
-                        <div class="video-item">
-                            <h4><i class="fas fa-video"></i> PWM - Controle de LEDs</h4>
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/SkqUwNTtpM4" title="Sistemas de cores aditivas (RGB)" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <p style="font-size: 13px; margin-top: 10px;">Como controlar a intensidade dos LEDs através de pulsos rápidos</p>
-                        </div>
-                        <div class="video-item">
-                            <h4><i class="fas fa-video"></i> Acessibilidade Visual</h4>
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/yMrRaVW6tDw" title="PWM em fonte chaveada" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <p style="font-size: 13px; margin-top: 10px;">Importância do contraste na iluminação para segurança</p>
-                        </div>
-                        <div class="video-item">
-                            <h4><i class="fas fa-video"></i> LED RGB na Prática</h4>
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/aeE0u1J-1pg" title="Aplicação prática de LEDs RGB" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <p style="font-size: 13px; margin-top: 10px;">Exemplos reais de uso de LEDs RGB em piscinas</p>
-                        </div>
-                        <div class="video-item full-width">
-                            <h4><i class="fas fa-video"></i> Iluminação Inteligente</h4>
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/5vnRRuu4O7A" title="Sistemas de iluminação inteligente" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <p style="font-size: 13px; margin-top: 10px;">
-                                <i class="fas fa-closed-captioning"></i> Ative as legendas em português (CC)
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- CONTEÚDO TEXTUAL (SEM VÍDEOS DUPLICADOS) -->
+            <div class="content-grid">
                 <div class="text-content" data-aos="fade-right">
                     <div class="concept-box featured">
                         <h4><i class="fas fa-prism" style="color: var(--azul-medio);"></i> Síntese Aditiva</h4>
@@ -390,6 +350,23 @@
                         <h4><i class="fas fa-eye" style="color: var(--verde-energia);"></i> Sensibilidade do Olho Humano</h4>
                         <p>Para o <strong>Modo Seguro</strong> de acessibilidade, utilizamos <strong>Branco Quente</strong> (2700-3000K) em vez de Branco Frio (6000-6500K). A óptica explica: a luz quente tem menor temperatura de cor, gerando menos ofuscamento (glare) e melhor definição de sombras e contornos para pessoas com baixa visão.</p>
                         <p style="margin-top: 10px;">Além disso, o alto contraste entre a iluminação branca quente das bordas e a água escura da piscina cria uma referência visual clara, prevenindo quedas e acidentes nas escadas e degraus.</p>
+                    </div>
+                </div>
+
+                <div class="visual-content" data-aos="fade-left">
+                    <div class="concept-box">
+                        <h4><i class="fas fa-bolt" style="color: var(--laranja-solar);"></i> Baixa Tensão = Segurança</h4>
+                        <p>Os LEDs RGB operam em <strong>12V DC</strong>, muito abaixo da tensão da rede elétrica (127V/220V). Isso elimina riscos de choque elétrico em ambientes aquáticos, sendo ideal para piscinas escolares.</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4><i class="fas fa-clock" style="color: var(--azul-medio);"></i> Vida Útil Extensa</h4>
+                        <p>Enquanto lâmpadas incandescentes duram cerca de <strong>2.000 horas</strong>, os LEDs RGB têm vida útil de <strong>50.000 horas</strong> - 25 vezes mais duráveis. Isso significa menos trocas, menos resíduos e mais economia.</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4><i class="fas fa-leaf" style="color: var(--verde-energia);"></i> Eficiência Energética</h4>
+                        <p>Consumo de apenas <strong>9-23W</strong> contra 300-500W das lâmpadas tradicionais. Isso representa <strong>90% de economia</strong> na conta de energia, além de reduzir a pegada de carbono da escola.</p>
                     </div>
                 </div>
             </div>
@@ -688,9 +665,7 @@
                 </div>
             </div>
 
-            <!-- ============================================ -->
-            <!-- TABELA COMPARATIVA (LOGO APÓS O SIMULADOR) -->
-            <!-- ============================================ -->
+            <!-- TABELA COMPARATIVA -->
             <div class="table-container" data-aos="fade-up">
                 <h3><i class="fas fa-table"></i> Comparativo Técnico: LED RGB vs Tradicional</h3>
                 <div class="table-responsive">
@@ -756,9 +731,6 @@
                     </table>
                 </div>
             </div>
-            <!-- ============================================ -->
-            <!-- FIM DA TABELA COMPARATIVA -->
-            <!-- ============================================ -->
 
         </div>
     </section>
@@ -885,11 +857,11 @@
                     <pre><code>// Controle inteligente de LED baseado na temperatura da água
 // Microcontrolador: ESP32
 
-const int sensorTemp = 4;        // Pino do sensor DS18B20
-const int ledR = 12;             // Pino LED Vermelho (PWM)
-const int ledG = 13;             // Pino LED Verde (PWM)
-const int ledB = 14;             // Pino LED Azul (PWM)
-const float tempIdeal = 28.0;    // Temperatura ideal em °C
+const int sensorTemp = 4;
+const int ledR = 12;
+const int ledG = 13;
+const int ledB = 14;
+const float tempIdeal = 28.0;
 
 void setup() {
   pinMode(ledR, OUTPUT);
