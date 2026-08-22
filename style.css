@@ -6,7 +6,7 @@
     --azul-profundo: #0f172a;
     --azul-primario: #0ea5e9;
     --azul-eletrico: #06b6d4;
-    --azul-claro: #e0f2fe;
+    --azul-claro:  #AFDDFC;
     --azul-medio: #2a5298;
     
     /* Cores de Destaque */
@@ -396,7 +396,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== SAFE MODE TOGGLE (TEXTO EM CIMA E FUNDO VISÍVEL) ===== */
 .safe-mode-group {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    background: linear-gradient(135deg, #f0f9ff 0%,  #AFDDFC 100%);
     border: 2px solid var(--azul-claro);
     border-radius: 16px;
     padding: 25px;
