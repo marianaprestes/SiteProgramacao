@@ -394,12 +394,12 @@ h1, h2, h3, h4, h5, h6 {
     display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; transition: background 0.5s ease;
 }
 
-/* ===== SAFE MODE TOGGLE (MAIS BONITO E VISÍVEL) ===== */
+/* ===== SAFE MODE TOGGLE (TEXTO EM CIMA E FUNDO VISÍVEL) ===== */
 .safe-mode-group {
     background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
     border: 2px solid var(--azul-claro);
     border-radius: 16px;
-    padding: 20px;
+    padding: 25px;
     margin-top: 10px;
     transition: all 0.3s ease;
 }
@@ -417,7 +417,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 16px;
     font-weight: 700;
     color: var(--azul-profundo);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .safe-mode-label i {
@@ -425,18 +425,20 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 20px;
 }
 
-.toggle-container {
+.toggle-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
 .custom-toggle-switch {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 36px;
     cursor: pointer;
-    width: 100%;
 }
 
 .custom-toggle-switch input {
@@ -446,48 +448,59 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
 }
 
-.toggle-slider {
-    position: relative;
-    width: 60px;
-    height: 32px;
+/* Fundo/Trilho do switch */
+.toggle-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #cbd5e1;
-    border-radius: 32px;
+    border-radius: 36px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    flex-shrink: 0;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.toggle-slider::before {
+/* Slider/Bolinha */
+.toggle-slider {
     position: absolute;
     content: "";
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     left: 4px;
     bottom: 4px;
     background-color: white;
     border-radius: 50%;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    z-index: 2;
 }
 
-.custom-toggle-switch input:checked + .toggle-slider {
+/* Quando ativado - muda o fundo para verde */
+.custom-toggle-switch input:checked + .toggle-slider + .toggle-track {
     background-color: var(--verde-energia);
     box-shadow: 0 0 15px rgba(39, 174, 96, 0.4), inset 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.custom-toggle-switch input:checked + .toggle-slider::before {
-    transform: translateX(28px);
+/* Quando ativado - move a bolinha */
+.custom-toggle-switch input:checked + .toggle-slider {
+    transform: translateX(34px);
     background-color: white;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.4);
 }
 
-.toggle-text {
-    font-size: 16px;
+/* Texto em cima do switch */
+.toggle-label-text {
+    font-size: 14px;
     font-weight: 600;
     color: var(--cinza-escuro);
+    text-align: center;
     transition: color 0.3s ease;
+    margin-top: 5px;
 }
 
-.custom-toggle-switch input:checked ~ .toggle-text {
+/* Quando ativado - texto fica verde */
+.custom-toggle-switch input:checked ~ .toggle-label-text {
     color: var(--verde-energia);
 }
 
@@ -499,6 +512,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
     gap: 8px;
     line-height: 1.5;
+    text-align: center;
+    justify-content: center;
 }
 
 .toggle-description i {
