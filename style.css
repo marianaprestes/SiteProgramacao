@@ -394,7 +394,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; transition: background 0.5s ease;
 }
 
-/* ===== TOGGLE SWITCH MELHORADO (BOTÃO DO SENSOR) ===== */
+/* ===== TOGGLE SWITCH (BOTÃO DO SENSOR) ===== */
 .toggle-switch { 
     display: flex; 
     align-items: center; 
@@ -406,6 +406,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 2px solid #cbd5e1; /* Borda cinza */
     cursor: pointer;
     transition: all 0.3s ease;
+    user-select: none;
 }
 
 .toggle-switch:hover { 
@@ -413,31 +414,20 @@ h1, h2, h3, h4, h5, h6 {
     background: #f8fafc;
 }
 
+/* Esconde o checkbox real, mas mantém a funcionalidade */
 .toggle-switch input { 
-    display: none; /* Esconde o checkbox padrão, mantendo a funcionalidade */
+    display: none; 
 }
 
+/* O retângulo do slider (SEM a bolinha branca) */
 .toggle-slider {
-    position: relative; 
     width: 56px; 
     height: 30px; 
     background-color: #94a3b8; /* Cinza médio (Desligado) */
     border-radius: 30px; 
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
-}
-
-.toggle-slider:before {
-    position: absolute; 
-    content: ""; 
-    height: 24px; 
-    width: 24px; 
-    left: 3px; 
-    bottom: 3px;
-    background-color: #ffffff; 
-    border-radius: 50%; 
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative;
 }
 
 .toggle-text {
@@ -445,32 +435,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #64748b; /* Cinza escuro (Desligado) */
     font-size: 15px;
     transition: color 0.3s ease;
-    user-select: none;
-}
-
-/* === ESTADO LIGADO (CHECKED) === */
-/* Muda o fundo e a borda do container principal */
-.toggle-switch:has(input:checked) {
-    background: #dcfce7; /* Verde bem claro */
-    border-color: #22c55e; /* Verde vibrante */
-    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15); /* Anel de foco suave */
-}
-
-/* Muda a cor do slider */
-.toggle-switch input:checked ~ .toggle-slider { 
-    background-color: #22c55e; /* Verde vibrante */
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5); /* Efeito de brilho (glow) */
-}
-
-/* Move a bolinha para a direita */
-.toggle-switch input:checked ~ .toggle-slider:before { 
-    transform: translateX(26px); 
-}
-
-/* Muda a cor e peso do texto */
-.toggle-switch input:checked ~ .toggle-text {
-    color: #15803d; /* Verde escuro forte */
-    font-weight: 700;
+    flex-grow: 1; /* Garante que o texto ocupe o espaço e seja clicável */
 }
 
 .toggle-description {
@@ -482,11 +447,31 @@ h1, h2, h3, h4, h5, h6 {
     transition: color 0.3s ease;
 }
 
+/* === ESTADO LIGADO (CHECKED) === */
+/* Muda o fundo e a borda do container principal */
+.toggle-switch:has(input:checked) {
+    background: #dcfce7; /* Verde bem claro */
+    border-color: #22c55e; /* Verde vibrante */
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15); /* Anel de foco suave */
+}
+
+/* Muda a cor do slider para verde sólido */
+.toggle-switch input:checked ~ .toggle-slider { 
+    background-color: #22c55e; /* Verde vibrante */
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5); /* Efeito de brilho (glow) */
+}
+
+/* Muda a cor e peso do texto */
+.toggle-switch input:checked ~ .toggle-text {
+    color: #15803d; /* Verde escuro forte */
+    font-weight: 700;
+}
+
 /* Muda a cor da descrição quando ligado */
 .toggle-switch:has(input:checked) + .toggle-description {
     color: #15803d;
 }
-/* ===== FIM DO TOGGLE SWITCH MELHORADO ===== */
+/* ===== FIM DO TOGGLE SWITCH ===== */
 
 .data-card { display: flex; align-items: center; gap: 15px; padding: 15px; background: var(--cinza-claro); border-radius: 12px; margin-bottom: 15px; }
 .data-card i { font-size: 28px; }
