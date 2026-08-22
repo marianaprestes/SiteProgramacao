@@ -610,6 +610,220 @@
             </div>
         </div>
 
+<!-- SIMULADOR DE CORES -->
+<div class="color-simulator-section">
+    <h3 style="text-align: center; margin-bottom: 20px;" data-aos="fade-up">
+        <i class="fas fa-flask"></i> Simulador de Síntese Aditiva
+    </h3>
+    <p style="text-align: center; margin-bottom: 30px; color: var(--cinza-medio);" data-aos="fade-up">
+        Experimente a lógica da síntese aditiva: combine as cores e veja como ficaria na piscina do CEP
+    </p>
+    
+    <div class="simulator-container" data-aos="zoom-in">
+        <div class="simulator-controls">
+            <div class="color-channel">
+                <label for="redChannel">
+                    <span style="color: #e74c3c; font-weight: bold;">R</span> Vermelho
+                </label>
+                <input type="range" id="redChannel" min="0" max="255" value="0">
+                <span id="redValue">0</span>
+            </div>
+            <div class="color-channel">
+                <label for="greenChannel">
+                    <span style="color: #2ecc71; font-weight: bold;">G</span> Verde
+                </label>
+                <input type="range" id="greenChannel" min="0" max="255" value="0">
+                <span id="greenValue">0</span>
+            </div>
+            <div class="color-channel">
+                <label for="blueChannel">
+                    <span style="color: #3498db; font-weight: bold;">B</span> Azul
+                </label>
+                <input type="range" id="blueChannel" min="0" max="255" value="255">
+                <span id="blueValue">255</span>
+            </div>
+            
+            <div class="simulator-presets">
+                <button class="preset-btn" onclick="setPreset(0, 0, 255)" style="background: #3498db;">
+                    <i class="fas fa-tint"></i> Azul (Aquecendo)
+                </button>
+                <button class="preset-btn" onclick="setPreset(46, 211, 33)" style="background: #2ed573;">
+                    <i class="fas fa-check"></i> Verde (Pronto)
+                </button>
+                <button class="preset-btn" onclick="setPreset(255, 241, 220)" style="background: #fff1dc; color: #333;">
+                    <i class="fas fa-sun"></i> Branco Quente
+                </button>
+                <button class="preset-btn" onclick="setPreset(255, 255, 255)" style="background: #fff; color: #333; border: 2px solid #ddd;">
+                    <i class="fas fa-circle"></i> Branco Puro
+                </button>
+                <button class="preset-btn" onclick="setPreset(255, 0, 0)" style="background: #e74c3c;">
+                    <i class="fas fa-fire"></i> Vermelho
+                </button>
+                <button class="preset-btn" onclick="setPreset(128, 0, 128)" style="background: #800080;">
+                    <i class="fas fa-circle"></i> Roxo
+                </button>
+                <button class="preset-btn" onclick="setPreset(255, 165, 0)" style="background: #ffa500;">
+                    <i class="fas fa-sun"></i> Laranja
+                </button>
+                <button class="preset-btn" onclick="setPreset(0, 255, 255)" style="background: #00ffff;">
+                    <i class="fas fa-tint"></i> Ciano
+                </button>
+                <button class="preset-btn" onclick="setPreset(255, 0, 255)" style="background: #ff00ff;">
+                    <i class="fas fa-circle"></i> Magenta
+                </button>
+                <button class="preset-btn" onclick="setPreset(255, 20, 147)" style="background: #ff1493;">
+                    <i class="fas fa-heart"></i> Rosa Choque
+                </button>
+                <button class="preset-btn" onclick="setPreset(0, 128, 128)" style="background: #008080;">
+                    <i class="fas fa-water"></i> Verde Água
+                </button>
+                <button class="preset-btn" onclick="setPreset(255, 215, 0)" style="background: #ffd700;">
+                    <i class="fas fa-star"></i> Dourado
+                </button>
+            </div>
+            
+            <button class="btn btn-primary" onclick="applyColorToPool()" style="margin-top: 20px; width: 100%;">
+                <i class="fas fa-paint-brush"></i> Aplicar Cor na Piscina
+            </button>
+        </div>
+        
+        <div class="simulator-display">
+            <div class="display-label">Resultado da Mistura (Síntese Aditiva)</div>
+            <div class="color-display" id="colorDisplay" style="background: rgb(0, 0, 255);">
+                <img src="assets/piscinacep3.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=400&fit=crop'" alt="Piscina do CEP" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+                <div class="preview-overlay" id="previewOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 255, 0.5);"></div>
+            </div>
+            <div class="color-info">
+                <div>RGB: <span id="rgbText">rgb(0, 0, 255)</span></div>
+                <div>Hex: <span id="hexText">#0000FF</span></div>
+                <div id="colorName" style="margin-top: 10px; font-weight: bold; color: var(--azul-medio);">Azul - Modo Aquecimento</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Simuladores Section -->
+<section class="section simulator" id="simuladores">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Simulador Interativo do Sistema</h2>
+            <p class="section-subtitle">Teste e configure seu sistema de aquecimento e iluminação</p>
+        </div>
+
+        <div class="simulator-dashboard">
+            <div class="dashboard-panel main-panel" data-aos="fade-right">
+                <h3><i class="fas fa-tachometer-alt"></i> Painel de Controle</h3>
+                
+                <div class="control-group">
+                    <label for="simTemp">Temperatura da Água (°C)</label>
+                    <div class="slider-container">
+                        <input type="range" id="simTemp" min="15" max="40" value="25" step="0.5">
+                        <span id="simTempValue" class="value-display">25°C</span>
+                    </div>
+                    <div class="temp-indicator">
+                        <span class="temp-label cold">Fria</span>
+                        <span class="temp-label ideal">Ideal (28°C)</span>
+                        <span class="temp-label hot">Quente</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Status do LED RGB</label>
+                    <div id="ledStatus" class="led-status-box" style="background: #3498db;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span id="ledStatusText">AZUL - Aquecendo</span>
+                    </div>
+                </div>
+
+                <!-- BOTÃO DE ATIVAR/DESATIVAR -->
+                <div class="control-group safe-mode-group">
+                    <label class="safe-mode-label">
+                        <i class="fas fa-universal-access"></i> Modo Seguro (Acessibilidade)
+                    </label>
+                    
+                    <div class="toggle-wrapper">
+                        <label class="custom-toggle-switch">
+                            <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-track"></span>
+                        </label>
+                        <span class="toggle-label-text">Ativar sensor de movimento</span>
+                    </div>
+                    
+                    <p class="toggle-description">
+                        <i class="fas fa-info-circle"></i> Quando ativo, as bordas acendem em <strong>Branco Quente</strong> ao detectar movimento, garantindo segurança e visibilidade.
+                    </p>
+                </div>
+
+                <!-- NOVO: Indicador de cor atual da piscina -->
+                <div class="control-group">
+                    <label>Cor Atual da Piscina</label>
+                    <div id="poolColorIndicator" style="width: 100%; height: 60px; border-radius: 12px; background: linear-gradient(135deg, #1e3c72, #2a5298); box-shadow: inset 0 0 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px; transition: all 0.5s ease;">
+                        <i class="fas fa-water" style="margin-right: 10px;"></i>
+                        <span id="poolColorText">Azul - Aquecendo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-panel info-panel" data-aos="fade-left">
+                <h3><i class="fas fa-chart-bar"></i> Dados em Tempo Real</h3>
+                
+                <div class="data-card">
+                    <i class="fas fa-bolt" style="color: var(--laranja-solar);"></i>
+                    <div>
+                        <div class="data-label">Consumo Atual</div>
+                        <div class="data-value" id="consumoAtual">23W</div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <i class="fas fa-dollar-sign" style="color: var(--verde-energia);"></i>
+                    <div>
+                        <div class="data-label">Economia vs Tradicional</div>
+                        <div class="data-value" style="color: var(--verde-energia);">90%</div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <i class="fas fa-clock" style="color: var(--azul-medio);"></i>
+                    <div>
+                        <div class="data-label">Tempo para 28°C</div>
+                        <div class="data-value" id="tempoAquecimento">Calculando...</div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <i class="fas fa-leaf" style="color: var(--verde-energia);"></i>
+                    <div>
+                        <div class="data-label">Economia Mensal</div>
+                        <div class="data-value">R$ 450</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-panel visual-panel" data-aos="zoom-in">
+                <h3><i class="fas fa-eye"></i> Visualização da Piscina</h3>
+                <div class="pool-visualization">
+                    <div class="pool-water" id="poolWater" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
+                        <div class="pool-leds" id="poolLeds">
+                            <div class="led-indicator" style="background: #3498db; box-shadow: 0 0 20px #3498db;"></div>
+                        </div>
+                        <div class="pool-temp" id="poolTempDisplay">25°C</div>
+                    </div>
+                    <div class="pool-edges" id="poolEdges" style="display: none;">
+                        <div class="edge-led" style="background: #fff1dc; box-shadow: 0 0 15px #fff1dc;"></div>
+                        <div class="edge-led" style="background: #fff1dc; box-shadow: 0 0 15px #fff1dc;"></div>
+                        <div class="edge-led" style="background: #fff1dc; box-shadow: 0 0 15px #fff1dc;"></div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 13px; margin-top: 10px; color: var(--cinza-medio);">
+                    Simulação visual da iluminação da piscina em tempo real
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+        
     <!-- Robótica Section -->
     <section class="section robotica" id="robotica">
         <div class="container">
