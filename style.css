@@ -393,19 +393,144 @@ h1, h2, h3, h4, h5, h6 {
     padding: 15px; border-radius: 12px; color: var(--branco); font-weight: 700;
     display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; transition: background 0.5s ease;
 }
-.toggle-switch { position: relative; display: inline-block; width: 100%; }
-.toggle-switch input { opacity: 0; width: 0; height: 0; }
-.toggle-label { display: flex; align-items: center; cursor: pointer; gap: 15px; }
+
+/* ===== TOGGLE SWITCH MELHORADO (MODO SEGURO) ===== */
+.toggle-switch { 
+    position: relative; 
+    display: block; 
+    width: 100%; 
+    margin: 15px 0;
+}
+.toggle-switch input { 
+    opacity: 0; 
+    width: 0; 
+    height: 0; 
+    position: absolute;
+}
+.toggle-label { 
+    display: flex; 
+    align-items: center; 
+    cursor: pointer; 
+    gap: 20px; 
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 3px solid #dee2e6;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.toggle-label::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.toggle-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-label:hover::before {
+    left: 100%;
+}
+
 .toggle-slider {
-    position: relative; width: 50px; height: 26px; background-color: #ccc;
-    border-radius: 34px; transition: 0.4s;
+    position: relative; 
+    width: 70px; 
+    height: 36px; 
+    background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+    border-radius: 36px; 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.toggle-slider:before {
-    position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px;
-    background-color: white; border-radius: 50%; transition: 0.4s;
+
+.toggle-slider::before {
+    position: absolute; 
+    content: "\f185"; /* Ícone do sol (Font Awesome) */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    height: 28px; 
+    width: 28px; 
+    left: 4px; 
+    bottom: 4px;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    border-radius: 50%; 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #f59e0b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-input:checked + .toggle-label .toggle-slider { background-color: var(--verde-energia); }
-input:checked + .toggle-label .toggle-slider:before { transform: translateX(24px); }
+
+.toggle-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--azul-profundo);
+    flex: 1;
+    line-height: 1.4;
+}
+
+.toggle-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #e2e8f0;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+/* Estado ATIVADO */
+input:checked + .toggle-label {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: var(--verde-energia);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.25);
+}
+
+input:checked + .toggle-label .toggle-slider {
+    background: linear-gradient(135deg, #27ae60 0%, #22c55e 100%);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px rgba(39, 174, 96, 0.4);
+}
+
+input:checked + .toggle-label .toggle-slider::before {
+    transform: translateX(34px);
+    content: "\f186"; /* Ícone da lua (Font Awesome) */
+    color: #1e40af;
+    background: linear-gradient(135deg, #ffffff 0%, #dbeafe 100%);
+}
+
+input:checked + .toggle-label .toggle-text {
+    color: #065f46;
+}
+
+input:checked + .toggle-label .toggle-status {
+    background: var(--verde-energia);
+    color: var(--branco);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(39, 174, 96, 0);
+    }
+}
+
 .data-card { display: flex; align-items: center; gap: 15px; padding: 15px; background: var(--cinza-claro); border-radius: 12px; margin-bottom: 15px; }
 .data-card i { font-size: 28px; }
 .data-label { font-size: 13px; color: var(--cinza-medio); }
