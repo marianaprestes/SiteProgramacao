@@ -348,11 +348,11 @@
                             </p>
                         </div>
                         <div class="video-item">
-                            <h4><i class="fas fa-video"></i> Sistemas de cores aditivas</h4>
+                            <h4><i class="fas fa-video"></i> PWM - Controle de LEDs</h4>
                             <div class="video-wrapper">
                                 <iframe 
                                     src="https://www.youtube.com/embed/SkqUwNTtpM4" 
-                                    title="Sistemas de cores aditivas"
+                                    title="Sistemas de cores aditivas (RGB)"
                                     frameborder="0" 
                                     allowfullscreen
                                     aria-label="Vídeo explicativo sobre modulação por largura de pulso (PWM) para controle de intensidade de LEDs">
@@ -363,7 +363,7 @@
                             </p>
                         </div>
                         <div class="video-item">
-                            <h4><i class="fas fa-video"></i> PWM em fonte chaveada</h4>
+                            <h4><i class="fas fa-video"></i> Acessibilidade Visual</h4>
                             <div class="video-wrapper">
                                 <iframe 
                                     src="https://www.youtube.com/embed/yMrRaVW6tDw" 
@@ -882,19 +882,14 @@ void loop() {
                         </div>
                     </div>
 
-                    <!-- AQUI ESTÁ A MELHORIA NO BOTÃO DE ATIVAR/DESATIVAR -->
+                    <!-- BOTÃO DE ATIVAR/DESATIVAR OTIMIZADO -->
                     <div class="control-group">
                         <label>Modo Seguro (Acessibilidade)</label>
-                        <div class="toggle-switch">
+                        <label class="toggle-switch" for="safeMode">
                             <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
-                            <label for="safeMode" class="toggle-label">
-                                <span class="toggle-slider"></span>
-                                <span class="toggle-text">
-                                    <i class="fas fa-shield-alt"></i>
-                                    Ativar sensor de movimento
-                                </span>
-                            </label>
-                        </div>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Ativar sensor de movimento</span>
+                        </label>
                         <p class="toggle-description">
                             Quando ativo, as bordas acendem em Branco Quente ao detectar movimento
                         </p>
