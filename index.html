@@ -48,7 +48,7 @@
         </div>
     </header>
 
-    <!-- Hero Section - DESIGN IMPACTANTE COM MAIS BOLHAS -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-particles">
             <div class="particle" style="left: 5%; animation-delay: 0s;"></div>
@@ -304,7 +304,7 @@
         </div>
     </section>
 
-    <!-- LED RGB Section (EXPANDIDA) -->
+    <!-- LED RGB Section -->
     <section class="section led" id="led">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -348,7 +348,7 @@
                             </p>
                         </div>
                         <div class="video-item">
-                            <h4><i class="fas fa-video"></i> Sistemas de cores aditivas (RGB)</h4>
+                            <h4><i class="fas fa-video"></i> PWM - Controle de LEDs</h4>
                             <div class="video-wrapper">
                                 <iframe 
                                     src="https://www.youtube.com/embed/SkqUwNTtpM4" 
@@ -363,7 +363,7 @@
                             </p>
                         </div>
                         <div class="video-item">
-                            <h4><i class="fas fa-video"></i> PWM em fonte chaveada</h4>
+                            <h4><i class="fas fa-video"></i> Acessibilidade Visual</h4>
                             <div class="video-wrapper">
                                 <iframe 
                                     src="https://www.youtube.com/embed/yMrRaVW6tDw" 
@@ -477,7 +477,7 @@
                 </div>
             </div>
 
-            <!-- SIMULADOR DE CORES EXPANDIDO -->
+            <!-- SIMULADOR DE CORES -->
             <div class="color-simulator-section">
                 <h3 style="text-align: center; margin-bottom: 20px;" data-aos="fade-up">
                     <i class="fas fa-flask"></i> Simulador de Síntese Aditiva
@@ -725,7 +725,6 @@
                     </div>
                 </div>
                 
-                <!-- Ilustração Visual da Arquitetura -->
                 <div class="architecture-illustration" style="margin-top: 40px; text-align: center;">
                     <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 40px; border-radius: 20px; border: 3px solid var(--azul-claro);">
                         <h4 style="color: var(--azul-escuro); margin-bottom: 20px;"><i class="fas fa-sitemap"></i> Fluxo Completo do Sistema</h4>
@@ -883,16 +882,20 @@ void loop() {
                         </div>
                     </div>
 
+                    <!-- AQUI ESTÁ A MELHORIA NO BOTÃO DE ATIVAR/DESATIVAR -->
                     <div class="control-group">
                         <label>Modo Seguro (Acessibilidade)</label>
                         <div class="toggle-switch">
                             <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
                             <label for="safeMode" class="toggle-label">
                                 <span class="toggle-slider"></span>
-                                <span class="toggle-text">Ativar sensor de movimento</span>
+                                <span class="toggle-text">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ativar sensor de movimento
+                                </span>
                             </label>
                         </div>
-                        <p style="font-size: 13px; color: var(--cinza-medio); margin-top: 5px;">
+                        <p class="toggle-description">
                             Quando ativo, as bordas acendem em Branco Quente ao detectar movimento
                         </p>
                     </div>
