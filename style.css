@@ -393,144 +393,81 @@ h1, h2, h3, h4, h5, h6 {
     padding: 15px; border-radius: 12px; color: var(--branco); font-weight: 700;
     display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; transition: background 0.5s ease;
 }
-
-/* ===== TOGGLE SWITCH MELHORADO (MODO SEGURO) ===== */
-.toggle-switch { 
-    position: relative; 
-    display: block; 
-    width: 100%; 
-    margin: 15px 0;
-}
-.toggle-switch input { 
-    opacity: 0; 
-    width: 0; 
-    height: 0; 
-    position: absolute;
-}
-.toggle-label { 
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    cursor: pointer; 
-    gap: 15px; 
-    padding: 25px 20px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border: 3px solid #dee2e6;
-    border-radius: 16px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-    position: relative;
-    overflow: hidden;
-}
-
-.toggle-label::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s;
-}
-
-.toggle-label:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.toggle-label:hover::before {
-    left: 100%;
-}
-
+.toggle-switch { position: relative; display: inline-block; width: 100%; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-label { display: flex; align-items: center; cursor: pointer; gap: 15px; }
 .toggle-slider {
-    position: relative; 
-    width: 80px;
-    height: 42px;
-    background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
-    border-radius: 42px; 
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    flex-shrink: 0;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; width: 50px; height: 26px; background-color: #ccc;
+    border-radius: 34px; transition: 0.4s;
+}
+.toggle-slider:before {
+    position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px;
+    background-color: white; border-radius: 50%; transition: 0.4s;
+}
+input:checked + .toggle-label .toggle-slider { background-color: var(--verde-energia); }
+input:checked + .toggle-label .toggle-slider:before { transform: translateX(24px); }
+.data-card { display: flex; align-items: center; gap: 15px; padding: 15px; background: var(--cinza-claro); border-radius: 12px; margin-bottom: 15px; }
+.data-card i { font-size: 28px; }
+.data-label { font-size: 13px; color: var(--cinza-medio); }
+.data-value { font-size: 22px; font-weight: 800; color: var(--azul-profundo); }
+.pool-visualization { position: relative; height: 250px; border-radius: 15px; overflow: hidden; border: 4px solid #bdc3c7; }
+.pool-water { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; transition: background 0.5s ease; position: relative; }
+.pool-temp { position: absolute; font-size: 36px; font-weight: 800; color: rgba(255, 255, 255, 0.9); text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.pool-edges {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 20px; display: flex;
+    justify-content: space-around; padding: 0 10px; box-sizing: border-box;
+}
+.edge-led { width: 30%; height: 100%; border-radius: 10px 10px 0 0; transition: all 0.3s; }
+
+/* ===== CALCULADORAS (ATUALIZADO PARA PROPORÇÃO E ALINHAMENTO) ===== */
+.calculators-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    align-items: stretch; 
 }
 
-.toggle-slider::before {
-    position: absolute; 
-    content: "\f185";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    height: 32px;
-    width: 32px;
-    left: 5px; 
-    bottom: 5px;
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-    border-radius: 50%; 
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    color: #f59e0b;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.calculator-card { 
+    background: var(--branco); 
+    padding: 35px 30px; 
+    border-radius: 20px; 
+    box-shadow: var(--sombra); 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.toggle-text {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--azul-profundo);
-    text-align: center;
-    line-height: 1.4;
+.calculator-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: var(--sombra-hover); 
 }
 
-.toggle-status {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: #e2e8f0;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s;
+.calculator-card h4 { 
+    text-align: center; 
+    margin-bottom: 25px; 
+    color: var(--azul-profundo); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    font-size: 20px;
+    min-height: 60px; 
 }
 
-/* Estado ATIVADO */
-input:checked + .toggle-label {
-    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-    border-color: var(--verde-energia);
-    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.25);
+.calculator-card .form-group { 
+    margin-bottom: 20px; 
+    display: flex; 
+    flex-direction: column; 
 }
 
-input:checked + .toggle-label .toggle-slider {
-    background: linear-gradient(135deg, #27ae60 0%, #22c55e 100%);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 15px rgba(39, 174, 96, 0.4);
+.calculator-card .form-group label { 
+    font-weight: 600; 
+    color: var(--azul-profundo); 
+    margin-bottom: 8px; 
+    font-size: 15px; 
 }
 
-input:checked + .toggle-label .toggle-slider::before {
-    transform: translateX(38px);
-    content: "\f186";
-    color: #1e40af;
-    background: linear-gradient(135deg, #ffffff 0%, #dbeafe 100%);
-}
-
-input:checked + .toggle-label .toggle-text {
-    color: #065f46;
-}
-
-input:checked + .toggle-label .toggle-status {
-    background: var(--verde-energia);
-    color: var(--branco);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
-    }
-    50% {
-        box-shadow: 0 0 0 8px rgba(39, 174, 96, 0);
-    }
-}
 .calculator-card .form-group input,
 .calculator-card .form-group select { 
     width: 100%; 
