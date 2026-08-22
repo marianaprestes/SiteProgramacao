@@ -268,7 +268,7 @@ h1, h2, h3, h4, h5, h6 {
 .intro-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-hover); }
 .intro-card i { font-size: 48px; color: var(--azul-claro); margin-bottom: 20px; display: block; }
 .intro-card h3 { font-size: 24px; margin-bottom: 15px; color: var(--azul-profundo); }
-.intro-card p { font-size: 15px; line-height: 1.7; color: var(--cinza-medio); }
+.intro-card p { font-size: 15px; line-height: 1.7; color: var(--cinza-escuro); }
 .intro-card.highlight { background: var(--gradiente-principal); color: var(--branco); }
 .intro-card.highlight h3, .intro-card.highlight p { color: var(--branco); }
 .intro-card.highlight i { color: var(--amarelo-sol); }
@@ -295,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .app-icon i { font-size: 32px; color: var(--branco); }
 .app-card h4 { font-size: 20px; margin-bottom: 15px; }
-.app-card p { font-size: 15px; line-height: 1.6; color: var(--cinza-medio); }
+.app-card p { font-size: 15px; line-height: 1.6; color: var(--cinza-escuro); }
 
 /* Color Simulator */
 .color-simulator-section {
