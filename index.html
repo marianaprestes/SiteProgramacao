@@ -39,7 +39,8 @@
                     <li><a href="#led" class="nav-link">LED RGB</a></li>
                     <li><a href="#robotica" class="nav-link">Robótica</a></li>
                     <li><a href="#etapas" class="nav-link">Etapas</a></li>
-                    <li><a href="#simuladores" class="nav-link">Simuladores</a></li>
+                    <li><a href="#simuladores" class="nav-link">Simulador</a></li>
+                    <li><a href="#calculadoras" class="nav-link">Calculadoras</a></li>
                     <li><a href="#galeria" class="nav-link">Galeria</a></li>
                     <li><a href="#equipe" class="nav-link">Equipe</a></li>
                     <li><a href="#contato" class="nav-link">Contato</a></li>
@@ -92,11 +93,11 @@
                 <strong>Professores Orientadores:</strong> Angelo Rodrigo Ruth, Levi de Andrade e Paulo Enrique
             </p>
             <div class="hero-buttons">
-                <a href="#aquecimento" class="btn btn-primary">
+                <a href="#sobre" class="btn btn-primary">
                     <i class="fas fa-play-circle"></i> Explorar Projeto
                 </a>
                 <a href="#simuladores" class="btn btn-secondary">
-                    <i class="fas fa-calculator"></i> Testar Simuladores
+                    <i class="fas fa-calculator"></i> Testar Simulador
                 </a>
                 <a href="#led" class="btn btn-tertiary">
                     <i class="fas fa-lightbulb"></i> Ver LED RGB
@@ -849,7 +850,7 @@ void loop() {
         </div>
     </section>
 
-    <!-- Simuladores Section -->
+    <!-- Simuladores Section (APENAS PAINEL DE CONTROLE) -->
     <section class="section simulator" id="simuladores">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -882,25 +883,26 @@ void loop() {
                         </div>
                     </div>
 
-                   <!-- BOTÃO DE ATIVAR/DESATIVAR OTIMIZADO E VISÍVEL -->
-<div class="control-group safe-mode-group">
-    <label class="safe-mode-label">
-        <i class="fas fa-universal-access"></i> Modo Seguro (Acessibilidade)
-    </label>
-    
-    <div class="toggle-wrapper">
-        <label class="custom-toggle-switch">
-            <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
-            <span class="toggle-slider"></span>
-            <span class="toggle-track"></span>
-        </label>
-        <span class="toggle-label-text">Ativar sensor de movimento</span>
-    </div>
-    
-    <p class="toggle-description">
-        <i class="fas fa-info-circle"></i> Quando ativo, as bordas acendem em <strong>Branco Quente</strong> ao detectar movimento, garantindo segurança e visibilidade.
-    </p>
-</div>
+                    <!-- BOTÃO DE ATIVAR/DESATIVAR OTIMIZADO -->
+                    <div class="control-group safe-mode-group">
+                        <label class="safe-mode-label">
+                            <i class="fas fa-universal-access"></i> Modo Seguro (Acessibilidade)
+                        </label>
+                        
+                        <div class="toggle-wrapper">
+                            <label class="custom-toggle-switch">
+                                <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-track"></span>
+                            </label>
+                            <span class="toggle-label-text">Ativar sensor de movimento</span>
+                        </div>
+                        
+                        <p class="toggle-description">
+                            <i class="fas fa-info-circle"></i> Quando ativo, as bordas acendem em <strong>Branco Quente</strong> ao detectar movimento, garantindo segurança e visibilidade.
+                        </p>
+                    </div>
+                </div>
 
                 <div class="dashboard-panel info-panel" data-aos="fade-left">
                     <h3><i class="fas fa-chart-bar"></i> Dados em Tempo Real</h3>
@@ -958,64 +960,68 @@ void loop() {
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="calculator-section" data-aos="fade-up">
-                <h3 style="text-align: center; margin-bottom: 30px;">
-                    <i class="fas fa-calculator"></i> Calculadoras
-                </h3>
-                
-                <div class="calculators-grid">
-                    <div class="calculator-card">
-                        <h4><i class="fas fa-sun"></i> Dimensionamento Solar</h4>
-                        <div class="form-group">
-                            <label>Tamanho da Piscina (m²)</label>
-                            <input type="number" id="calcPoolSize" placeholder="Ex: 50" min="10" max="200">
-                        </div>
-                        <div class="form-group">
-                            <label>Região</label>
-                            <select id="calcRegion">
-                                <option value="curitiba">Curitiba (4.5 hSP)</option>
-                                <option value="londrina">Londrina (5.2 hSP)</option>
-                                <option value="maringa">Maringá (5.5 hSP)</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary" onclick="calcSolarDimension()" style="width: 100%;">
-                            Calcular
-                        </button>
-                        <div id="solarDimensionResult" class="result-box"></div>
+    <!-- NOVA SEÇÃO: CALCULADORAS -->
+    <section class="section calculators" id="calculadoras">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Calculadoras do Projeto</h2>
+                <p class="section-subtitle">Dimensione, calcule o retorno e estime custos do seu sistema</p>
+            </div>
+            
+            <div class="calculators-grid">
+                <div class="calculator-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h4><i class="fas fa-sun"></i> Dimensionamento Solar</h4>
+                    <div class="form-group">
+                        <label>Tamanho da Piscina (m²)</label>
+                        <input type="number" id="calcPoolSize" placeholder="Ex: 50" min="10" max="200">
                     </div>
+                    <div class="form-group">
+                        <label>Região</label>
+                        <select id="calcRegion">
+                            <option value="curitiba">Curitiba (4.5 hSP)</option>
+                            <option value="londrina">Londrina (5.2 hSP)</option>
+                            <option value="maringa">Maringá (5.5 hSP)</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="calcSolarDimension()" style="width: 100%;">
+                        Calcular
+                    </button>
+                    <div id="solarDimensionResult" class="result-box"></div>
+                </div>
 
-                    <div class="calculator-card">
-                        <h4><i class="fas fa-coins"></i> Retorno Financeiro (ROI)</h4>
-                        <div class="form-group">
-                            <label>Investimento Inicial (R$)</label>
-                            <input type="number" id="calcInvestment" placeholder="Ex: 8000" min="1000">
-                        </div>
-                        <div class="form-group">
-                            <label>Economia Mensal Estimada (R$)</label>
-                            <input type="number" id="calcSaving" placeholder="Ex: 250" min="50">
-                        </div>
-                        <button class="btn btn-primary" onclick="calcROI()" style="width: 100%;">
-                            Calcular Payback
-                        </button>
-                        <div id="roiResult" class="result-box"></div>
+                <div class="calculator-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h4><i class="fas fa-coins"></i> Retorno Financeiro (ROI)</h4>
+                    <div class="form-group">
+                        <label>Investimento Inicial (R$)</label>
+                        <input type="number" id="calcInvestment" placeholder="Ex: 8000" min="1000">
                     </div>
+                    <div class="form-group">
+                        <label>Economia Mensal Estimada (R$)</label>
+                        <input type="number" id="calcSaving" placeholder="Ex: 250" min="50">
+                    </div>
+                    <button class="btn btn-primary" onclick="calcROI()" style="width: 100%;">
+                        Calcular Payback
+                    </button>
+                    <div id="roiResult" class="result-box"></div>
+                </div>
 
-                    <div class="calculator-card">
-                        <h4><i class="fas fa-plug"></i> Consumo Energético</h4>
-                        <div class="form-group">
-                            <label>Valor do kWh (R$)</label>
-                            <input type="number" id="calcKwhPrice" placeholder="Ex: 0.85" step="0.01" min="0.5" max="2">
-                        </div>
-                        <div class="form-group">
-                            <label>Horas de Uso por Dia</label>
-                            <input type="number" id="calcHours" placeholder="Ex: 8" min="1" max="24">
-                        </div>
-                        <button class="btn btn-primary" onclick="calcEnergyCost()" style="width: 100%;">
-                            Calcular Custo
-                        </button>
-                        <div id="energyResult" class="result-box"></div>
+                <div class="calculator-card" data-aos="zoom-in" data-aos-delay="300">
+                    <h4><i class="fas fa-plug"></i> Consumo Energético</h4>
+                    <div class="form-group">
+                        <label>Valor do kWh (R$)</label>
+                        <input type="number" id="calcKwhPrice" placeholder="Ex: 0.85" step="0.01" min="0.5" max="2">
                     </div>
+                    <div class="form-group">
+                        <label>Horas de Uso por Dia</label>
+                        <input type="number" id="calcHours" placeholder="Ex: 8" min="1" max="24">
+                    </div>
+                    <button class="btn btn-primary" onclick="calcEnergyCost()" style="width: 100%;">
+                        Calcular Custo
+                    </button>
+                    <div id="energyResult" class="result-box"></div>
                 </div>
             </div>
         </div>
@@ -1377,6 +1383,7 @@ void loop() {
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#simuladores">Simulador Interativo</a></li>
+                        <li><a href="#calculadoras">Calculadoras</a></li>
                         <li><a href="#equipe">Equipe</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
