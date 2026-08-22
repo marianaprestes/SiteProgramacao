@@ -7,10 +7,9 @@ AOS.init({
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // ==========================================
+    //==========================================
     // 1. NAVEGAÇÃO E SCROLL SUAVE
-    // ==========================================
+    //==========================================
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.getElementById('nav');
     const header = document.getElementById('header');
@@ -55,17 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // ==========================================
+    //==========================================
     // 2. ANIMAÇÃO DOS NÚMEROS (STATS)
-    // ==========================================
+    //==========================================
     const statNumbers = document.querySelectorAll('.stat-number');
+    
     const animateStats = () => {
         statNumbers.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'));
             const duration = 2000;
             const increment = target / (duration / 16);
             let current = 0;
-            
+
             const updateCounter = () => {
                 current += increment;
                 if (current < target) {
@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         statsObserver.observe(statNumbers[0].parentElement.parentElement);
     }
 
-    // ==========================================
+    //==========================================
     // 3. GRÁFICOS (CHART.JS)
-    // ==========================================
+    //==========================================
     if (typeof Chart !== 'undefined') {
         // Gráfico de Eficiência
         const heatingCtx = document.getElementById('heatingChart');
@@ -102,15 +102,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: 'bar',
                 data: {
                     labels: ['Aquecimento Solar', 'Bomba de Calor', 'Aquecedor Elétrico'],
-                    datasets: [{ 
-                        label: 'Eficiência Energética (%)', 
-                        data: [75, 400, 95], 
+                    datasets: [{
+                        label: 'Eficiência Energética (%)',
+                        data: [75, 400, 95],
                         backgroundColor: ['#0ea5e9', '#27ae60', '#ff6b35'],
                         borderRadius: 8
                     }]
                 },
-                options: { 
-                    responsive: true, 
+                options: {
+                    responsive: true,
                     plugins: { legend: { display: false } },
                     scales: { y: { beginAtZero: true, max: 450 } }
                 }
@@ -125,13 +125,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: {
                     labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
                     datasets: [
-                        { label: 'Sistema LED + Solar', data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50], borderColor: '#27ae60', backgroundColor: 'rgba(39, 174, 96, 0.1)', fill: true, tension: 0.4 },
-                        { label: 'Sistema Tradicional', data: [450, 450, 500, 550, 600, 650, 700, 650, 600, 550, 500, 450], borderColor: '#ff6b35', backgroundColor: 'rgba(255, 107, 53, 0.1)', fill: true, tension: 0.4 }
+                        {
+                            label: 'Sistema LED+ Solar',
+                            data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+                            borderColor: '#27ae60',
+                            backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Sistema Tradicional',
+                            data: [450, 450, 500, 550, 600, 650, 700, 650, 600, 550, 500, 450],
+                            borderColor: '#ff6b35',
+                            backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }
                     ]
                 },
-                options: { 
-                    responsive: true, 
-                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Custo Mensal (R$)' } } } 
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Custo Mensal (R$)' }
+                        }
+                    }
                 }
             });
         }
@@ -143,16 +162,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: 'doughnut',
                 data: {
                     labels: ['Economia de Energia', 'Preservação Hídrica', 'Redução de Impacto'],
-                    datasets: [{ data: [90, 30, 85], backgroundColor: ['#0ea5e9', '#27ae60', '#f1c40f'], borderWidth: 0 }]
+                    datasets: [{
+                        data: [90, 30, 85],
+                        backgroundColor: ['#0ea5e9', '#27ae60', '#f1c40f'],
+                        borderWidth: 0
+                    }]
                 },
-                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'bottom' } }
+                }
             });
         }
     }
 
-    // ==========================================
-    // 4. SIMULADOR DE CORES RGB (CORRIGIDO E APRIMORADO)
-    // ==========================================
+    //==========================================
+    // 4. SIMULADOR DE CORES RGB
+    //==========================================
     const redSlider = document.getElementById('redChannel');
     const greenSlider = document.getElementById('greenChannel');
     const blueSlider = document.getElementById('blueChannel');
@@ -163,25 +189,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateColorSimulator() {
         if (!redSlider || !greenSlider || !blueSlider) return;
-        
+
         const r = parseInt(redSlider.value);
         const g = parseInt(greenSlider.value);
         const b = parseInt(blueSlider.value);
-        
+
         // Atualiza displays de valor
         document.getElementById('redValue').innerText = r;
         document.getElementById('greenValue').innerText = g;
         document.getElementById('blueValue').innerText = b;
-        
-        // Atualiza cor e textos (Correção do bug de formatação Hex)
+
+        // Atualiza cor e textos
         const hex = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`.toUpperCase();
-        
+
         if (previewOverlay) {
-            previewOverlay.style.background = `rgba(${r}, ${g}, ${b}, 0.6)`;
+            previewOverlay.style.background = `rgba(${r},${g},${b}, 0.6)`;
         }
-        if (rgbText) rgbText.innerText = `rgb(${r}, ${g}, ${b})`;
+        if (rgbText) rgbText.innerText = `rgb(${r},${g},${b})`;
         if (hexText) hexText.innerText = hex;
-        
+
         // Lógica de nome da cor
         if (r < 50 && g < 50 && b > 200) {
             colorName.innerText = "🔵 Azul - Modo Aquecimento";
@@ -215,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateColorSimulator();
         if (previewOverlay) {
             previewOverlay.style.transition = 'background 1.5s ease-in-out';
-            // Pequeno efeito visual de confirmação
             previewOverlay.style.opacity = '0.8';
             setTimeout(() => {
                 previewOverlay.style.opacity = '1';
@@ -224,9 +249,9 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('✅ Simulação iniciada com sucesso! Observe a cor aplicada na imagem da piscina.');
     };
 
-    // ==========================================
-    // 5. PAINEL DE CONTROLE SIMULADO (CORRIGIDO)
-    // ==========================================
+    //==========================================
+    // 5. PAINEL DE CONTROLE SIMULADO
+    //==========================================
     const simTemp = document.getElementById('simTemp');
     if (simTemp) {
         simTemp.addEventListener('input', () => {
@@ -240,18 +265,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (tempValueEl) tempValueEl.innerText = temp + '°C';
             if (poolTempDisplay) poolTempDisplay.innerText = temp + '°C';
-            
+
             // Lógica de aquecimento (Azul -> Verde)
             if (temp < 28) {
                 if (ledStatus) ledStatus.style.background = '#3498db';
                 if (ledStatusText) ledStatusText.innerText = 'AZUL - Aquecendo';
-                if (poolWater) poolWater.style.background = 'linear-gradient(135deg, #1e3c72, #2a5298)';
+                if (poolWater) poolWater.style.background = 'linear-gradient(135deg,#1e3c72, #2a5298)';
             } else {
                 if (ledStatus) ledStatus.style.background = '#27ae60';
                 if (ledStatusText) ledStatusText.innerText = 'VERDE - Temperatura Ideal';
-                if (poolWater) poolWater.style.background = 'linear-gradient(135deg, #11998e, #38ef7d)';
+                if (poolWater) poolWater.style.background = 'linear-gradient(135deg,#11998e, #38ef7d)';
             }
-            
+
             // Cálculo estimado de tempo
             const diff = 28 - temp;
             const time = diff > 0 ? `~${Math.ceil(diff * 15)} min` : 'Pronta!';
@@ -272,19 +297,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = document.getElementById('consumoAtual');
         if (el && Math.random() > 0.6) {
             let val = parseFloat(el.innerText) || 23;
-            el.innerText = (val + (Math.random() * 0.5 - 0.25)).toFixed(1) + 'W';
+            el.innerText = (val + (Math.random() * 0.5 - 0.25)).toFixed(1) + ' W';
         }
     }, 3000);
 
-    // ==========================================
-    // 6. CALCULADORAS (CORRIGIDAS E FUNCIONAIS)
-    // ==========================================
+    //==========================================
+    // 6. CALCULADORAS
+    //==========================================
     window.calcSolarDimension = () => {
         const size = parseFloat(document.getElementById('calcPoolSize').value) || 50;
         const collectors = Math.ceil(size / 2);
         const area = collectors * 2;
         const cost = collectors * 600;
-        
+
         const resultBox = document.getElementById('solarDimensionResult');
         if (resultBox) {
             resultBox.innerHTML = `
@@ -304,12 +329,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const months = Math.ceil(inv / save);
         const years = (months / 12).toFixed(1);
         const savings5y = (save * 60) - inv;
-        
+
         const resultBox = document.getElementById('roiResult');
         if (resultBox) {
             resultBox.innerHTML = `
                 <h4><i class="fas fa-chart-line"></i> Retorno do Investimento</h4>
-                <p><strong>Payback:</strong> ${months} meses (${years} anos)</p>
+                <p><strong>Payback:</strong> ${years} anos (${months} meses)</p>
                 <p><strong>Economia líquida em 5 anos:</strong> R$ ${savings5y.toLocaleString('pt-BR')}</p>
             `;
             resultBox.style.display = 'block';
@@ -321,57 +346,73 @@ document.addEventListener('DOMContentLoaded', () => {
         const price = parseFloat(document.getElementById('calcKwhPrice').value) || 0.85;
         const hours = parseFloat(document.getElementById('calcHours').value) || 8;
         const power = 0.023; // 23W em kW
+
         const monthlyKwh = power * hours * 30;
         const monthlyCost = monthlyKwh * price;
-        
+
         const resultBox = document.getElementById('energyResult');
         if (resultBox) {
             resultBox.innerHTML = `
                 <h4><i class="fas fa-bolt"></i> Custo Mensal LED</h4>
                 <p><strong>Consumo:</strong> ${monthlyKwh.toFixed(2)} kWh/mês</p>
-                <p><strong>Custo estimado:</strong> R$ ${monthlyCost.toFixed(2)}/mês</p>
-                <p style="font-size:13px; color: #27ae60; margin-top:10px;"><i class="fas fa-info-circle"></i> Comparado a 300W, você economiza ~R$ ${(monthlyCost * 12).toFixed(2)}/ano!</p>
+                <p><strong>Custo estimado:</strong> R$${monthlyCost.toFixed(2)}/mês</p>
+                <p style="font-size:13px; color:#27ae60; margin-top:10px;"><i class="fas fa-info-circle"></i> Comparado a 300W, você economiza ~R$${(monthlyCost * 12).toFixed(2)}/ano!</p>
             `;
             resultBox.style.display = 'block';
             resultBox.classList.add('show');
         }
     };
 
-    // ==========================================
+    //==========================================
     // 7. FILTRO DA GALERIA
-    // ==========================================
+    //==========================================
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
+
             const filter = btn.getAttribute('data-filter');
             document.querySelectorAll('.gallery-item').forEach(item => {
                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
                     item.style.display = 'block';
-                    setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
                 } else {
-                    item.style.opacity = '0'; item.style.transform = 'scale(0.8)';
-                    setTimeout(() => { item.style.display = 'none'; }, 300);
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
                 }
             });
         });
     });
 
-    // ==========================================
+    //==========================================
     // 8. MODAL
-    // ==========================================
+    //==========================================
     window.showDetails = (type) => {
         const modal = document.getElementById('modal');
         const title = document.getElementById('modalTitle');
         const text = document.getElementById('modalText');
-        
+
         const content = {
-            solar: { t: 'Aquecimento Solar', d: '<p>Utiliza princípios de óptica como a alta absorção de radiação por superfícies escuras (corpo negro) e o efeito estufa controlado pelo vidro. Possui eficiência de 75%, zero custo operacional de combustível e vida útil de 20 anos.</p>' },
-            bomba: { t: 'Bomba de Calor', d: '<p>Extrai calor do ar ambiente, mesmo em dias frios. Possui COP de 400-600% (para cada 1kW de eletricidade, gera 4 a 6kW de calor). Pode ser integrada a painéis solares fotovoltaicos para máxima sustentabilidade.</p>' },
-            eletrico: { t: 'Aquecedor Elétrico', d: '<p>Sistema tradicional por resistência. Apresenta menor custo inicial e instalação simples, mas possui o maior custo operacional e menor eficiência energética a longo prazo.</p>' }
+            solar: {
+                t: 'Aquecimento Solar',
+                d: '<p>Utiliza princípios de óptica como a alta absorção de radiação por superfícies escuras (corpo negro) e o efeito estufa controlado pelo vidro. Possui eficiência de 75%, zero custo operacional de combustível e vida útil de 20 anos.</p>'
+            },
+            bomba: {
+                t: 'Bomba de Calor',
+                d: '<p>Extrai calor do ar ambiente, mesmo em dias frios. Possui COP de 400-600% (para cada 1kW de eletricidade, gera 4 a 6kW de calor). Pode ser integrada a painéis solares fotovoltaicos para máxima sustentabilidade.</p>'
+            },
+            eletrico: {
+                t: 'Aquecedor Elétrico',
+                d: '<p>Sistema tradicional por resistência. Apresenta menor custo inicial e instalação simples, mas possui o maior custo operacional e menor eficiência energética a longo prazo.</p>'
+            }
         };
-        
+
         if (content[type] && title && text) {
             title.innerText = content[type].t;
             text.innerHTML = content[type].d;
@@ -391,15 +432,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
+    //==========================================
     // 9. FORMULÁRIO DE CONTATO
-    // ==========================================
+    //==========================================
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('✅ Mensagem enviada com sucesso!\n\nA equipe do Projeto Integrador do CEP agradece o contato e responderá em breve.');
+            alert('✅ Mensagem enviada com sucesso!\n\nA equipe do Projeto Integrador do CEPA agradece o contato e responderá em breve.');
             contactForm.reset();
         });
     }
+
+    //==========================================
+    // 10. EFEITO DE BOLHAS (HERO E FOOTER)
+    //==========================================
+    function createBubbles(containerId, quantity = 20) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        for (let i = 0; i < quantity; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+
+            // Tamanho aleatório entre 10px e 60px
+            const size = Math.random() * 50 + 10;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+
+            // Posição horizontal aleatória
+            bubble.style.left = `${Math.random() * 100}%`;
+
+            // Duração da animação aleatória (entre 8s e 18s)
+            const duration = Math.random() * 10 + 8;
+            bubble.style.animationDuration = `${duration}s`;
+
+            // Delay aleatório para não subirem todas juntas
+            bubble.style.animationDelay = `${Math.random() * 10}s`;
+
+            // Opacidade base variável
+            bubble.style.opacity = (Math.random() * 0.4 + 0.3).toFixed(2);
+
+            container.appendChild(bubble);
+        }
+    }
+
+    // Cria bolhas no hero e no footer
+    createBubbles('heroBubbles', 25);
+    createBubbles('footerBubbles', 20);
 });
