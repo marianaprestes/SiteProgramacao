@@ -882,16 +882,20 @@ void loop() {
                         </div>
                     </div>
 
-                    <!-- BOTÃO DE ATIVAR/DESATIVAR OTIMIZADO -->
-                    <div class="control-group">
-                        <label>Modo Seguro (Acessibilidade)</label>
-                        <label class="toggle-switch" for="safeMode">
-                            <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
-                            <span class="toggle-slider"></span>
-                            <span class="toggle-text">Ativar sensor de movimento</span>
+                    <!-- BOTÃO DE ATIVAR/DESATIVAR OTIMIZADO E ELEGANTE -->
+                    <div class="control-group safe-mode-group">
+                        <label class="safe-mode-label">
+                            <i class="fas fa-universal-access"></i> Modo Seguro (Acessibilidade)
                         </label>
+                        <div class="toggle-container">
+                            <label class="custom-toggle-switch">
+                                <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text">Ativar sensor de movimento</span>
+                            </label>
+                        </div>
                         <p class="toggle-description">
-                            Quando ativo, as bordas acendem em Branco Quente ao detectar movimento
+                            <i class="fas fa-info-circle"></i> Quando ativo, as bordas acendem em <strong>Branco Quente</strong> ao detectar movimento, garantindo segurança e visibilidade.
                         </p>
                     </div>
                 </div>
