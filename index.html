@@ -3,305 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projeto Integrador CEP: Sistema inteligente de aquecimento de piscina com foco em acessibilidade térmica, usando Arduino, sensores e LED RGB.">
-    <title>Piscina Inteligente CEP | Acessibilidade em Cada Grau</title>
+    <meta name="description" content="Projeto escolar sobre aquecimento de piscinas e iluminação LED RGB - Colégio Estadual do Paraná">
+    <meta name="keywords" content="piscina, aquecimento solar, LED RGB, automação, sustentabilidade, robótica, tecnociência">
+    <title>Piscina Inteligente | CEP - Colégio Estadual do Paraná</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Fonts e Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- Header (Original Preservado) -->
     <header class="header" id="header">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-water"></i>
-                <div>
-                    <span>CEP Tech</span>
-                    <small>Projeto Integrador 2026</small>
-                </div>
-            </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="nav" id="nav" aria-label="Menu principal">
+            <div class="logo"><i class="fas fa-water"></i> <span>CEP</span></div>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            <nav class="nav" id="nav">
                 <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active">Início</a></li>
-                    <li><a href="#contexto" class="nav-link">Contexto</a></li>
-                    <li><a href="#optica" class="nav-link">Óptica</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#aquecimento" class="nav-link">Aquecimento</a></li>
                     <li><a href="#led" class="nav-link">LED RGB</a></li>
                     <li><a href="#robotica" class="nav-link">Robótica</a></li>
-                    <li><a href="#etapas" class="nav-link">Etapas</a></li>
-                    <li><a href="#resultados" class="nav-link">Resultados</a></li>
-                    <li><a href="#equipe" class="nav-link">Equipe</a></li>
-                    <li><a href="#fontes" class="nav-link">Fontes</a></li>
+                    <li><a href="#simuladores" class="nav-link">Simuladores</a></li>
+                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- Hero Section (Tema Central Preservado) -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Colégio Estadual do Paraná - 2ºJ</div>
-            <h1 class="hero-title">Acessibilidade em Cada Grau</h1>
-            <h2 class="hero-subtitle">Uma piscina que se adapta a você, não o contrário</h2>
-            <p class="hero-text">Desenvolvemos um sistema inteligente de aquecimento para tornar a piscina do CEP acessível a todos os estudantes, especialmente aqueles com sensibilidades térmicas. Tecnologia, inclusão e ciência trabalhando juntas.</p>
+            <h1 class="hero-title">Piscina Perfeita o Ano Inteiro</h1>
+            <h2 class="hero-subtitle">Tecnologia em Aquecimento e Iluminação LED RGB</h2>
+            <p class="hero-text">Projeto Integrador 2026 - Colégio Estadual do Paraná (2ºJ)<br>Prof. Orientador: Angelo Rodrigo Ruth</p>
             <div class="hero-buttons">
-                <a href="#simulador" class="btn btn-primary"><i class="fas fa-play-circle"></i> Testar o Sistema</a>
-                <a href="#etapas" class="btn btn-secondary"><i class="fas fa-route"></i> Ver Nossa Jornada</a>
+                <a href="#aquecimento" class="btn btn-primary">Conhecer Projeto</a>
+                <a href="#simuladores" class="btn btn-secondary">Simular Sistema</a>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-            <span>Explore o projeto</span>
         </div>
     </section>
 
-    <!-- STATS -->
+    <!-- Stats Section (Original Preservado) -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-card"><i class="fas fa-sun"></i><div class="stat-number" data-target="75">0</div><div class="stat-label">% Eficiência Térmica</div></div>
-                <div class="stat-card"><i class="fas fa-bolt"></i><div class="stat-number" data-target="90">0</div><div class="stat-label">% Economia de Energia</div></div>
-                <div class="stat-card"><i class="fas fa-thermometer-half"></i><div class="stat-number" data-target="35">0</div><div class="stat-label">°C Temperatura Ideal</div></div>
-                <div class="stat-card"><i class="fas fa-universal-access"></i><div class="stat-number" data-target="100">0</div><div class="stat-label">% Acessibilidade Térmica</div></div>
+                <div class="stat-card">
+                    <i class="fas fa-sun"></i>
+                    <div class="stat-number" data-target="75">0</div>
+                    <div class="stat-label">% Eficiência Solar</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <div class="stat-number" data-target="90">0</div>
+                    <div class="stat-label">% Economia LED</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-thermometer-half"></i>
+                    <div class="stat-number" data-target="35">0</div>
+                    <div class="stat-label">°C Temperatura Máx</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-palette"></i>
+                    <div class="stat-number" data-target="16">0</div>
+                    <div class="stat-label">Milhões de Cores</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTEXTO (NOVA - do PDF) -->
-    <section class="section context" id="contexto">
+    <!-- About Section (Com leve acréscimo de contexto do projeto) -->
+    <section class="section about" id="sobre">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Por Que Este Projeto Importa?</h2>
-                <p class="section-subtitle">Acessibilidade térmica no mundo real</p>
-            </div>
-
-            <div class="context-grid">
-                <div class="context-card">
-                    <div class="context-icon"><i class="fas fa-heartbeat"></i></div>
-                    <h3>O Problema</h3>
-                    <p>Muitos estudantes possuem <strong>sensibilidades térmicas</strong> — desde condições de saúde específicas até simplesmente sentir mais frio ou calor que os outros. Uma piscina com temperatura fixa exclui parte da comunidade escolar.</p>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="assets/piscinacep.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&h=400&fit=crop'" alt="Piscina do CEP" style="width: 100%; border-radius: 15px; box-shadow: var(--sombra); margin-bottom: 15px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <img src="assets/trampolimcep.jpg" onerror="this.src='https://images.unsplash.com/photo-1519315901367-f31f42185420?w=300&h=200&fit=crop'" alt="Trampolim CEP" style="width: 100%; border-radius: 10px; box-shadow: var(--sombra);">
+                        <img src="assets/canoagemcep.jpg" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=300&h=200&fit=crop'" alt="Canoagem na piscina" style="width: 100%; border-radius: 10px; box-shadow: var(--sombra);">
+                    </div>
                 </div>
-                <div class="context-card">
-                    <div class="context-icon"><i class="fas fa-globe-americas"></i></div>
-                    <h3>No Mundo Real</h3>
-                    <p>O controle inteligente de temperatura em ambientes aquáticos é padrão em <strong>spas, clínicas de fisioterapia e piscinas terapêuticas</strong>. A água é aquecida ou resfriada conforme as condições de saúde e conforto dos usuários.</p>
+                <div class="about-content">
+                    <h2 class="section-title" style="text-align: left;">Sobre o Projeto</h2>
+                    <p style="margin-bottom: 20px; text-align: justify;">Os sistemas de aquecimento para piscinas revolucionaram a forma como aproveitamos esses espaços. Com tecnologias modernas, é possível superar o problema da água fria e estender o uso da piscina por todos os meses do ano, promovendo inclusive a acessibilidade térmica para pessoas com sensibilidades ao frio.</p>
+                    <p style="margin-bottom: 30px; text-align: justify;">A iluminação LED subaquática transforma a piscina em um verdadeiro espetáculo visual, criando atmosferas únicas. Este projeto integra conhecimentos de Robótica, Tecnociência e Programação para criar uma solução completa e sustentável.</p>
+                    <div class="about-features">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--verde-energia); font-size: 20px;"></i><span>Sustentabilidade ambiental</span></div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--verde-energia); font-size: 20px;"></i><span>Economia de energia</span></div>
+                        <div style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: var(--verde-energia); font-size: 20px;"></i><span>Tecnologia de ponta</span></div>
+                    </div>
                 </div>
-                <div class="context-card">
-                    <div class="context-icon"><i class="fas fa-universal-access"></i></div>
-                    <h3>Nossa Solução</h3>
-                    <p>Um sistema automatizado com sensores de temperatura, microcontrolador Arduino e display OLED que <strong>monitora e ajusta a temperatura em tempo real</strong>, garantindo conforto e inclusão para todos.</p>
-                </div>
-            </div>
-
-            <div class="impact-quote">
-                <i class="fas fa-quote-left"></i>
-                <p>"A acessibilidade em espaços como piscinas está se tornando uma preocupação crescente em escolas e instituições que buscam ser mais inclusivas."</p>
-                <small>— Justificativa do Projeto, 2026</small>
             </div>
         </div>
     </section>
 
-    <!-- ÓPTICA -->
-    <section class="section optica" id="optica">
+    <!-- Heating Systems Section (COM ACRÉSCIMO DE ÓPTICA) -->
+    <section class="section heating" id="aquecimento">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Tecnociência e Óptica Aplicada</h2>
-                <p class="section-subtitle">A física por trás da eficiência do aquecimento</p>
+            <h2 class="section-title">Sistemas de Aquecimento</h2>
+            <p class="section-subtitle">Conheça as tecnologias disponíveis</p>
+            
+            <div class="heating-grid">
+                <div class="heating-card">
+                    <div class="card-image">
+                        <img src="assets/painelsolar.jpg" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop'" alt="Painel Solar">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aquecimento Solar</h3>
+                        <p>Eficiência de 75% na conversão de energia com zero custo operacional.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> Coletores de 6m² a 36m²</li>
+                            <li><i class="fas fa-check"></i> Aquecimento até 35°C</li>
+                            <li><i class="fas fa-check"></i> Retorno em 3-5 anos</li>
+                        </ul>
+                        <button class="btn-card" onclick="showDetails('solar')">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="heating-card">
+                    <div class="card-image">
+                        <img src="assets/representacaodeaquecimentodapiscina.jpg" onerror="this.src='https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?w=600&h=400&fit=crop'" alt="Representação Aquecimento">
+                    </div>
+                    <div class="card-content">
+                        <h3>Bomba de Calor</h3>
+                        <p>Tecnologia Inverter que consome até 80% menos energia.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> COP 400-600%</li>
+                            <li><i class="fas fa-check"></i> Funciona com energia solar</li>
+                            <li><i class="fas fa-check"></i> Controle por aplicativo</li>
+                        </ul>
+                        <button class="btn-card" onclick="showDetails('bomba')">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="heating-card">
+                    <div class="card-image">
+                        <img src="assets/piscinacep2.jpg" onerror="this.src='https://images.unsplash.com/photo-1572331165267-854da2b00ca1?w=600&h=400&fit=crop'" alt="Piscina Aquecida">
+                    </div>
+                    <div class="card-content">
+                        <h3>Aquecedor Elétrico</h3>
+                        <p>Instalação simples e menor custo inicial.</p>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> Instalação rápida</li>
+                            <li><i class="fas fa-check"></i> Baixo investimento</li>
+                            <li><i class="fas fa-check"></i> Controle preciso</li>
+                        </ul>
+                        <button class="btn-card" onclick="showDetails('eletrico')">Ver Detalhes</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="content-grid">
-                <div class="text-content">
-                    <div class="concept-box featured">
-                        <h4><i class="fas fa-circle"></i> Absorção e o "Corpo Negro"</h4>
-                        <p>As placas dos coletores solares são projetadas com superfícies escuras e foscas para maximizar a <strong>absorção de radiação</strong> e minimizar a reflexão. Na física, isso se aproxima do conceito de "corpo negro", um material ideal que absorve quase 100% da radiação eletromagnética incidente, convertendo-a em energia térmica com máxima eficiência.</p>
-                    </div>
+            <!-- ACRÉSCIMO COMPLEMENTAR: Óptica Aplicada (Critério do Professor) -->
+            <div class="concept-box">
+                <h4><i class="fas fa-eye" style="color: var(--laranja-solar);"></i> Tecnociência e Óptica Aplicada</h4>
+                <p>O sistema de aquecimento solar utiliza conceitos fundamentais de óptica. As placas dos coletores são escuras para maximizar a <strong>absorção de radiação</strong> (comportamento próximo ao de um "corpo negro") e minimizar a reflexão. A cobertura de vidro aproveita a <strong>refração</strong> para permitir a entrada da luz visível (onda curta) e reter o calor (infravermelho/onda longa), criando um efeito estufa controlado. Isso funciona de maneira análoga a uma <strong>Câmara Escura</strong>, isolando e capturando a energia luminosa para convertê-la em térmica com máxima eficiência.</p>
+            </div>
 
-                    <div class="concept-box">
-                        <h4><i class="fas fa-compress-arrows-alt"></i> Refração e Efeito Estufa Controlado</h4>
-                        <p>A cobertura de vidro temperado dos coletores utiliza a <strong>refração seletiva</strong>: ela permite a passagem da radiação solar de onda curta (luz visível), mas bloqueia a saída da radiação de onda longa (infravermelho térmico) gerada pela placa aquecida, retendo o calor no sistema.</p>
-                    </div>
+            <div class="chart-container">
+                <h3>Comparativo de Eficiência</h3>
+                <canvas id="heatingChart" height="100"></canvas>
+            </div>
 
-                    <div class="concept-box">
-                        <h4><i class="fas fa-camera"></i> Analogia com a Câmara Escura</h4>
-                        <p>Assim como a câmara escura isola e captura a luz para formar uma imagem, a caixa isolada do coletor solar é projetada para capturar e reter a energia luminosa, minimizando perdas por convecção e condução para o ambiente externo.</p>
-                    </div>
-                </div>
-
-                <div class="visual-content">
-                    <div class="diagram-container">
-                        <h4 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-project-diagram"></i> Fluxo de Energia no Coletor</h4>
-                        <div class="diagram-optica">
-                            <div class="diagram-item sun"><i class="fas fa-sun"></i><span>Sol</span><small>Radiação de onda curta</small></div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-item glass"><i class="fas fa-square"></i><span>Vidro</span><small>Refração seletiva</small></div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-item plate"><i class="fas fa-square" style="color: #333;"></i><span>Placa Escura</span><small>Alta absorção</small></div>
-                            <div class="diagram-arrow">↓</div>
-                            <div class="diagram-item water"><i class="fas fa-tint"></i><span>Água</span><small>Aquecida até 35°C</small></div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-container">
-                        <h4><i class="fas fa-video"></i> Princípios de Óptica no Aquecimento Solar</h4>
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/5P7WzT3fXqE" title="Como funciona o aquecimento solar" frameborder="0" allowfullscreen aria-label="Vídeo explicativo sobre coletores solares"></iframe>
-                        </div>
-                    </div>
-                </div>
+            <div class="table-container">
+                <h3>Tabela Comparativa</h3>
+                <table class="comparison-table">
+                    <thead><tr><th>Sistema</th><th>Custo Instalação</th><th>Economia</th><th>Manutenção</th><th>Vida Útil</th></tr></thead>
+                    <tbody>
+                        <tr><td>Solar</td><td>R$ 3.000-8.000</td><td>95%</td><td>Baixa</td><td>20 anos</td></tr>
+                        <tr><td>Bomba de Calor</td><td>R$ 5.000-12.000</td><td>80%</td><td>Média</td><td>15 anos</td></tr>
+                        <tr><td>Elétrico</td><td>R$ 800-2.000</td><td>40%</td><td>Baixa</td><td>10 anos</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- LED RGB (EXPANDIDA COM FLASHCARDS E QUIZ) -->
+    <!-- LED RGB Section (COM ACRÉSCIMO DE FLASHCARDS E QUIZ) -->
     <section class="section led" id="led">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Tecnologia LED RGB</h2>
-                <p class="section-subtitle">Eficiência, controle e acessibilidade na iluminação</p>
+            <h2 class="section-title">Iluminação LED RGB</h2>
+            <p class="section-subtitle">Transforme sua piscina em um espetáculo</p>
+
+            <div class="led-grid">
+                <div class="led-content">
+                    <h3>Tecnologia de Ponta</h3>
+                    <p>As luminárias LED RGB oferecem mais de 16 milhões de cores com certificação IP68 (totalmente à prova d'água) e baixa tensão de 12V para máxima segurança.</p>
+                    <div class="led-features">
+                        <div class="led-feature"><i class="fas fa-bolt"></i><div><h4>Baixo Consumo</h4><p>9-23W vs 300-500W tradicional</p></div></div>
+                        <div class="led-feature"><i class="fas fa-clock"></i><div><h4>Longa Duração</h4><p>50.000 horas de vida útil</p></div></div>
+                        <div class="led-feature"><i class="fas fa-mobile-alt"></i><div><h4>Controle Total</h4><p>App, WiFi e controle remoto</p></div></div>
+                    </div>
+                </div>
+                <div class="led-images">
+                    <img src="assets/ledrgb.jpg" onerror="this.src='https://images.unsplash.com/photo-1572331165267-854da2b00ca1?w=600&h=300&fit=crop'" alt="LED RGB" class="led-main">
+                    <img src="assets/moduloledrgb.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop'" alt="Módulo LED RGB" class="led-secondary">
+                    <img src="assets/fitaledcolorida.jpg" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=200&fit=crop'" alt="Fita LED Colorida" class="led-secondary">
+                </div>
             </div>
 
-            <div class="led-intro">
-                <div class="intro-card">
-                    <i class="fas fa-microchip"></i>
-                    <h3>O que é e como funciona?</h3>
-                    <p>O LED (<em>Light Emitting Diode</em>) é um semicondutor que converte energia elétrica em luz via eletroluminescência. O padrão RGB combina três microchips (Vermelho, Verde, Azul). Assim como brevemente observado no estudo do Disco de Newton, a soma das cores do espectro resulta na percepção da luz branca. O LED aplica essa <strong>síntese aditiva</strong> na prática, criando 16,7 milhões de cores sem filtros físicos.</p>
-                </div>
-                <div class="intro-card highlight">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Segurança e Acessibilidade Térmica</h3>
-                    <p>Além da iluminação, o sistema garante <strong>acessibilidade universal</strong>. O aquecimento da piscina permite que pessoas com sensibilidade ao frio, idosos ou em reabilitação física utilizem o espaço com segurança e conforto térmico, independentemente da estação do ano. O LED opera em 12V (IP68), eliminando riscos elétricos.</p>
-                </div>
-            </div>
-
-            <!-- FLASHCARDS -->
+            <!-- ACRÉSCIMO COMPLEMENTAR: Flashcards (Critério de Interatividade) -->
             <div class="flashcards-section">
-                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-clone"></i> Flashcards: Conceitos do LED RGB</h3>
+                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-clone"></i> Flashcards: Conceitos do LED</h3>
                 <div class="flashcards-grid">
                     <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-front">
-                            <i class="fas fa-question-circle"></i>
-                            <h4>O que é Síntese Aditiva?</h4>
-                        </div>
-                        <div class="flashcard-back">
-                            <p>É a mistura de luzes coloridas (Vermelho, Verde, Azul) que, ao se somarem, criam novas cores, incluindo o branco. É o princípio usado nos LEDs.</p>
-                        </div>
+                        <div class="flashcard-front"><i class="fas fa-question-circle"></i><h4>O que é Síntese Aditiva?</h4></div>
+                        <div class="flashcard-back"><p>Mistura de luzes (Vermelho, Verde, Azul) que, ao se somarem, criam novas cores, incluindo o branco. Princípio base do LED RGB.</p></div>
                     </div>
                     <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-front">
-                            <i class="fas fa-question-circle"></i>
-                            <h4>Qual a economia real do LED?</h4>
-                        </div>
-                        <div class="flashcard-back">
-                            <p>Um LED de piscina consome entre 9W e 23W, enquanto lâmpadas incandescentes consomem 300W a 500W. Isso representa até 90% de economia energética.</p>
-                        </div>
+                        <div class="flashcard-front"><i class="fas fa-question-circle"></i><h4>O que significa IP68?</h4></div>
+                        <div class="flashcard-back"><p>"6" = Proteção total contra poeira. "8" = Pode ficar submerso em água continuamente com segurança.</p></div>
                     </div>
                     <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-front">
-                            <i class="fas fa-question-circle"></i>
-                            <h4>O que significa IP68?</h4>
-                        </div>
-                        <div class="flashcard-back">
-                            <p>É uma classificação de proteção. O "6" significa proteção total contra poeira, e o "8" significa que o equipamento pode ficar submerso em água continuamente.</p>
-                        </div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-front">
-                            <i class="fas fa-question-circle"></i>
-                            <h4>O que é PWM?</h4>
-                        </div>
-                        <div class="flashcard-back">
-                            <p>Pulse Width Modulation (Modulação por Largura de Pulso). Técnica usada pelo Arduino para controlar a intensidade dos LEDs ligando e desligando rapidamente.</p>
-                        </div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-front">
-                            <i class="fas fa-question-circle"></i>
-                            <h4>Por que 12V é mais seguro?</h4>
-                        </div>
-                        <div class="flashcard-back">
-                            <p>Em ambientes aquáticos, baixa tensão (12V) reduz drasticamente o risco de choque elétrico grave, protegendo os usuários mesmo em caso de vazamento.</p>
-                        </div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                        <div class="flashcard-front">
-                            <i class="fas fa-question-circle"></i>
-                            <h4>Qual a vida útil do LED?</h4>
-                        </div>
-                        <div class="flashcard-back">
-                            <p>Um LED de qualidade tem vida útil de até 50.000 horas — cerca de 15 anos de uso contínuo, muito superior às lâmpadas tradicionais.</p>
-                        </div>
+                        <div class="flashcard-front"><i class="fas fa-question-circle"></i><h4>O que é PWM?</h4></div>
+                        <div class="flashcard-back"><p>Pulse Width Modulation. Técnica usada pelo Arduino para controlar a intensidade dos LEDs ligando e desligando rapidamente.</p></div>
                     </div>
                 </div>
             </div>
 
-            <!-- QUIZ -->
-            <div class="quiz-section">
-                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-brain"></i> Quiz: Teste seus conhecimentos</h3>
-                <div class="quiz-container" id="quizContainer">
-                    <div class="quiz-question" id="quizQuestion1">
-                        <h4>1. Qual princípio físico permite que o LED RGB crie a cor branca a partir de três cores básicas?</h4>
-                        <div class="quiz-options">
-                            <button class="quiz-btn" onclick="checkAnswer(this, false)">Refração da luz</button>
-                            <button class="quiz-btn" onclick="checkAnswer(this, true)">Síntese Aditiva de Cores</button>
-                            <button class="quiz-btn" onclick="checkAnswer(this, false)">Efeito Estufa</button>
-                        </div>
-                    </div>
-                    <div class="quiz-question" id="quizQuestion2" style="display: none;">
-                        <h4>2. Por que o sistema LED é considerado mais seguro para piscinas?</h4>
-                        <div class="quiz-options">
-                            <button class="quiz-btn" onclick="checkAnswer(this, false)">Porque não esquenta a água</button>
-                            <button class="quiz-btn" onclick="checkAnswer(this, true)">Porque opera em baixa tensão (12V) e é IP68</button>
-                            <button class="quiz-btn" onclick="checkAnswer(this, false)">Porque usa pilhas</button>
-                        </div>
-                    </div>
-                    <div class="quiz-question" id="quizQuestion3" style="display: none;">
-                        <h4>3. Qual a principal vantagem do LED sobre lâmpadas incandescentes?</h4>
-                        <div class="quiz-options">
-                            <button class="quiz-btn" onclick="checkAnswer(this, false)">É mais barato na compra</button>
-                            <button class="quiz-btn" onclick="checkAnswer(this, false)">Produz mais calor</button>
-                            <button class="quiz-btn" onclick="checkAnswer(this, true)">Economiza até 90% de energia</button>
-                        </div>
-                    </div>
-                    <div class="quiz-result" id="quizResult" style="display: none;">
-                        <h4>🎉 Resultado: <span id="quizScore">0</span>/3</h4>
-                        <p id="quizMessage"></p>
-                        <button class="btn btn-primary" onclick="resetQuiz()">Tentar Novamente</button>
-                    </div>
+            <div class="color-simulator">
+                <h3>Simulador de Cores</h3>
+                <p>Escolha uma cor e veja como ficaria na piscina:</p>
+                <div class="color-controls">
+                    <input type="color" id="colorPicker" value="#00A8E8">
+                    <button class="color-preset" style="background: #00A8E8" onclick="setColor('#00A8E8')"></button>
+                    <button class="color-preset" style="background: #FF6B35" onclick="setColor('#FF6B35')"></button>
+                    <button class="color-preset" style="background: #7ED321" onclick="setColor('#7ED321')"></button>
+                    <button class="color-preset" style="background: #9B59B6" onclick="setColor('#9B59B6')"></button>
+                    <button class="color-preset" style="background: #FFFFFF" onclick="setColor('#FFFFFF')"></button>
+                </div>
+                <div class="color-preview" id="colorPreview">
+                    <img src="assets/piscinacep3.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=400&fit=crop'" alt="Preview da cor">
+                    <div class="preview-overlay" id="previewOverlay"></div>
                 </div>
             </div>
 
-            <div class="video-container" style="margin-top: 50px;">
-                <h4><i class="fas fa-video"></i> A Ciência por trás do LED e PWM</h4>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Como funciona o LED e a modulação PWM" frameborder="0" allowfullscreen aria-label="Vídeo explicativo sobre tecnologia LED"></iframe>
-                </div>
+            <div class="table-container">
+                <h3>LED vs Tradicional</h3>
+                <table class="comparison-table">
+                    <thead><tr><th>Característica</th><th>LED RGB</th><th>Incandescente</th></tr></thead>
+                    <tbody>
+                        <tr><td>Consumo</td><td>9-23W</td><td>300-500W</td></tr>
+                        <tr><td>Vida útil</td><td>50.000h</td><td>2.000h</td></tr>
+                        <tr><td>Cores</td><td>16 milhões</td><td>1 cor</td></tr>
+                        <tr><td>Economia</td><td>90%</td><td>-</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- ROBÓTICA -->
+    <!-- ACRÉSCIMO COMPLEMENTAR: Robótica e Programação (Baseado no PDF) -->
     <section class="section robotica" id="robotica">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Robótica e Programação</h2>
-                <p class="section-subtitle">Sensores, atuadores e a lógica de controle do sistema</p>
-            </div>
+            <h2 class="section-title">Robótica e Programação</h2>
+            <p class="section-subtitle">Componentes e lógica de controle do sistema</p>
 
             <div class="robotics-components">
-                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-toolbox"></i> Componentes Utilizados nas Aulas Práticas</h3>
+                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-toolbox"></i> Componentes Utilizados nas Aulas</h3>
                 <div class="components-grid">
                     <div class="comp-item"><i class="fas fa-microchip"></i><span>Arduino</span></div>
                     <div class="comp-item"><i class="fas fa-th"></i><span>Protoboard</span></div>
                     <div class="comp-item"><i class="fas fa-laptop-code"></i><span>Chromebook</span></div>
                     <div class="comp-item"><i class="fas fa-usb"></i><span>Cabo USB</span></div>
-                    <div class="comp-item"><i class="fas fa-plug"></i><span>Jumpers Macho-Macho</span></div>
-                    <div class="comp-item"><i class="fas fa-plug"></i><span>Jumpers Macho-Fêmea</span></div>
+                    <div class="comp-item"><i class="fas fa-plug"></i><span>Jumpers (Macho-Macho/Fêmea)</span></div>
                     <div class="comp-item"><i class="fas fa-bolt"></i><span>Resistores</span></div>
                     <div class="comp-item"><i class="fas fa-toggle-on"></i><span>Módulo Relé</span></div>
                     <div class="comp-item"><i class="fas fa-tv"></i><span>Display OLED</span></div>
@@ -309,239 +279,320 @@
                     <div class="comp-item"><i class="fas fa-temperature-high"></i><span>Sensor DHT11</span></div>
                     <div class="comp-item"><i class="fas fa-walking"></i><span>Sensor de Presença</span></div>
                 </div>
-                <p style="text-align: center; margin-top: 20px; color: var(--cinza); font-style: italic;">
-                    "Através de montagens práticas e codificação, aprendemos a integrar esses componentes para criar um sistema de automação funcional."
-                </p>
             </div>
 
             <div class="robotics-diagram">
-                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-project-diagram"></i> Fluxograma de Controle do Aquecimento</h3>
+                <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-project-diagram"></i> Fluxograma de Controle</h3>
                 <div class="diagram-robotica">
                     <div class="diagram-column">
                         <h4>1. SENSORES (Entradas)</h4>
-                        <div class="sensor-card">
-                            <i class="fas fa-temperature-high"></i>
-                            <h5>DHT11 / LM35</h5>
-                            <p>Lê a temperatura da água em tempo real.</p>
-                        </div>
-                        <div class="sensor-card">
-                            <i class="fas fa-walking"></i>
-                            <h5>Sensor de Presença</h5>
-                            <p>Detecta movimento para ativar iluminação de segurança.</p>
-                        </div>
+                        <div class="sensor-card"><i class="fas fa-temperature-high"></i><h5>DHT11</h5><p>Lê a temperatura em tempo real.</p></div>
+                        <div class="sensor-card"><i class="fas fa-walking"></i><h5>Sensor de Presença</h5><p>Aciona iluminação de segurança.</p></div>
                     </div>
                     <div class="diagram-arrow-horizontal"><i class="fas fa-arrow-right"></i><span>Processa</span></div>
                     <div class="diagram-column center">
                         <div class="processor-card">
-                            <i class="fas fa-microchip" style="font-size: 48px; color: var(--azul-primario);"></i>
+                            <i class="fas fa-microchip" style="font-size: 48px; color: var(--azul-piscina);"></i>
                             <h5>Arduino</h5>
-                            <p>Recebe os dados, executa a lógica programada e envia comandos.</p>
+                            <p>Recebe dados, executa a lógica programada e envia comandos.</p>
                         </div>
                     </div>
                     <div class="diagram-arrow-horizontal"><i class="fas fa-arrow-right"></i><span>Aciona</span></div>
                     <div class="diagram-column">
                         <h4>2. ATUADORES (Saídas)</h4>
-                        <div class="actuator-card">
-                            <i class="fas fa-toggle-on"></i>
-                            <h5>Módulo Relé</h5>
-                            <p>Liga/desliga a bomba de circulação da água.</p>
-                        </div>
-                        <div class="actuator-card">
-                            <i class="fas fa-tv"></i>
-                            <h5>Display OLED + LED RGB</h5>
-                            <p>Exibe a temperatura e muda a cor da iluminação conforme o estado.</p>
-                        </div>
+                        <div class="actuator-card"><i class="fas fa-toggle-on"></i><h5>Módulo Relé</h5><p>Liga/desliga a bomba de circulação.</p></div>
+                        <div class="actuator-card"><i class="fas fa-tv"></i><h5>Display OLED + LED</h5><p>Exibe temperatura e muda a cor.</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ETAPAS (NOVA - do PDF) -->
-    <section class="section timeline" id="etapas">
+    <!-- Integrated System Section (Original Preservado) -->
+    <section class="section system" id="sistema">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nossa Jornada de Desenvolvimento</h2>
-                <p class="section-subtitle">As 4 etapas do projeto: da ideia aos testes reais</p>
+            <h2 class="section-title">Sistema Integrado</h2>
+            <p class="section-subtitle">Automação completa da sua piscina</p>
+
+            <div class="system-grid">
+                <div class="system-card" style="padding: 40px 25px; text-align: center;">
+                    <i class="fas fa-microchip" style="font-size: 48px; color: var(--laranja-solar); margin-bottom: 20px;"></i>
+                    <h3>Central de Automação</h3>
+                    <p>Controle unificado de aquecimento, iluminação, cascata e hidromassagem</p>
+                </div>
+                <div class="system-card" style="padding: 40px 25px; text-align: center;">
+                    <i class="fas fa-wifi" style="font-size: 48px; color: var(--laranja-solar); margin-bottom: 20px;"></i>
+                    <h3>Conectividade WiFi</h3>
+                    <p>Gerenciamento remoto via aplicativo mobile 24/7</p>
+                </div>
+                <div class="system-card" style="padding: 40px 25px; text-align: center;">
+                    <i class="fas fa-chart-line" style="font-size: 48px; color: var(--laranja-solar); margin-bottom: 20px;"></i>
+                    <h3>Monitoramento</h3>
+                    <p>Acompanhamento de consumo e temperatura em tempo real</p>
+                </div>
             </div>
+
+            <div class="dashboard-sim">
+                <h3>Painel de Controle Simulado</h3>
+                <div class="dashboard">
+                    <div class="dashboard-panel">
+                        <h4>Temperatura</h4>
+                        <input type="range" id="tempSlider" min="20" max="35" value="28" style="width: 100%; margin: 15px 0;">
+                        <span id="tempValue" style="font-size: 24px; font-weight: 700; color: var(--laranja-solar);">28°C</span>
+                    </div>
+                    <div class="dashboard-panel">
+                        <h4>Iluminação</h4>
+                        <button class="btn-toggle" id="lightToggle">Ligar</button>
+                        <input type="color" id="lightColor" value="#00A8E8" style="width: 50px; height: 50px; border: none; border-radius: 50%; margin-top: 10px; cursor: pointer;">
+                    </div>
+                    <div class="dashboard-panel">
+                        <h4>Bomba</h4>
+                        <button class="btn-toggle" id="pumpToggle">Ligar</button>
+                        <div id="pumpStatus" style="margin-top: 10px; font-size: 14px; color: var(--cinza-medio);">Desligada</div>
+                    </div>
+                    <div class="dashboard-panel">
+                        <h4>Consumo</h4>
+                        <div id="consumptionValue" style="font-size: 32px; font-weight: 700; color: var(--laranja-solar);">0.00</div>
+                        <small style="color: var(--cinza-medio);">kWh Hoje</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACRÉSCIMO COMPLEMENTAR: Etapas e Resultados (Baseado no PDF) -->
+    <section class="section project-steps" id="etapas">
+        <div class="container">
+            <h2 class="section-title">Etapas e Resultados do Projeto</h2>
+            <p class="section-subtitle">Nossa jornada de desenvolvimento</p>
 
             <div class="timeline-container">
                 <div class="timeline-item">
                     <div class="timeline-marker">1</div>
                     <div class="timeline-content">
                         <h3><i class="fas fa-search"></i> Pesquisa e Planejamento</h3>
-                        <p>Realizamos pesquisas sobre sistemas de aquecimento, tipos de sensores e microcontroladores. A ideia inicial foi criar um sistema automatizado de aquecimento com foco na <strong>acessibilidade</strong>.</p>
-                        <span class="timeline-tag">Início do Projeto</span>
+                        <p>Pesquisa sobre sistemas de aquecimento, sensores e microcontroladores. Foco inicial na criação de um sistema automatizado com ênfase na acessibilidade térmica.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-marker">2</div>
                     <div class="timeline-content">
                         <h3><i class="fas fa-tools"></i> Desenvolvimento Inicial</h3>
-                        <p>Montagem do sistema com sensores de temperatura e Arduino. Testamos o uso de <strong>resistores</strong> para evitar sobrecarga, experimentamos o controle de LEDs e motores, garantindo que o sistema não queimasse.</p>
-                        <span class="timeline-tag">Primeiros Testes</span>
+                        <p>Montagem com sensores e Arduino. Testes com resistores para evitar sobrecarga e experimentação com controle de LEDs e motores.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-marker">3</div>
                     <div class="timeline-content">
                         <h3><i class="fas fa-wrench"></i> Ajustes e Melhorias</h3>
-                        <p>Revisão completa das conexões e remontagem. Identificamos problemas de <strong>montagem incorreta</strong> que causavam falhas de conexão. Após ajustes, o sistema começou a responder de forma estável.</p>
-                        <span class="timeline-tag">Superação de Desafios</span>
+                        <p>Revisão completa das conexões. Resolução de problemas de montagem incorreta que causavam falhas, estabilizando o sistema.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-marker">4</div>
                     <div class="timeline-content">
-                        <h3><i class="fas fa-flask"></i> Testes Avançados</h3>
-                        <p>Planejamento de novos testes com a piscina cheia, verificando a capacidade de resposta do sistema para ajustar a temperatura rapidamente e garantir precisão dos sensores.</p>
-                        <span class="timeline-tag">Fase Atual</span>
+                        <h3><i class="fas fa-flask"></i> Testes Previstos</h3>
+                        <p>Planejamento de testes com a piscina cheia para verificar a capacidade de resposta do sistema e a precisão dos sensores em ambiente real.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- RESULTADOS (NOVA - do PDF) -->
-    <section class="section results" id="resultados">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Resultados Reais</h2>
-                <p class="section-subtitle">O que já funciona no nosso protótipo</p>
-            </div>
-
-            <div class="results-grid">
+            <div class="results-grid" style="margin-top: 60px;">
                 <div class="result-card">
                     <div class="result-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h4>LEDs Alternados</h4>
-                    <p>Dois LEDs vermelhos funcionando de forma alternada em um sistema com <strong>relé</strong>, demonstrando o controle de atuadores via Arduino.</p>
+                    <h4>LEDs com Relé</h4>
+                    <p>Dois LEDs vermelhos funcionando de forma alternada controlados por módulo relé.</p>
                 </div>
-
                 <div class="result-card">
                     <div class="result-icon"><i class="fas fa-cog"></i></div>
                     <h4>Motor com LED</h4>
-                    <p>LED vermelho funcionando integrado a um <strong>motor de engrenagem</strong>, simulando o acionamento de bombas de circulação de água.</p>
+                    <p>LED integrado a um motor de engrenagem, simulando o acionamento de bombas.</p>
                 </div>
-
                 <div class="result-card">
                     <div class="result-icon"><i class="fas fa-tv"></i></div>
-                    <h4>Display OLED Funcional</h4>
-                    <p>Display exibindo mensagens personalizadas como <strong>"CEP"</strong> e <strong>"Colégio Estadual do Paraná"</strong>, pronto para mostrar a temperatura em tempo real.</p>
+                    <h4>Display OLED</h4>
+                    <p>Display funcional exibindo mensagens personalizadas como "CEP" e "Colégio Estadual do Paraná".</p>
                 </div>
-
                 <div class="result-card">
                     <div class="result-icon"><i class="fas fa-temperature-high"></i></div>
                     <h4>Sensor DHT11</h4>
-                    <p>Módulo sensor de temperatura e umidade <strong>DHT11</strong> calibrado, com leituras precisas para o controle automatizado do aquecimento.</p>
-                </div>
-            </div>
-
-            <div class="results-status">
-                <h3><i class="fas fa-chart-line"></i> Status Atual do Projeto</h3>
-                <div class="status-bars">
-                    <div class="status-item">
-                        <span>Controle de LEDs e Relés</span>
-                        <div class="status-bar"><div class="status-fill" style="width: 100%;"></div></div>
-                        <span class="status-percent">100%</span>
-                    </div>
-                    <div class="status-item">
-                        <span>Leitura do Sensor DHT11</span>
-                        <div class="status-bar"><div class="status-fill" style="width: 90%;"></div></div>
-                        <span class="status-percent">90%</span>
-                    </div>
-                    <div class="status-item">
-                        <span>Display OLED Integrado</span>
-                        <div class="status-bar"><div class="status-fill" style="width: 85%;"></div></div>
-                        <span class="status-percent">85%</span>
-                    </div>
-                    <div class="status-item">
-                        <span>Ativação Automática do Motor</span>
-                        <div class="status-bar"><div class="status-fill" style="width: 75%;"></div></div>
-                        <span class="status-percent">75%</span>
-                    </div>
-                    <div class="status-item">
-                        <span>Testes com Piscina Real</span>
-                        <div class="status-bar"><div class="status-fill" style="width: 40%;"></div></div>
-                        <span class="status-percent">40%</span>
-                    </div>
+                    <p>Módulo sensor de temperatura e umidade calibrado para leituras precisas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SIMULADOR -->
-    <section class="section simulator" id="simulador">
+    <!-- Simulators Section (Original Preservado) -->
+    <section class="section simulators" id="simuladores">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Simulador Interativo</h2>
-                <p class="section-subtitle">Veja a tecnologia em ação</p>
-            </div>
+            <h2 class="section-title">Simuladores</h2>
+            <p class="section-subtitle">Calcule e simule seu sistema ideal</p>
 
-            <div class="simulator-dashboard">
-                <div class="dashboard-panel main-panel">
-                    <h3><i class="fas fa-sliders-h"></i> Painel de Controle</h3>
-                    <div class="control-group">
-                        <label for="simTemp">Temperatura da Água (°C)</label>
-                        <div class="slider-container">
-                            <input type="range" id="simTemp" min="15" max="40" value="25" step="0.5">
-                            <span id="simTempValue" class="value-display">25°C</span>
-                        </div>
+            <div class="simulator-grid">
+                <div class="simulator-card" style="padding: 30px;">
+                    <h3><i class="fas fa-sun" style="color:var(--laranja-solar); margin-right: 10px;"></i> Calculadora Solar</h3>
+                    <div class="form-group">
+                        <label>Tamanho da Piscina (m²)</label>
+                        <input type="number" id="poolSize" placeholder="Ex: 20" required>
                     </div>
-                    <div class="control-group">
-                        <label>Status do Sistema</label>
-                        <div id="ledStatus" class="led-status-box" style="background: var(--azul-primario);">
-                            <i class="fas fa-tint"></i>
-                            <span id="ledStatusText">AQUECENDO (Azul)</span>
-                        </div>
+                    <div class="form-group">
+                        <label>Cidade no Paraná</label>
+                        <select id="city">
+                            <option value="curitiba">Curitiba</option>
+                            <option value="londrina">Londrina</option>
+                            <option value="maringa">Maringá</option>
+                        </select>
                     </div>
-                    <div class="control-group">
-                        <label>Modo Acessibilidade (Sensor de Presença)</label>
-                        <div class="toggle-switch">
-                            <input type="checkbox" id="safeMode" onchange="toggleSafeMode()">
-                            <label for="safeMode" class="toggle-label">
-                                <span class="toggle-slider"></span>
-                                <span class="toggle-text">Simular detecção de pessoa</span>
-                            </label>
-                        </div>
-                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="calcSolar(event)">Calcular</button>
+                    <div id="solarResult" class="result"></div>
                 </div>
 
-                <div class="dashboard-panel visual-panel">
-                    <h3><i class="fas fa-eye"></i> Visualização da Piscina</h3>
-                    <div class="pool-visualization">
-                        <div class="pool-water" id="poolWater" style="background: linear-gradient(135deg, #0f172a, #0ea5e9);">
-                            <div class="pool-temp" id="poolTempDisplay">25°C</div>
-                        </div>
-                        <div class="pool-edges" id="poolEdges" style="display: none;">
-                            <div class="edge-led" style="background: #fbbf24; box-shadow: 0 0 15px #fbbf24;"></div>
-                            <div class="edge-led" style="background: #fbbf24; box-shadow: 0 0 15px #fbbf24;"></div>
-                            <div class="edge-led" style="background: #fbbf24; box-shadow: 0 0 15px #fbbf24;"></div>
-                        </div>
+                <div class="simulator-card" style="padding: 30px;">
+                    <h3><i class="fas fa-calculator" style="color:var(--laranja-solar); margin-right: 10px;"></i> Retorno (ROI)</h3>
+                    <div class="form-group">
+                        <label>Investimento Inicial (R$)</label>
+                        <input type="number" id="investment" placeholder="Ex: 5000" required>
                     </div>
-                    <p style="text-align: center; font-size: 13px; margin-top: 10px; color: var(--cinza);">
-                        A iluminação das bordas (amarelo quente) acende automaticamente para segurança e acessibilidade.
-                    </p>
+                    <div class="form-group">
+                        <label>Economia Mensal (R$)</label>
+                        <input type="number" id="monthlySaving" placeholder="Ex: 200" required>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="calcROI(event)">Calcular ROI</button>
+                    <div id="roiResult" class="result"></div>
+                </div>
+
+                <div class="simulator-card" style="padding: 30px;">
+                    <h3><i class="fas fa-bolt" style="color:var(--laranja-solar); margin-right: 10px;"></i> Custo Energético</h3>
+                    <div class="form-group">
+                        <label>Valor do kWh (R$)</label>
+                        <input type="number" id="kwhPrice" step="0.01" placeholder="Ex: 0.80" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Horas de uso/dia</label>
+                        <input type="number" id="hoursDay" placeholder="Ex: 8" required>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="calcEnergy(event)">Calcular</button>
+                    <div id="energyResult" class="result"></div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>Economia Anual Comparativa</h3>
+                <canvas id="savingsChart" height="100"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Original Preservado) -->
+    <section class="section gallery" id="galeria">
+        <div class="container">
+            <h2 class="section-title">Galeria de Fotos</h2>
+            <p class="section-subtitle">Conheça alguns de nossos projetos</p>
+
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="aquecimento">Aquecimento</button>
+                <button class="filter-btn" data-filter="piscina">Piscina</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="piscina">
+                    <img src="assets/piscinacep4.jpg" onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=400&fit=crop'" alt="Piscina CEP">
+                    <div class="gallery-overlay"><h4>Piscina do CEP</h4><p>Vista principal</p></div>
+                </div>
+                <div class="gallery-item" data-category="aquecimento">
+                    <img src="assets/painelsolar2.jpg" onerror="this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=400&fit=crop'" alt="Painel Solar 2">
+                    <div class="gallery-overlay"><h4>Painéis Solares</h4><p>Instalação completa</p></div>
+                </div>
+                <div class="gallery-item" data-category="aquecimento">
+                    <img src="assets/painelsolar3.jpg" onerror="this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=400&h=400&fit=crop'" alt="Painel Solar 3">
+                    <div class="gallery-overlay"><h4>Coletores Solares</h4><p>Alta eficiência</p></div>
+                </div>
+                <div class="gallery-item" data-category="piscina">
+                    <img src="assets/piscinacepantiga.jpg" onerror="this.src='https://images.unsplash.com/photo-1519315901367-f31f42185420?w=400&h=400&fit=crop'" alt="Piscina Antiga">
+                    <div class="gallery-overlay"><h4>Piscina Antiga</h4><p>Antes da modernização</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EQUIPE -->
-    <section class="section team" id="equipe">
+    <!-- Sustainability Section (Original Preservado) -->
+    <section class="section sustainability">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nossa Equipe</h2>
-                <p class="section-subtitle">Turma 2ºJ - Colégio Estadual do Paraná</p>
+            <h2 class="section-title">Sustentabilidade</h2>
+            <p class="section-subtitle">Impacto ambiental positivo e inclusão</p>
+
+            <div class="sustainability-grid">
+                <div class="sustain-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Energia Renovável</h3>
+                    <p>Utilização de energia solar, fonte limpa e inesgotável</p>
+                </div>
+                <div class="sustain-card">
+                    <i class="fas fa-smog"></i>
+                    <h3>Redução de CO₂</h3>
+                    <p>Diminuição significativa da emissão de gases poluentes</p>
+                </div>
+                <div class="sustain-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Materiais Recicláveis</h3>
+                    <p>Componentes com possibilidade de reciclagem</p>
+                </div>
+                <div class="sustain-card">
+                    <i class="fas fa-universal-access"></i>
+                    <h3>Acessibilidade</h3>
+                    <p>Conforto térmico para todos, incluindo pessoas com sensibilidades</p>
+                </div>
             </div>
 
-            <div class="team-intro">
-                <p style="text-align: center; font-size: 18px; max-width: 800px; margin: 0 auto 40px; color: var(--cinza);">
-                    Este projeto foi desenvolvido de forma <strong>100% colaborativa</strong>. Todos os membros participaram ativamente de todas as etapas: pesquisa, montagem de circuitos, programação e testes. A colaboração entre as diferentes áreas de conhecimento foi fundamental para o desenvolvimento deste projeto.
-                </p>
+            <div class="sustainability-chart">
+                <canvas id="sustainabilityChart"></canvas>
             </div>
+
+            <div class="sustainability-img">
+                <img src="assets/sustentabilidade.jpg" onerror="this.src='https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=900&h=400&fit=crop'" alt="Sustentabilidade">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Original Preservado) -->
+    <section class="section contact" id="contato">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <p class="section-subtitle">Entre em contato conosco</p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="font-size: 28px; margin-bottom: 10px;">Colégio Estadual do Paraná</h3>
+                    <p style="color: var(--cinza-medio); margin-bottom: 30px;">Projeto Integrador 2026 - 2ºJ</p>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Avenida João Gualberto, 250 - Curitiba/PR</span></div>
+                    <div class="info-item"><i class="fas fa-envelope"></i><span>projeto@escola.pr.gov.br</span></div>
+                    <div class="info-item"><i class="fas fa-phone"></i><span>(41) 3333-4444</span></div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" style="background: var(--branco); padding: 40px; border-radius: 15px; box-shadow: var(--sombra);">
+                    <div class="form-group"><input type="text" placeholder="Seu nome" required></div>
+                    <div class="form-group"><input type="email" placeholder="Seu email" required></div>
+                    <div class="form-group"><textarea placeholder="Sua mensagem" rows="5" required></textarea></div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACRÉSCIMO COMPLEMENTAR: Equipe (Baseado no PDF) -->
+    <section class="section team" id="equipe" style="background: var(--cinza-claro);">
+        <div class="container">
+            <h2 class="section-title">Nossa Equipe</h2>
+            <p class="section-subtitle">Turma 2ºJ - Colégio Estadual do Paraná</p>
+            
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--cinza-medio);">
+                Este projeto foi desenvolvido de forma 100% colaborativa. Todos os membros participaram ativamente de todas as etapas: pesquisa, montagem de circuitos, programação e testes.
+            </p>
 
             <div class="team-grid">
                 <div class="team-card">
@@ -570,81 +621,58 @@
                 </div>
             </div>
 
-            <div class="teachers-section">
-                <h3 style="text-align: center; margin-bottom: 20px;"><i class="fas fa-chalkboard-teacher"></i> Orientação Pedagógica</h3>
-                <div class="teachers-grid">
-                    <div class="teacher-card featured-teacher">
-                        <i class="fas fa-user-tie"></i>
-                        <h4>Angelo Rodrigo Ruth</h4>
-                        <p>Professor Orientador Principal</p>
-                        <small>Robótica, Tecnociência e Programação</small>
-                    </div>
-                </div>
+            <div class="teacher-card" style="text-align: center; margin-top: 40px; padding: 30px; background: var(--branco); border-radius: 15px; box-shadow: var(--sombra); max-width: 500px; margin-left: auto; margin-right: auto;">
+                <i class="fas fa-chalkboard-teacher" style="font-size: 40px; color: var(--azul-piscina); margin-bottom: 15px;"></i>
+                <h4 style="color: var(--azul-escuro);">Prof. Angelo Rodrigo Ruth</h4>
+                <p style="color: var(--cinza-medio);">Orientador Principal</p>
+                <p style="font-size: 14px; margin-top: 10px;">Robótica, Tecnociência e Programação</p>
             </div>
         </div>
     </section>
 
-    <!-- FONTES -->
-    <section class="section sources" id="fontes">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Fontes e Referências Bibliográficas</h2>
-                <p class="section-subtitle">Dados verídicos de instituições renomadas</p>
-            </div>
-            <div class="sources-list">
-                <div class="source-item">
-                    <i class="fas fa-university"></i>
-                    <div>
-                        <h4>UFPR - Universidade Federal do Paraná</h4>
-                        <p>Estudos sobre eficiência de coletores solares e transferência de calor em sistemas de aquecimento de água.</p>
-                        <a href="https://www.ufpr.br" target="_blank" rel="noopener noreferrer">Acessar site institucional</a>
-                    </div>
-                </div>
-                <div class="source-item">
-                    <i class="fas fa-bolt"></i>
-                    <div>
-                        <h4>PROCEL - Programa Nacional de Conservação de Energia Elétrica</h4>
-                        <p>Dados oficiais sobre a economia energética de lâmpadas LED (90%) em comparação a sistemas incandescentes em piscinas.</p>
-                        <a href="https://www.gov.br/mme/pt-br/assuntos/secretarias/senl/procel" target="_blank" rel="noopener noreferrer">Acessar dados do PROCEL</a>
-                    </div>
-                </div>
-                <div class="source-item">
-                    <i class="fas fa-book"></i>
-                    <div>
-                        <h4>Halliday, Resnick & Walker - Fundamentos de Física (Vol. 4: Óptica e Física Moderna)</h4>
-                        <p>Referência teórica para os conceitos de absorção de radiação, corpo negro, síntese aditiva de cores e refração.</p>
-                    </div>
-                </div>
-                <div class="source-item">
-                    <i class="fas fa-microchip"></i>
-                    <div>
-                        <h4>Documentação Oficial do Arduino</h4>
-                        <p>Referência técnica para programação do microcontrolador, uso de sensores DHT11, display OLED e controle de LEDs via PWM.</p>
-                        <a href="https://docs.arduino.cc" target="_blank" rel="noopener noreferrer">Acessar documentação</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
+    <!-- Footer (Original Preservado) -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-water"></i>
-                    <span>CEP Tech 2026</span>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Colégio Estadual do Paraná</h4>
+                    <p>Projeto Escolar 2026</p>
+                    <p style="margin-top: 10px; opacity: 0.8;">Desenvolvendo soluções sustentáveis para o futuro</p>
                 </div>
-                <p>Projeto Integrador: Sistema Inteligente de Aquecimento de Piscina com foco em Acessibilidade Térmica.</p>
-                <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">&copy; 2026 Colégio Estadual do Paraná - Turma 2ºJ. Desenvolvido com <i class="fas fa-heart"></i> por Ashley, Irene, Leonardo e Mariana.</p>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#aquecimento">Aquecimento</a></li>
+                        <li><a href="#led">LED RGB</a></li>
+                        <li><a href="#simuladores">Simuladores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>projeto@escola.pr.gov.br</li>
+                        <li>(41) 3333-4444</li>
+                        <li>Avenida João Gualberto, 250</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Colégio Estadual do Paraná - Todos os direitos reservados</p>
+                <p>Projeto desenvolvido pelos alunos do CEP</p>
             </div>
         </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Voltar ao topo da página">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- Modal (Original Preservado) -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
