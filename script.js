@@ -47,6 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             header.classList.remove('scrolled');
             if (backToTopBtn) backToTopBtn.classList.remove('visible');
+            // Dentro do scroll listener já existente
+if (window.scrollY > 100) {
+  document.body.classList.add('scrolled');
+} else {
+  document.body.classList.remove('scrolled');
         }
     });
 
