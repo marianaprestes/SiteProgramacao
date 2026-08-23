@@ -337,8 +337,8 @@ h1, h2, h3, h4, h5, h6 {
 .hero-stat-item .stat-label { font-size: 0.9rem; opacity: 0.85; }
 
 .scroll-indicator {
-  position: absolute;
-  bottom: 90px;              /* ⬆️ Bem acima da área invadida pela stats */
+  position: fixed;          /* ⬅️ Fixo na tela */
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -346,24 +346,22 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 6px;
   color: var(--branco);
-  opacity: 0.95;
-  animation: bounce 2s infinite;
-  z-index: 50;               /* ⬆️ ALTO - fica acima de TUDO no hero */
-  pointer-events: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);  /* ⬆️ NOVO - garante legibilidade */
-}
-
-.scroll-indicator i {
-  font-size: 1.1rem;
-}
-
-.scroll-indicator span {
-  font-size: 0.75rem;
   opacity: 0.9;
+  animation: bounce 2s infinite;
+  z-index: 999;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  background: rgba(30, 58, 95, 0.5);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  transition: opacity 0.3s ease;
+}
+
+/* Esconde quando rolar para baixo */
+body.scrolled .scroll-indicator {
+  opacity: 0;
+  visibility: hidden;
 }
 
 @keyframes bounce {
