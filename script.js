@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('nav');
     const header = document.getElementById('header');
     const backToTopBtn = document.getElementById('backToTop');
+    const scrollIndicator = document.getElementById('scrollIndicator');
 
     // Menu Mobile
     if (menuToggle) {
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Header scroll effect & Back to Top
+    // Header scroll effect, Back to Top e Scroll Indicator
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -47,12 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             header.classList.remove('scrolled');
             if (backToTopBtn) backToTopBtn.classList.remove('visible');
-            // Dentro do scroll listener já existente
-if (window.scrollY > 100) {
-  document.body.classList.add('scrolled');
-} else {
-  document.body.classList.remove('scrolled');
-}
+        }
+
+        // Esconde o "Role para explorar" após rolar 150px
+        if (scrollIndicator) {
+            if (window.scrollY > 150) {
+                scrollIndicator.classList.add('hidden');
+            } else {
+                scrollIndicator.classList.remove('hidden');
+            }
+        }
     });
 
     window.scrollToTop = () => {
@@ -100,7 +105,6 @@ if (window.scrollY > 100) {
     // 3. GRÁFICOS (CHART.JS)
     // ==========================================
     if (typeof Chart !== 'undefined') {
-        // Gráfico de Eficiência
         const heatingCtx = document.getElementById('heatingChart');
         if (heatingCtx) {
             new Chart(heatingCtx, {
@@ -122,7 +126,6 @@ if (window.scrollY > 100) {
             });
         }
 
-        // Gráfico de Economia Anual
         const savingsCtx = document.getElementById('savingsChart');
         if (savingsCtx) {
             new Chart(savingsCtx, {
@@ -160,7 +163,6 @@ if (window.scrollY > 100) {
             });
         }
 
-        // Gráfico de Sustentabilidade
         const sustainabilityCtx = document.getElementById('sustainabilityChart');
         if (sustainabilityCtx) {
             new Chart(sustainabilityCtx, {
@@ -199,12 +201,10 @@ if (window.scrollY > 100) {
         const g = parseInt(greenSlider.value);
         const b = parseInt(blueSlider.value);
 
-        // Atualiza displays de valor
         document.getElementById('redValue').innerText = r;
         document.getElementById('greenValue').innerText = g;
         document.getElementById('blueValue').innerText = b;
 
-        // Atualiza cor e textos (Correção da formatação Hex)
         const hex = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`.toUpperCase();
 
         if (previewOverlay) {
@@ -213,7 +213,6 @@ if (window.scrollY > 100) {
         if (rgbText) rgbText.innerText = `rgb(${r},${g},${b})`;
         if (hexText) hexText.innerText = hex;
 
-        // Lógica de nome da cor
         if (r < 50 && g < 50 && b > 200) {
             colorName.innerText = "🔵 Azul - Modo Aquecimento";
             colorName.style.color = "#3498db";
@@ -233,7 +232,6 @@ if (window.scrollY > 100) {
     if (greenSlider) greenSlider.addEventListener('input', updateColorSimulator);
     if (blueSlider) blueSlider.addEventListener('input', updateColorSimulator);
 
-    // Função global para os botões de preset
     window.setPreset = (r, g, b) => {
         if (redSlider) redSlider.value = r;
         if (greenSlider) greenSlider.value = g;
@@ -241,7 +239,6 @@ if (window.scrollY > 100) {
         updateColorSimulator();
     };
 
-    // Função do botão "Iniciar Simulação"
     window.startSimulation = () => {
         updateColorSimulator();
         if (previewOverlay) {
@@ -271,7 +268,6 @@ if (window.scrollY > 100) {
             if (tempValueEl) tempValueEl.innerText = temp + '°C';
             if (poolTempDisplay) poolTempDisplay.innerText = temp + '°C';
 
-            // Lógica de aquecimento (Azul -> Verde)
             if (temp < 28) {
                 if (ledStatus) ledStatus.style.background = '#3498db';
                 if (ledStatusText) ledStatusText.innerText = 'AZUL - Aquecendo';
@@ -282,7 +278,6 @@ if (window.scrollY > 100) {
                 if (poolWater) poolWater.style.background = 'linear-gradient(135deg,#11998e, #38ef7d)';
             }
 
-            // Cálculo estimado de tempo
             const diff = 28 - temp;
             const time = diff > 0 ? `~${Math.ceil(diff * 15)} min` : 'Pronta!';
             if (tempoAquecimento) tempoAquecimento.innerText = time;
@@ -297,7 +292,6 @@ if (window.scrollY > 100) {
         }
     };
 
-    // Simulação de consumo oscilando
     setInterval(() => {
         const el = document.getElementById('consumoAtual');
         if (el && Math.random() > 0.6) {
@@ -350,7 +344,7 @@ if (window.scrollY > 100) {
     window.calcEnergyCost = () => {
         const price = parseFloat(document.getElementById('calcKwhPrice').value) || 0.85;
         const hours = parseFloat(document.getElementById('calcHours').value) || 8;
-        const power = 0.023; // 23W em kW
+        const power = 0.023;
 
         const monthlyKwh = power * hours * 30;
         const monthlyCost = monthlyKwh * price;
@@ -460,29 +454,20 @@ if (window.scrollY > 100) {
             const bubble = document.createElement('div');
             bubble.classList.add('bubble');
 
-            // Tamanho aleatório entre 10px e 60px
             const size = Math.random() * 50 + 10;
             bubble.style.width = `${size}px`;
             bubble.style.height = `${size}px`;
-
-            // Posição horizontal aleatória
             bubble.style.left = `${Math.random() * 100}%`;
 
-            // Duração da animação aleatória (entre 8s e 18s)
             const duration = Math.random() * 10 + 8;
             bubble.style.animationDuration = `${duration}s`;
-
-            // Delay aleatório para não subirem todas juntas
             bubble.style.animationDelay = `${Math.random() * 10}s`;
-
-            // Opacidade base variável
             bubble.style.opacity = (Math.random() * 0.4 + 0.3).toFixed(2);
 
             container.appendChild(bubble);
         }
     }
 
-    // Cria bolhas no hero e no footer
     createBubbles('heroBubbles', 25);
     createBubbles('footerBubbles', 20);
 });
