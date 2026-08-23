@@ -170,12 +170,12 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 🔵 AZUL MAIS VIBRANTE (menos cinza) */
   background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 40%, #4a90e2 100%);
   color: var(--branco);
   text-align: center;
   padding-top: 80px;
   overflow: hidden;
+  z-index: 2;   /* ⬅️ ADICIONE ESTA LINHA - faz o hero competir com a seção stats */
 }
 
 /* Efeito de bolhas */
@@ -338,7 +338,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 25px;           /* Volta para posição baixa, mas dentro do hero */
+  bottom: 90px;              /* ⬆️ Bem acima da área invadida pela stats */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -346,24 +346,24 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 6px;
   color: var(--branco);
-  opacity: 0.85;
+  opacity: 0.95;
   animation: bounce 2s infinite;
-  z-index: 5;             /* ⬇️ Reduzido - não sobrepõe elementos importantes */
-  pointer-events: none;   /* ⬇️ NOVO - não bloqueia cliques nos botões abaixo */
+  z-index: 50;               /* ⬆️ ALTO - fica acima de TUDO no hero */
+  pointer-events: none;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);  /* ⬆️ NOVO - garante legibilidade */
 }
 
 .scroll-indicator i {
-  font-size: 1rem;
-  opacity: 0.9;
+  font-size: 1.1rem;
 }
 
 .scroll-indicator span {
   font-size: 0.75rem;
-  opacity: 0.75;
+  opacity: 0.9;
 }
 
 @keyframes bounce {
