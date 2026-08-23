@@ -10,12 +10,9 @@
     <!-- Fonts e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Chart.js para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Link para o arquivo CSS separado -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -51,9 +48,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- CONTAINER DE BOLHAS DO HERO -->
         <div class="bubbles-container" id="heroBubbles"></div>
-        
         <div class="hero-particles">
             <div class="particle" style="left: 5%; animation-delay: 0s;"></div>
             <div class="particle" style="left: 15%; animation-delay: 2s;"></div>
@@ -107,7 +102,6 @@
                 </a>
             </div>
             
-            <!-- Stats Flutuantes -->
             <div class="hero-stats">
                 <div class="hero-stat-item">
                     <i class="fas fa-sun"></i>
@@ -126,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" id="scrollIndicator">
             <i class="fas fa-chevron-down"></i>
             <span>Role para explorar</span>
         </div>
@@ -417,7 +411,7 @@
                                 <i class="fas fa-eye"></i> Fonte chaveada
                             </div>
                             <h4>PWM na fonte chaveada</h4>
-                            <p>PWM em diferntes situações</p>
+                            <p>PWM em diferentes situações</p>
                         </div>
                     </div>
 
@@ -471,7 +465,7 @@
                     </div>
 
                     <div class="app-card featured-app" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="app-badge">INNOVAÇÃO</div>
+                        <div class="app-badge">INOVAÇÃO</div>
                         <div class="app-icon" style="background: var(--laranja-solar);">
                             <i class="fas fa-universal-access"></i>
                         </div>
@@ -1451,9 +1445,7 @@ void loop() {
 
     <!-- Footer -->
     <footer class="footer">
-        <!-- CONTAINER DE BOLHAS DO FOOTER -->
         <div class="bubbles-container" id="footerBubbles"></div>
-        
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
