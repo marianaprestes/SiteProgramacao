@@ -338,31 +338,34 @@ h1, h2, h3, h4, h5, h6 {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 80px;  /* ⬆️ Aumentado de 30px para 80px */
+  bottom: 25px;           /* Volta para posição baixa, mas dentro do hero */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: var(--branco);
-  opacity: 0.9;  /* ⬆️ Aumentado de 0.7 para 0.9 (mais visível) */
+  opacity: 0.85;
   animation: bounce 2s infinite;
-  z-index: 15;   /* ⬆️ NOVO - fica ACIMA da seção stats (z-index: 10) */
-  background: rgba(30, 58, 95, 0.4);  /* ⬆️ NOVO - fundo suave para garantir contraste */
-  padding: 12px 25px;
-  border-radius: 30px;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  font-size: 0.9rem;
+  z-index: 5;             /* ⬇️ Reduzido - não sobrepõe elementos importantes */
+  pointer-events: none;   /* ⬇️ NOVO - não bloqueia cliques nos botões abaixo */
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .scroll-indicator i {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  opacity: 0.9;
 }
+
+.scroll-indicator span {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
   40% { transform: translateX(-50%) translateY(-10px); }
