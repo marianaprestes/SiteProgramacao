@@ -7,9 +7,9 @@ AOS.init({
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    //==========================================
+    // ==========================================
     // 1. NAVEGAÇÃO E SCROLL SUAVE
-    //==========================================
+    // ==========================================
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.getElementById('nav');
     const header = document.getElementById('header');
@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    //==========================================
+    // ==========================================
     // 2. ANIMAÇÃO DOS NÚMEROS (STATS)
-    //==========================================
+    // ==========================================
     const statNumbers = document.querySelectorAll('.stat-number');
     
     const animateStats = () => {
@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         statsObserver.observe(statNumbers[0].parentElement.parentElement);
     }
 
-    //==========================================
+    // ==========================================
     // 3. GRÁFICOS (CHART.JS)
-    //==========================================
+    // ==========================================
     if (typeof Chart !== 'undefined') {
         // Gráfico de Eficiência
         const heatingCtx = document.getElementById('heatingChart');
@@ -176,9 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //==========================================
+    // ==========================================
     // 4. SIMULADOR DE CORES RGB
-    //==========================================
+    // ==========================================
     const redSlider = document.getElementById('redChannel');
     const greenSlider = document.getElementById('greenChannel');
     const blueSlider = document.getElementById('blueChannel');
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('greenValue').innerText = g;
         document.getElementById('blueValue').innerText = b;
 
-        // Atualiza cor e textos
+        // Atualiza cor e textos (Correção da formatação Hex)
         const hex = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`.toUpperCase();
 
         if (previewOverlay) {
@@ -249,9 +249,9 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('✅ Simulação iniciada com sucesso! Observe a cor aplicada na imagem da piscina.');
     };
 
-    //==========================================
+    // ==========================================
     // 5. PAINEL DE CONTROLE SIMULADO
-    //==========================================
+    // ==========================================
     const simTemp = document.getElementById('simTemp');
     if (simTemp) {
         simTemp.addEventListener('input', () => {
@@ -297,13 +297,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = document.getElementById('consumoAtual');
         if (el && Math.random() > 0.6) {
             let val = parseFloat(el.innerText) || 23;
-            el.innerText = (val + (Math.random() * 0.5 - 0.25)).toFixed(1) + ' W';
+            el.innerText = (val + (Math.random() * 0.5 - 0.25)).toFixed(1) + 'W';
         }
     }, 3000);
 
-    //==========================================
+    // ==========================================
     // 6. CALCULADORAS
-    //==========================================
+    // ==========================================
     window.calcSolarDimension = () => {
         const size = parseFloat(document.getElementById('calcPoolSize').value) || 50;
         const collectors = Math.ceil(size / 2);
@@ -363,9 +363,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    //==========================================
+    // ==========================================
     // 7. FILTRO DA GALERIA
-    //==========================================
+    // ==========================================
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -390,9 +390,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //==========================================
+    // ==========================================
     // 8. MODAL
-    //==========================================
+    // ==========================================
     window.showDetails = (type) => {
         const modal = document.getElementById('modal');
         const title = document.getElementById('modalTitle');
@@ -432,21 +432,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    //==========================================
+    // ==========================================
     // 9. FORMULÁRIO DE CONTATO
-    //==========================================
+    // ==========================================
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('✅ Mensagem enviada com sucesso!\n\nA equipe do Projeto Integrador do CEPA agradece o contato e responderá em breve.');
+            alert('✅ Mensagem enviada com sucesso!\n\nA equipe do Projeto Integrador do CEP agradece o contato e responderá em breve.');
             contactForm.reset();
         });
     }
 
-    //==========================================
+    // ==========================================
     // 10. EFEITO DE BOLHAS (HERO E FOOTER)
-    //==========================================
+    // ==========================================
     function createBubbles(containerId, quantity = 20) {
         const container = document.getElementById(containerId);
         if (!container) return;
