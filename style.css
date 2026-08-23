@@ -8,8 +8,8 @@
   --azul-claro: #aed6f1;
   --azul-destaque: #3498db;
   --azul-fundo: #eaf4fb;
-  --azul-profundo: #1e3a5f;        /* NOVO - para o hero */
-  --dourado: #fbbf24;              /* NOVO - para o título */
+  --azul-profundo: #1e3a5f;
+  --dourado: #fbbf24;
   --dourado-claro: #fde68a;
   --laranja-solar: #f39c12;
   --verde-energia: #27ae60;
@@ -44,7 +44,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .section { padding: 80px 0; }
-
 .section-header { text-align: center; margin-bottom: 60px; }
 
 .section-title {
@@ -162,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 .header.scrolled .menu-toggle { color: var(--azul-escuro); }
 
 /* ==========================================================================
-   3. HERO SECTION - AZUL MAIS VIBRANTE + TÍTULO MAIS FORTE
+   3. HERO SECTION - AZUL VIBRANTE + TÍTULO FORTE
    ========================================================================== */
 .hero {
   position: relative;
@@ -175,10 +174,9 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding-top: 80px;
   overflow: hidden;
-  z-index: 2;   /* ⬅️ ADICIONE ESTA LINHA - faz o hero competir com a seção stats */
+  z-index: 2;
 }
 
-/* Efeito de bolhas */
 .bubbles-container {
   position: absolute;
   top: 0;
@@ -259,7 +257,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* 🏆 TÍTULO HERO MAIS FORTE - COM GRADIENTE DOURADO NO DESTAQUE */
 .hero-title {
   font-size: 3.8rem;
   margin-bottom: 20px;
@@ -270,7 +267,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title .highlight {
-  /* Gradiente dourado vibrante */
   background: linear-gradient(135deg, #fbbf24 0%, #fde68a 50%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -330,14 +326,14 @@ h1, h2, h3, h4, h5, h6 {
 .btn-small { padding: 8px 16px; font-size: 0.85rem; }
 
 .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-
 .hero-stat-item { text-align: center; }
 .hero-stat-item i { font-size: 1.5rem; color: var(--dourado); margin-bottom: 8px; }
 .hero-stat-item .stat-value { display: block; font-size: 1.8rem; font-weight: 800; color: var(--branco); }
 .hero-stat-item .stat-label { font-size: 0.9rem; opacity: 0.85; }
 
+/* SCROLL INDICATOR - FIXADO NA TELA, SOME AO ROLAR */
 .scroll-indicator {
-  position: fixed;          /* ⬅️ Fixo na tela */
+  position: fixed;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
@@ -346,22 +342,35 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 6px;
   color: var(--branco);
-  opacity: 0.9;
+  opacity: 0.95;
   animation: bounce 2s infinite;
   z-index: 999;
   pointer-events: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  background: rgba(30, 58, 95, 0.5);
+  background: rgba(30, 58, 95, 0.6);
   padding: 10px 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(5px);
-  transition: opacity 0.3s ease;
+  border-radius: 25px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* Esconde quando rolar para baixo */
-body.scrolled .scroll-indicator {
+.scroll-indicator.hidden {
   opacity: 0;
   visibility: hidden;
+}
+
+.scroll-indicator i {
+  font-size: 1rem;
+}
+
+.scroll-indicator span {
+  font-size: 0.75rem;
+  opacity: 0.9;
 }
 
 @keyframes bounce {
@@ -584,7 +593,7 @@ body.scrolled .scroll-indicator {
 .code-block code { color: #e2e8f0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; white-space: pre; }
 
 /* ==========================================================================
-   9. 🛤️ TIMELINE - NOSSA JORNADA (MUITO MAIS DECORADA)
+   9. TIMELINE DECORADA
    ========================================================================== */
 .timeline {
   background: linear-gradient(180deg, #ffffff 0%, var(--azul-fundo) 50%, #ffffff 100%);
@@ -592,7 +601,6 @@ body.scrolled .scroll-indicator {
   overflow: hidden;
 }
 
-/* Padrão decorativo de fundo */
 .timeline::before {
   content: '';
   position: absolute;
@@ -613,7 +621,6 @@ body.scrolled .scroll-indicator {
   padding: 40px 0;
 }
 
-/* Linha central com gradiente */
 .timeline-container::before {
   content: '';
   position: absolute;
@@ -641,7 +648,6 @@ body.scrolled .scroll-indicator {
 
 .timeline-item:last-child { margin-bottom: 0; }
 
-/* Marcador circular grande com número */
 .timeline-marker {
   position: absolute;
   left: 50%;
@@ -670,25 +676,15 @@ body.scrolled .scroll-indicator {
   50% { box-shadow: 0 0 0 6px var(--branco), 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 45px rgba(74, 144, 226, 0.7); }
 }
 
-/* Cores alternadas para cada etapa */
-.timeline-item:nth-child(1) .timeline-marker {
-  background: linear-gradient(135deg, #4a90e2, #3498db);
-}
-.timeline-item:nth-child(2) .timeline-marker {
-  background: linear-gradient(135deg, #5dade2, #4a90e2);
-}
-.timeline-item:nth-child(3) .timeline-marker {
-  background: linear-gradient(135deg, #f39c12, #e67e22);
-}
-.timeline-item:nth-child(4) .timeline-marker {
-  background: linear-gradient(135deg, #27ae60, #229954);
-}
+.timeline-item:nth-child(1) .timeline-marker { background: linear-gradient(135deg, #4a90e2, #3498db); }
+.timeline-item:nth-child(2) .timeline-marker { background: linear-gradient(135deg, #5dade2, #4a90e2); }
+.timeline-item:nth-child(3) .timeline-marker { background: linear-gradient(135deg, #f39c12, #e67e22); }
+.timeline-item:nth-child(4) .timeline-marker { background: linear-gradient(135deg, #27ae60, #229954); }
 
 .timeline-item:hover .timeline-marker {
   transform: translateX(-50%) scale(1.15) rotate(5deg);
 }
 
-/* Card de conteúdo */
 .timeline-content {
   width: 42%;
   background: var(--branco);
@@ -705,7 +701,6 @@ body.scrolled .scroll-indicator {
   box-shadow: var(--sombra-hover);
 }
 
-/* Alternância esquerda/direita */
 .timeline-item:nth-child(odd) .timeline-content {
   margin-right: auto;
   margin-left: 0;
@@ -718,13 +713,11 @@ body.scrolled .scroll-indicator {
   border-right: 4px solid var(--laranja-solar);
 }
 
-/* Cores específicas de borda para cada etapa */
 .timeline-item:nth-child(1) .timeline-content { border-left-color: #4a90e2; }
 .timeline-item:nth-child(2) .timeline-content { border-right-color: #5dade2; }
 .timeline-item:nth-child(3) .timeline-content { border-right-color: #f39c12; }
 .timeline-item:nth-child(4) .timeline-content { border-right-color: #27ae60; }
 
-/* Seta apontando para a linha central */
 .timeline-item:nth-child(odd) .timeline-content::after {
   content: '';
   position: absolute;
@@ -780,11 +773,8 @@ body.scrolled .scroll-indicator {
   margin-bottom: 15px;
 }
 
-.timeline-content p strong {
-  color: var(--azul-escuro);
-}
+.timeline-content p strong { color: var(--azul-escuro); }
 
-/* Tag colorida por etapa */
 .timeline-tag {
   display: inline-block;
   padding: 6px 16px;
@@ -803,7 +793,7 @@ body.scrolled .scroll-indicator {
 .timeline-item:nth-child(4) .timeline-tag { background: linear-gradient(90deg, #27ae60, #229954); }
 
 /* ==========================================================================
-   10. SIMULADOR DE CORES E PAINEL DE CONTROLE
+   10. SIMULADOR
    ========================================================================== */
 .simulator-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: var(--branco); padding: 40px; border-radius: 20px; box-shadow: var(--sombra); border: var(--borda-suave); }
 .color-channel { margin-bottom: 25px; }
@@ -969,26 +959,10 @@ body.scrolled .scroll-indicator {
   .diagram-arrow-horizontal { transform: rotate(90deg); margin: 10px 0; }
   .video-card.featured-video { grid-column: span 1; }
   
-  /* Timeline responsiva - linha à esquerda */
-  .timeline-container::before {
-    left: 30px;
-  }
-  .timeline-item {
-    justify-content: flex-start;
-    padding-left: 80px;
-  }
-  .timeline-marker {
-    left: 30px;
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-  }
-  .timeline-content {
-    width: 100%;
-    margin: 0 !important;
-    border-left: 4px solid var(--azul-primario) !important;
-    border-right: none !important;
-  }
+  .timeline-container::before { left: 30px; }
+  .timeline-item { justify-content: flex-start; padding-left: 80px; }
+  .timeline-marker { left: 30px; width: 60px; height: 60px; font-size: 1.5rem; }
+  .timeline-content { width: 100%; margin: 0 !important; border-left: 4px solid var(--azul-primario) !important; border-right: none !important; }
   .timeline-item:nth-child(odd) .timeline-content::after,
   .timeline-item:nth-child(even) .timeline-content::after {
     left: -15px;
