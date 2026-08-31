@@ -470,4 +470,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createBubbles('heroBubbles', 25);
     createBubbles('footerBubbles', 20);
+
+    // ==========================================
+    // 11. LIGHTBOX / ZOOM DE IMAGENS (NOVO)
+    // ==========================================
+    window.openImageModal = (imgSrc, caption) => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('imageModalCaption');
+        
+        if (modal && modalImg && captionText) {
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+            captionText.innerHTML = caption;
+            // Impede a rolagem da página enquanto o modal está aberto
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    window.closeImageModal = () => {
+        const modal = document.getElementById('imageModal');
+        if (modal) {
+            modal.style.display = "none";
+            // Restaura a rolagem da página
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+    // Fechar modal ao pressionar a tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            window.closeImageModal();
+        }
+    });
 });
