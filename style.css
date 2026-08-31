@@ -5,7 +5,7 @@
   --azul-escuro: #2c3e50;
   --azul-primario: #4a90e2;
   --azul-medio: #5dade2;
-  --azul-claro: #aed6f1;
+  --azul-claro: #aed6f1;                     
   --azul-destaque: #3498db;
   --azul-fundo: #eaf4fb;
   --azul-profundo: #1e3a5f;
@@ -282,26 +282,10 @@ h1, h2, h3, h4, h5, h6 {
   50% { filter: drop-shadow(0 2px 15px rgba(251, 191, 36, 0.7)); }
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--azul-claro);
-}
+.hero-subtitle { font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; color: var(--azul-claro); }
+.hero-text { font-size: 1.1rem; margin-bottom: 35px; opacity: 0.95; }
 
-.hero-text {
-  font-size: 1.1rem;
-  margin-bottom: 35px;
-  opacity: 0.95;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-}
+.hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
 
 .btn {
   display: inline-flex;
@@ -323,7 +307,6 @@ h1, h2, h3, h4, h5, h6 {
 .btn-secondary:hover { background: var(--cinza-claro); transform: translateY(-2px); }
 .btn-tertiary { background: transparent; color: var(--branco); border: 2px solid var(--branco); }
 .btn-tertiary:hover { background: var(--branco); color: var(--azul-primario); }
-.btn-small { padding: 8px 16px; font-size: 0.85rem; }
 
 .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
 .hero-stat-item { text-align: center; }
@@ -331,7 +314,6 @@ h1, h2, h3, h4, h5, h6 {
 .hero-stat-item .stat-value { display: block; font-size: 1.8rem; font-weight: 800; color: var(--branco); }
 .hero-stat-item .stat-label { font-size: 0.9rem; opacity: 0.85; }
 
-/* SCROLL INDICATOR - APENAS TEXTO E ÍCONE, SEM FUNDO */
 .scroll-indicator {
   position: fixed;
   bottom: 30px;
@@ -354,19 +336,9 @@ h1, h2, h3, h4, h5, h6 {
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-.scroll-indicator.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.scroll-indicator i {
-  font-size: 1rem;
-}
-
-.scroll-indicator span {
-  font-size: 0.75rem;
-  opacity: 0.9;
-}
+.scroll-indicator.hidden { opacity: 0; visibility: hidden; }
+.scroll-indicator i { font-size: 1rem; }
+.scroll-indicator span { font-size: 0.75rem; opacity: 0.9; }
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
@@ -453,7 +425,6 @@ h1, h2, h3, h4, h5, h6 {
    7. SEÇÃO LED RGB
    ========================================================================== */
 .led { background: var(--branco); }
-
 .led-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 50px; }
 
 .intro-card {
@@ -532,7 +503,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .component-card { background: var(--branco); border-radius: 15px; overflow: hidden; box-shadow: var(--sombra); transition: var(--transicao); border: var(--borda-suave); }
 .component-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-hover); }
-.component-image { position: relative; height: 220px; overflow: hidden; }
+.component-image { position: relative; height: 220px; overflow: hidden; cursor: pointer; }
 .component-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transicao); }
 .component-card:hover .component-image img { transform: scale(1.08); }
 
@@ -756,11 +727,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--azul-primario);
 }
 
-.timeline-item:nth-child(1) .timeline-content h3 i { background: #e0f2fe; color: #4a90e2; }
-.timeline-item:nth-child(2) .timeline-content h3 i { background: #dbeafe; color: #5dade2; }
-.timeline-item:nth-child(3) .timeline-content h3 i { background: #fef3c7; color: #f39c12; }
-.timeline-item:nth-child(4) .timeline-content h3 i { background: #d1fae5; color: #27ae60; }
-
 .timeline-content p {
   font-size: 0.95rem;
   color: var(--cinza-escuro);
@@ -912,12 +878,12 @@ h1, h2, h3, h4, h5, h6 {
 .contact-icon { width: 40px; height: 40px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .contact-text strong { display: block; margin-bottom: 5px; }
 .contact-text span { opacity: 0.95; font-size: 0.95rem; }
-.social-links { display: flex; gap: 15px; }
-.social-links a { width: 40px; height: 40px; background: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--branco); text-decoration: none; transition: var(--transicao); }
-.social-links a:hover { background: var(--branco); color: var(--azul-primario); transform: translateY(-3px); }
+.social-links { display: flex; gap: 15px; margin-top: 30px; }
+.social-links a { width: 45px; height: 45px; background: var(--azul-primario); color: var(--branco); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: all 0.3s; text-decoration: none; }
+.social-links a:hover { background: var(--laranja-solar); transform: translateY(-3px); }
 .contact-form { padding: 40px; }
 .form-header { margin-bottom: 25px; }
-.footer { background: var(--azul-escuro); color: var(--branco); padding: 60px 0 20px; position: relative; }
+.footer { background: var(--azul-escuro); color: var(--branco); padding: 60px 0 30px; position: relative; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
 .footer-col h4 { color: var(--branco); margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
 .footer-col ul { list-style: none; }
@@ -983,4 +949,68 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   16. LIGHTBOX MODAL (ZOOM DE IMAGENS) - NOVO
+   ========================================================================== */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.image-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+#imageModalCaption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #fff;
+  padding: 15px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 3001;
+}
+
+.image-modal-close:hover,
+.image-modal-close:focus {
+  color: var(--laranja-solar);
+  text-decoration: none;
+  cursor: pointer;
 }
