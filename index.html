@@ -470,7 +470,8 @@
                     </div>
                 </div>
             </div>
-                <div class="led-applications">
+
+            <div class="led-applications">
                 <h3 style="text-align: center; margin-bottom: 40px; color: var(--azul-escuro);" data-aos="fade-up">
                     <i class="fas fa-cogs"></i> Aplicações Práticas no CEP
                 </h3>
@@ -583,91 +584,6 @@
                                 <span><i class="fas fa-thermometer-half"></i> 28°C</span>
                                 <span><i class="fas fa-leaf"></i> 23W</span>
                                 <span><i class="fas fa-water"></i> IP68</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NOVOS COMPONENTES BASEADOS NO PDF -->
-                    <div class="component-card" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="component-image" onclick="openImageModal('assets/dht11.jpg', 'Módulo Sensor de Temperatura e Umidade DHT11')">
-                            <img src="assets/dht11.jpg" onerror="this.src='https://images.unsplash.com/photo-1553406841-da16260e7b8d?w=600&h=400&fit=crop'" alt="Módulo Sensor DHT11">
-                            <div class="component-overlay">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <div class="component-info">
-                            <div class="component-badge" style="background: #3498db;">
-                                <i class="fas fa-thermometer-half"></i> Sensor DHT11
-                            </div>
-                            <h4>Módulo Sensor de Temperatura e Umidade</h4>
-                            <p>Sensor DHT11 calibrado, responsável por monitorar em tempo real a temperatura da piscina e enviar os dados para o Arduino processar.</p>
-                            <div class="component-specs">
-                                <span><i class="fas fa-bolt"></i> 3.3-5V</span>
-                                <span><i class="fas fa-temperature-high"></i> 0-50°C</span>
-                                <span><i class="fas fa-tint"></i> 20-90% UR</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="component-card" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="component-image" onclick="openImageModal('assets/displayOLED.jpg', 'Display OLED exibindo CEP')">
-                            <img src="assets/displayOLED.jpg" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop'" alt="Display OLED">
-                            <div class="component-overlay">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <div class="component-info">
-                            <div class="component-badge" style="background: #2c3e50;">
-                                <i class="fas fa-tv"></i> Display OLED
-                            </div>
-                            <h4>Display OLED - Interface Visual</h4>
-                            <p>Display funcional exibindo mensagens personalizadas como <strong>"CEP"</strong> e <strong>"Colégio Estadual do Paraná"</strong>, além da temperatura em tempo real.</p>
-                            <div class="component-specs">
-                                <span><i class="fas fa-desktop"></i> 0.96"</span>
-                                <span><i class="fas fa-bolt"></i> I2C</span>
-                                <span><i class="fas fa-eye"></i> 128x64px</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="component-card" data-aos="zoom-in" data-aos-delay="600">
-                        <div class="component-image" onclick="openImageModal('assets/motorLED.jpg', 'Motor de engrenagem com LED vermelho')">
-                            <img src="assets/motorLED.jpg" onerror="this.src='https://images.unsplash.com/photo-1581092918484-8313ba3c2a41?w=600&h=400&fit=crop'" alt="Motor com LED">
-                            <div class="component-overlay">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <div class="component-info">
-                            <div class="component-badge" style="background: #e67e22;">
-                                <i class="fas fa-cog"></i> Motor + LED
-                            </div>
-                            <h4>Motor de Engrenagem com LED</h4>
-                            <p>LED vermelho integrado a um motor de engrenagem, simulando o acionamento das bombas de circulação de água do sistema de aquecimento.</p>
-                            <div class="component-specs">
-                                <span><i class="fas fa-bolt"></i> 5V DC</span>
-                                <span><i class="fas fa-sync"></i> 60 RPM</span>
-                                <span><i class="fas fa-lightbulb"></i> LED</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="component-card" data-aos="zoom-in" data-aos-delay="700">
-                        <div class="component-image" onclick="openImageModal('assets/ledsRele.jpg', 'LEDs vermelhos alternados com relé')">
-                            <img src="assets/ledsRele.jpg" onerror="this.src='https://images.unsplash.com/photo-1635070041078-e363dbe5845a?w=600&h=400&fit=crop'" alt="LEDs com Relé">
-                            <div class="component-overlay">
-                                <i class="fas fa-search-plus"></i>
-                            </div>
-                        </div>
-                        <div class="component-info">
-                            <div class="component-badge" style="background: #c0392b;">
-                                <i class="fas fa-toggle-on"></i> LEDs + Relé
-                            </div>
-                            <h4>LEDs Alternados com Módulo Relé</h4>
-                            <p>Dois LEDs vermelhos funcionando de forma alternada em um sistema com módulo relé, demonstrando o controle de atuadores via Arduino.</p>
-                            <div class="component-specs">
-                                <span><i class="fas fa-bolt"></i> 5V DC</span>
-                                <span><i class="fas fa-exchange-alt"></i> Alternado</span>
-                                <span><i class="fas fa-microchip"></i> Relé</span>
                             </div>
                         </div>
                     </div>
@@ -951,6 +867,7 @@ void loop() {
             </div>
         </div>
     </section>
+
     <!-- Simuladores Section -->
     <section class="section simulator" id="simuladores">
         <div class="container">
@@ -1127,7 +1044,7 @@ void loop() {
         </div>
     </section>
 
-    <!-- Gallery Section (EXPANDIDA COM IMAGENS REAIS DO PROJETO) -->
+    <!-- Gallery Section (CORRIGIDA - apenas imagens originais + 3 novas do projeto) -->
     <section class="section gallery" id="galeria">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -1161,26 +1078,23 @@ void loop() {
                     <div class="gallery-overlay"><h4>Piscina Antiga</h4><p>Antes da modernização</p></div>
                 </div>
 
-                <!-- NOVAS IMAGENS: Resultados Reais do Projeto (baseados no PDF, SEM fotos da equipe) -->
-                <div class="gallery-item" data-category="projeto" data-aos="zoom-in" data-aos-delay="500" onclick="openImageModal('assets/dht11.jpg', 'Sensor DHT11 - Monitoramento de Temperatura')">
-                    <img src="assets/dht11.jpg" onerror="this.src='https://images.unsplash.com/photo-1553406841-da16260e7b8d?w=400&h=400&fit=crop'" alt="Módulo Sensor DHT11">
-                    <div class="gallery-overlay"><h4>Sensor DHT11</h4><p>Monitoramento em tempo real</p></div>
+                <!-- NOVAS IMAGENS: Apenas as 3 do projeto LED RGB -->
+                <div class="gallery-item" data-category="projeto" data-aos="zoom-in" data-aos-delay="500" onclick="openImageModal('assets/sensorVermelhoLed.jpg', 'Sensor de Movimento com LED Indicador')">
+                    <img src="assets/sensorVermelhoLed.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop'" alt="Sensor PIR com LED vermelho">
+                    <div class="gallery-overlay"><h4>Sensor PIR</h4><p>Sensor de Movimento</p></div>
                 </div>
-                <div class="gallery-item" data-category="projeto" data-aos="zoom-in" data-aos-delay="600" onclick="openImageModal('assets/displayOLED.jpg', 'Display OLED exibindo CEP')">
-                    <img src="assets/displayOLED.jpg" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop'" alt="Display OLED">
-                    <div class="gallery-overlay"><h4>Display OLED</h4><p>Interface visual do sistema</p></div>
+                <div class="gallery-item" data-category="projeto" data-aos="zoom-in" data-aos-delay="600" onclick="openImageModal('assets/ledsColoridosAcesos.jpg', 'LEDs RGB Multicoloridos em Ação')">
+                    <img src="assets/ledsColoridosAcesos.jpg" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=400&fit=crop'" alt="LEDs coloridos acesos">
+                    <div class="gallery-overlay"><h4>LEDs RGB</h4><p>Multicoloridos em Ação</p></div>
                 </div>
-                <div class="gallery-item" data-category="projeto" data-aos="zoom-in" data-aos-delay="700" onclick="openImageModal('assets/motorLED.jpg', 'Motor de Engrenagem com LED')">
-                    <img src="assets/motorLED.jpg" onerror="this.src='https://images.unsplash.com/photo-1581092918484-8313ba3c2a41?w=400&h=400&fit=crop'" alt="Motor com LED">
-                    <div class="gallery-overlay"><h4>Motor + LED</h4><p>Simulação de bomba</p></div>
-                </div>
-                <div class="gallery-item" data-category="projeto" data-aos="zoom-in" data-aos-delay="800" onclick="openImageModal('assets/ledsRele.jpg', 'LEDs Alternados com Relé')">
-                    <img src="assets/ledsRele.jpg" onerror="this.src='https://images.unsplash.com/photo-1635070041078-e363dbe5845a?w=400&h=400&fit=crop'" alt="LEDs com Relé">
-                    <div class="gallery-overlay"><h4>LEDs + Relé</h4><p>Controle alternado</p></div>
+                <div class="gallery-item" data-category="projeto" data-aos="zoom-in" data-aos-delay="700" onclick="openImageModal('assets/ledRGBverde.jpg', 'LED Verde - Temperatura Atingida')">
+                    <img src="assets/ledRGBverde.jpg" onerror="this.src='https://images.unsplash.com/photo-1563089145-599997674d42?w=400&h=400&fit=crop'" alt="LED RGB verde aceso">
+                    <div class="gallery-overlay"><h4>LED Verde</h4><p>Temperatura Atingida</p></div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Sustainability Section -->
     <section class="section sustainability" id="sustentabilidade">
         <div class="container">
