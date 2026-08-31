@@ -162,7 +162,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ==========================================================================
    3. HERO SECTION - AZUL VIBRANTE + TÍTULO FORTE
-   ========================================================================== */
+ ========================================================================== */
+}
 .hero {
   position: relative;
   min-height: 100vh;
@@ -172,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 40%, #4a90e2 100%);
   color: var(--branco);
   text-align: center;
-  padding-top: 80px;
+  padding: 120px 20px 80px;
   overflow: hidden;
   z-index: 2;
 }
@@ -234,13 +235,12 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
   z-index: 1;
-}
-
-.hero-content {
+}.hero-content {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
   z-index: 3;
+  width: 100%;
 }
 
 .hero-badge {
@@ -1014,3 +1014,84 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   cursor: pointer;
 }
+/* ==========================================================================
+   CORREÇÕES URGENTES MOBILE
+   ========================================================================== */
+
+/* Garante que o conteúdo apareça */
+.section {
+  position: relative;
+  z-index: 1;
+  background: var(--branco);
+}
+
+/* Corrige o hero no mobile */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 15px 60px;
+  }
+  
+  .hero-content {
+    padding: 0;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-text {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .hero-stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+  }
+}
+
+/* Garante que todas as seções apareçam */
+section {
+  display: block;
+  visibility: visible;
+}
+
+/* Corrige overflow */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Corrige imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+   }
